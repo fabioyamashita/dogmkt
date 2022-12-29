@@ -1,0 +1,44 @@
+.header {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+
+  padding: 0 2rem;
+}
+
+.header > * {
+  width: calc(100% / 3);
+}
+
+.logo-container {
+  display: flex;
+}
+
+.logo-dogmkt {
+  height: 2.4rem;
+}
+
+.right-link,
+.center-link {
+  letter-spacing: -0.4px;
+}
+
+a:hover {
+  color: #868e96;
+  transition: all 0.2s;
+}
+
+.center-link {
+  display: flex;
+  justify-content: center;
+}
+
+.right-link {
+  display: flex;
+  justify-content: end;
+}
+
+.center-option {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
