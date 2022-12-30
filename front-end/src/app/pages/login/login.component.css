@@ -1,12 +1,17 @@
 .login-container {
   height: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .card {
   height: max-content;
+  /* height: 100%; */
   /* max-width: 300px; */
 
   border: 1px solid #868e96;
@@ -40,10 +45,12 @@
 .label {
   font-size: 1rem;
   margin-bottom: 0.4rem;
+
+  font-weight: 500;
 }
 
 .input-text {
-  font-size: 1.125rem;
+  font-size: 1rem;
   padding: 0.6rem 0.4rem;
   border: 1px solid #868e96;
   border-radius: 4px;

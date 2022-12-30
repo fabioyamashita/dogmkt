@@ -7,9 +7,11 @@ import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { DogsCollectionComponent } from './dogs-collection/dogs-collection.component';
+import { DogBreedComponent } from './dogs-collection/dog-breed/dog-breed.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [LoginComponent, SignupComponent, DogsCollectionComponent, DogBreedComponent],
   imports: [
     CommonModule,
     SharedModule,

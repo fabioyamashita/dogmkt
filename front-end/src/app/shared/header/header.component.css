@@ -4,6 +4,8 @@
   align-items: center;
 
   padding: 0 2rem;
+
+  height: 64px;
 }
 
 .header > * {
@@ -36,9 +38,15 @@ a:hover {
 .right-link {
   display: flex;
   justify-content: end;
+  gap: 3rem;
 }
 
 .center-option {
   font-size: 1.25rem;
   font-weight: 500;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
 }
