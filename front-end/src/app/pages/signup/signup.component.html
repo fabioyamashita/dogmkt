@@ -1,0 +1,41 @@
+<div class="login-container">
+  <div class="card">
+    <h2 class="heading">SIGN UP</h2>
+    <form class="form">
+      <div class="input-box">
+        <span class="label">Name</span>
+        <input class="input-text input-name" type="text" />
+      </div>
+
+      <div class="input-box">
+        <span class="label">Email</span>
+        <input class="input-text input-email" type="text" />
+        <!-- <span class="error-msg">email already in use</span> -->
+      </div>
+
+      <div class="input-box input-box-password">
+        <span class="label">Password</span>
+        <input class="input-text input-email" type="password" />
+      </div>
+
+      <div class="check-seller">
+        <input
+          class="checkbox-seller"
+          type="checkbox"
+          id="seller"
+          name="seller"
+        />
+        <label for="seller">I'm also a seller</label>
+      </div>
+
+      <div class="submit-btn-area">
+        <button class="submit-btn" type="submit">CREATE ACCOUNT</button>
+      </div>
+    </form>
+
+    <div class="footer-extra">
+      <span>Already a user?</span>
+      <a class="btn-action" routerLink="/login">LOGIN</a>
+    </div>
+  </div>
+</div>

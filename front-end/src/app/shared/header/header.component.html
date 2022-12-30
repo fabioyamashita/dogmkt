@@ -16,6 +16,7 @@
   </div>
 
   <div class="right-link">
-    <a href="#">SIGN UP</a>
+    <a *ngIf="this.router.url === '/login'" routerLink="/signup">SIGN UP</a>
+    <a *ngIf="this.router.url === '/signup'" routerLink="/login">LOGIN</a>
   </div>
 </mat-toolbar>

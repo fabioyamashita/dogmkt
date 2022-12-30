@@ -124,3 +124,23 @@
   transition: all 0.2s;
   color: #868e96;
 }
+
+/* SPECIFIC SIGNUP */
+.check-seller {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.checkbox-seller {
+  width: 1.25rem;
+  height: 1.25rem;
+
+  accent-color: #495057;
+
+  cursor: pointer;
+}
