@@ -18,6 +18,11 @@ app-root > :not(app-header):not(router-outlet) {
   height: calc(100% - 96px);
 }
 
+app-footer {
+  width: 100%;
+  margin-top: 5rem;
+}
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
