@@ -10,7 +10,7 @@
   <div class="center-link">
     <ul>
       <li class="center-option">
-        <a href="#">DOG'S COLLECTION</a>
+        <a routerLink="/collection">DOG'S COLLECTION</a>
       </li>
     </ul>
   </div>
@@ -18,5 +18,18 @@
   <div class="right-link">
     <a *ngIf="this.router.url === '/login'" routerLink="/signup">SIGN UP</a>
     <a *ngIf="this.router.url === '/signup'" routerLink="/login">LOGIN</a>
+    <a
+      *ngIf="this.router.url !== '/login' && this.router.url !== '/signup'"
+      routerLink="/signup"
+      >CART(0)</a
+    >
+    <a
+      class="profile-link"
+      *ngIf="this.router.url !== '/login' && this.router.url !== '/signup'"
+      routerLink="/login"
+    >
+      PROFILE
+      <mat-icon>keyboard_arrow_down</mat-icon>
+    </a>
   </div>
 </mat-toolbar>
