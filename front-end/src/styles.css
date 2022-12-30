@@ -15,7 +15,7 @@ app-root {
 
 app-root > :not(app-header):not(router-outlet) {
   /* flex: 1; */
-  height: calc(100% - 96px);
+  height: calc(100% - 64px);
 }
 
 app-footer {

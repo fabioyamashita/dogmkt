@@ -1,7 +1,7 @@
 .footer {
   background-color: #495057;
 
-  padding: 2.4rem 3rem;
+  padding: 1.4rem 3rem;
 
   display: flex;
   justify-content: space-between;
@@ -53,7 +53,7 @@
 .link {
   color: #fff;
   font-family: inherit;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
 
   transition: all 0.2s;
