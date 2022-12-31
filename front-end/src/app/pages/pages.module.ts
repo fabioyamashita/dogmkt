@@ -10,9 +10,10 @@ import { AppRoutingModule } from '../app-routing.module';
 import { DogsCollectionComponent } from './dogs-collection/dogs-collection.component';
 import { DogBreedComponent } from './dogs-collection/dog-breed/dog-breed.component';
 import { DogDetailsComponent } from './dog-details/dog-details.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, DogsCollectionComponent, DogBreedComponent, DogDetailsComponent],
+  declarations: [LoginComponent, SignupComponent, DogsCollectionComponent, DogBreedComponent, DogDetailsComponent, CartComponent],
   imports: [
     CommonModule,
     SharedModule,

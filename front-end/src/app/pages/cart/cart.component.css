@@ -1,0 +1,234 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.cart-container {
+  padding: 2rem 2rem;
+  width: min(650px, 100vw);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+.product-info {
+  display: flex;
+
+  gap: 2.25rem;
+
+  margin-bottom: 2.5rem;
+}
+
+/* DOG IMG */
+.dog-img-box,
+.dog-img {
+  width: 13rem;
+  height: 13rem;
+}
+
+.dog-img-box {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+
+  align-self: center;
+}
+
+.dog-img {
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.dog-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dog-name {
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  margin-bottom: 0.8rem;
+}
+
+.default-info {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.dog-seller {
+  margin-bottom: 1.4rem;
+}
+
+.strong {
+  font-weight: 500;
+}
+
+.dog-genre {
+  margin: 0;
+}
+
+.genre-quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  margin-bottom: 1.4rem;
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.quantity-title,
+.quantity {
+  font-weight: 500;
+}
+
+.qt-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  transform: scale(0.7);
+  transition: all 0.1s;
+}
+
+.qt-btn:hover {
+  transform: scale(0.85);
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  margin-left: 1rem;
+}
+
+.delete-btn:hover {
+  color: #868e96;
+}
+
+.price-box {
+  font-size: 1.25rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.price-icon {
+  color: #e03131;
+}
+
+/* SUMMARY */
+.total-box {
+  align-self: flex-end;
+  width: 50%;
+  margin-top: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.summary,
+.discount,
+.total {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+  font-family: inherit;
+
+  font-size: 1rem;
+}
+
+.summary-price-box,
+.discount-price-box,
+.total-price-box {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.price-icon-1 {
+  color: #e03131;
+}
+
+.summary-price,
+.discount-price,
+.total-price {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.total {
+  margin-top: 1.8rem;
+  margin-bottom: 2.75rem;
+}
+
+.total-title,
+.total-price {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.total-price-icon {
+  transform: scale(1.2);
+}
+
+.total-price-box {
+  gap: 0.6rem;
+}
+
+/* BUTTON */
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  background-color: #495057;
+  color: #fff;
+
+  border-radius: 4px;
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+  font-size: 1.25rem;
+  font-family: inherit;
+
+  padding: 0.6rem 2rem;
+}
+
+.submit-order-btn {
+  padding: 0.8rem 4rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  transition: all 0.2s;
+
+  width: 100%;
+}
+
+.submit-order-btn:hover {
+  background-color: #646a6e;
+}
