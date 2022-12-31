@@ -13,7 +13,8 @@
   padding: 2rem 2rem;
   height: 100%;
   min-height: max-content;
-  max-width: 1200px;
+  max-width: 1050px;
+  width: min(100vw, 1050px);
 
   display: flex;
   flex-direction: column;
@@ -21,11 +22,12 @@
 }
 
 .dog-details {
+  width: min(100vw, 1050px);
   display: flex;
   gap: 4.5rem;
 
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 1fr;
   gap: 3.4rem;
 }
 
@@ -230,6 +232,13 @@ th {
 }
 
 /* MEDIA QUERIES */
+@media (max-width: 70em) {
+  .dog-details-container,
+  .dog-details {
+    width: 100vw;
+  }
+}
+
 @media (max-width: 62.5em) {
   .dog-img-box,
   .dog-img {
@@ -240,7 +249,7 @@ th {
 
 @media (max-width: 54.5em) {
   .dog-details {
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
   }
 
   .dog-details-container {
