@@ -182,6 +182,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  padding: 0 0.4rem;
 }
 
 .more-details-header-btn {
@@ -200,6 +201,23 @@
 .more-details-header-btn:hover,
 .more-details-header-btn.selected {
   color: inherit;
+}
+
+.more-info-label {
+  font-family: inherit;
+  color: #adb5bd;
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + label {
+  color: #495057;
 }
 
 .dog-info-details {
