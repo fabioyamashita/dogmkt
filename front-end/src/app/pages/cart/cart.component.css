@@ -121,8 +121,6 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s;
-
-  margin-left: 1rem;
 }
 
 .delete-btn:hover {
