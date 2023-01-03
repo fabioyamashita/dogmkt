@@ -1,0 +1,10 @@
+<div class="quantity-box">
+  <span class="quantity-title">Quantity:</span>
+  <button class="qt-btn" id="subtract" (click)="decreaseQuantity()">
+    <mat-icon class="qt-icon">remove</mat-icon>
+  </button>
+  <span class="quantity">{{ currentQuantity }}</span>
+  <button class="qt-btn" id="add" (click)="increaseQuantity()">
+    <mat-icon class="qt-icon">add</mat-icon>
+  </button>
+</div>

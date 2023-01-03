@@ -1,0 +1,21 @@
+.quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.qt-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  transform: scale(0.8);
+  transition: all 0.1s;
+}
+
+.qt-btn:hover {
+  transform: scale(0.85);
+}

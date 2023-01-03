@@ -9,7 +9,10 @@ export class DogDetailsComponent {
   showDogInfo: boolean = true;
   showDogDetails: boolean = false;
 
-  onMoreInfoChange(event: any) {
+  initialQuantity: number = 1;
+  maxQuantity: number = 5;
+
+  onMoreInfoChange(event: any): void {
     if (event.target.value == 'dog-info') {
       this.showDogInfo = true;
       this.showDogDetails = false;
@@ -17,5 +20,15 @@ export class DogDetailsComponent {
       this.showDogInfo = false;
       this.showDogDetails = true;
     }
+  }
+
+  increaseQuantity(): void {
+    if (this.initialQuantity >= this.maxQuantity) return;
+    this.initialQuantity++;
+  }
+
+  decreaseQuantity(): void {
+    if (this.initialQuantity == 1) return;
+    this.initialQuantity--;
   }
 }

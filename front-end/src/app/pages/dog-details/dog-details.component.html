@@ -25,23 +25,14 @@
 
         <div class="add-to-cart-area">
           <div><button class="btn add-to-cart-btn">ADD TO CART</button></div>
-          <div class="quantity-box">
-            <span class="quantity-title">Quantity:</span>
-            <button class="qt-btn">
-              <mat-icon class="qt-icon">remove</mat-icon>
-            </button>
-            <span class="quantity">12</span>
-            <button class="qt-btn">
-              <mat-icon class="qt-icon">add</mat-icon>
-            </button>
-          </div>
+          <app-quantity-box
+            [currentQuantity]="1"
+            [maxQuantity]="5"
+          ></app-quantity-box>
         </div>
 
         <div class="more-details-section">
           <div class="more-details-header" (change)="onMoreInfoChange($event)">
-            <!-- <button class="more-details-header-btn selected">Dog's Info</button>
-            <button class="more-details-header-btn">Details</button> -->
-
             <input
               type="radio"
               class="more-details-header-btn"

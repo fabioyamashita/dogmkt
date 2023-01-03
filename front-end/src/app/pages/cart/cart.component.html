@@ -24,19 +24,13 @@
               <strong class="strong">Female</strong>
             </div>
 
-            <div class="quantity-box">
-              <span class="quantity-title">Quantity:</span>
-              <button class="qt-btn">
-                <mat-icon class="qt-icon">remove</mat-icon>
-              </button>
-              <span class="quantity">12</span>
-              <button class="qt-btn">
-                <mat-icon class="qt-icon">add</mat-icon>
-              </button>
-              <button class="delete-btn">
-                <mat-icon class="delete-icon">delete</mat-icon>
-              </button>
-            </div>
+            <app-quantity-box
+              [currentQuantity]="5"
+              [maxQuantity]="12"
+            ></app-quantity-box>
+            <button class="delete-btn">
+              <mat-icon class="delete-icon">delete</mat-icon>
+            </button>
           </div>
 
           <div class="price-box">
@@ -67,19 +61,14 @@
               <strong class="strong">Female</strong>
             </div>
 
-            <div class="quantity-box">
-              <span class="quantity-title">Quantity:</span>
-              <button class="qt-btn">
-                <mat-icon class="qt-icon">remove</mat-icon>
-              </button>
-              <span class="quantity">12</span>
-              <button class="qt-btn">
-                <mat-icon class="qt-icon">add</mat-icon>
-              </button>
-              <button class="delete-btn">
-                <mat-icon class="delete-icon">delete</mat-icon>
-              </button>
-            </div>
+            <app-quantity-box
+              [currentQuantity]="1"
+              [maxQuantity]="3"
+            ></app-quantity-box>
+
+            <button class="delete-btn">
+              <mat-icon class="delete-icon">delete</mat-icon>
+            </button>
           </div>
 
           <div class="price-box">
