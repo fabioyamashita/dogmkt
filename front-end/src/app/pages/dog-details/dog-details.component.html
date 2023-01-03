@@ -38,20 +38,38 @@
         </div>
 
         <div class="more-details-section">
-          <div class="more-details-header">
-            <button class="more-details-header-btn selected">Dog's Info</button>
-            <button class="more-details-header-btn">Details</button>
+          <div class="more-details-header" (change)="onMoreInfoChange($event)">
+            <!-- <button class="more-details-header-btn selected">Dog's Info</button>
+            <button class="more-details-header-btn">Details</button> -->
+
+            <input
+              type="radio"
+              class="more-details-header-btn"
+              id="dog-info"
+              name="more-info"
+              value="dog-info"
+              checked="true"
+            />
+            <label class="more-info-label" for="dog-info">Dog's Info</label>
+            <input
+              type="radio"
+              class="more-details-header-btn"
+              id="dog-details"
+              value="dog-details"
+              name="more-info"
+            />
+            <label class="more-info-label" for="dog-details">Details</label>
           </div>
           <div class="dog-info-details">
-            <!-- <span class="dog-info-text"
+            <span class="dog-info-text" *ngIf="showDogInfo"
               >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Vestibulum lacus sapien, auctor vel risus non, commodo laoreet
               libero. Curabitur fermentum sapien neque, vitae gravida odio
               ultrices non. Sed maximus tincidunt lorem, vitae vulputate erat
               vulputate ac.
-            </span> -->
+            </span>
 
-            <table class="details-table">
+            <table class="details-table" *ngIf="showDogDetails">
               <tr class="row">
                 <td class="col-title">Seller</td>
                 <td class="col-description">Name of the seller</td>
