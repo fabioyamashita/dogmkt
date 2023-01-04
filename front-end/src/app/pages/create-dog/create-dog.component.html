@@ -1,0 +1,113 @@
+<div class="container">
+  <div class="create-dog-container">
+    <h2 class="heading">ADD A NEW DOG</h2>
+
+    <form class="form">
+      <h2 class="sub-heading">GENERAL INFO</h2>
+      <div class="input-box">
+        <label class="label">Name</label>
+        <input
+          class="input-text"
+          type="text"
+          placeholder="Enter the dog's name"
+        />
+        <!-- <span class="error-msg">wrong email/password</span> -->
+      </div>
+
+      <div class="input-box">
+        <label class="label">Breed</label>
+        <!-- <input class="input-text" type="text" placeholder="Select a breed" /> -->
+        <select name="breeds" id="breeds" class="html-select">
+          <option hidden disabled selected value class="breed-placeholder">
+            -- Select a breed --
+          </option>
+          <option *ngFor="let breed of breedList" [value]="breed">
+            {{ breed }}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-box">
+        <label class="label">Genre</label>
+        <select name="genres" id="genre" class="html-select">
+          <option hidden disabled selected value class="breed-placeholder">
+            -- Select a genre --
+          </option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+
+      <h2 class="sub-heading">SALES INFO</h2>
+      <div class="input-box">
+        <label class="label">Price (Love)</label>
+        <input class="input-text" type="text" placeholder="Enter the price" />
+        <!-- <span class="error-msg">wrong email/password</span> -->
+      </div>
+
+      <div class="input-box">
+        <label class="label">Max. Quantity</label>
+        <input
+          class="input-text"
+          type="number"
+          placeholder="Enter the available quantity"
+        />
+      </div>
+
+      <h2 class="sub-heading">ADDITIONAL INFO</h2>
+      <div class="input-box">
+        <label class="label">Description</label>
+        <textarea
+          class="input-box"
+          name=""
+          id=""
+          rows="8"
+          placeholder="Enter a description"
+        ></textarea>
+      </div>
+
+      <div class="input-box">
+        <label class="label">Date of Birth</label>
+        <input class="input-text input-date" type="date" />
+      </div>
+
+      <div class="input-box">
+        <label class="label">Weight (kg)</label>
+        <input
+          class="input-text"
+          type="number"
+          placeholder="Enter the weight"
+        />
+      </div>
+
+      <div class="input-box">
+        <label class="label">Height (cm)</label>
+        <input
+          class="input-text"
+          type="number"
+          placeholder="Enter the height"
+        />
+      </div>
+
+      <div class="input-box">
+        <label class="label">Width (cm)</label>
+        <input class="input-text" type="number" placeholder="Enter the width" />
+      </div>
+
+      <div class="input-box">
+        <label class="label">Picture URL (Optional)</label>
+        <input
+          class="input-text"
+          type="text"
+          placeholder="Enter a URL of a picture"
+        />
+      </div>
+
+      <div class="submit-btn-area">
+        <button class="submit-btn" type="submit">ADD NEW DOG</button>
+      </div>
+    </form>
+  </div>
+
+  <app-footer></app-footer>
+</div>

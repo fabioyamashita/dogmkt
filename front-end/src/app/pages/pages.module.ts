@@ -11,9 +11,18 @@ import { DogsCollectionComponent } from './dogs-collection/dogs-collection.compo
 import { DogBreedComponent } from './dogs-collection/dog-breed/dog-breed.component';
 import { DogDetailsComponent } from './dog-details/dog-details.component';
 import { CartComponent } from './cart/cart.component';
+import { CreateDogComponent } from './create-dog/create-dog.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, DogsCollectionComponent, DogBreedComponent, DogDetailsComponent, CartComponent],
+  declarations: [
+    LoginComponent,
+    SignupComponent,
+    DogsCollectionComponent,
+    DogBreedComponent,
+    DogDetailsComponent,
+    CartComponent,
+    CreateDogComponent,
+  ],
   imports: [
     CommonModule,
     SharedModule,
