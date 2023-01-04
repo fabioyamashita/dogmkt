@@ -51,7 +51,7 @@
 
 .input-text {
   font-size: 1rem;
-  padding: 0.6rem 0.4rem;
+  padding: 0.6rem;
   border: 1px solid #868e96;
   border-radius: 4px;
 
@@ -61,8 +61,7 @@
 }
 
 .input-text:focus {
-  outline: none !important;
-  border: 2px solid #868e96;
+  outline: 1px solid #868e96;
 }
 
 .error-msg {
