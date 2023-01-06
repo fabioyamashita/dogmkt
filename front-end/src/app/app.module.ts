@@ -7,6 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material/material.module';
 import { PagesModule } from './pages/pages.module';
+import { Store } from './app.store';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,8 +19,9 @@ import { PagesModule } from './pages/pages.module';
     SharedModule,
     MaterialModule,
     PagesModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [Store],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

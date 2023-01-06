@@ -1,23 +1,32 @@
 <div class="collection-container">
-  <h2 class="heading">BUY ANY DOG WITH LOVE</h2>
-  <div class="subheading">
-    <div class="sort-by">
-      <span class="sort-by-text">Sort by</span>
-      <button class="sort-by-btn">
-        <span class="sort-by-selected">New</span>
-        <mat-icon class="sort-by-icon">keyboard_arrow_down</mat-icon>
-      </button>
+  <div class="collection-box">
+    <h2 class="heading">BUY ANY DOG WITH LOVE</h2>
+    <div class="subheading">
+      <div class="sort-by">
+        <span class="sort-by-text">Sort by</span>
+        <button class="sort-by-btn">
+          <span class="sort-by-selected">New</span>
+          <mat-icon class="sort-by-icon">keyboard_arrow_down</mat-icon>
+        </button>
+      </div>
+
+      <form class="search-container">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input
+          class="input-search"
+          type="text"
+          placeholder="Search by name..."
+        />
+      </form>
     </div>
 
-    <form class="search-container">
-      <mat-icon class="search-icon">search</mat-icon>
-      <input class="input-search" type="text" placeholder="Search by name..." />
-    </form>
+    <section class="dogs-list">
+      <app-dog-item
+        *ngFor="let dog of dogsCollection$ | async"
+        [dog]="dog"
+      ></app-dog-item>
+    </section>
   </div>
-
-  <section class="dogs-section">
-    <app-dog-breed></app-dog-breed>
-  </section>
 
   <app-footer></app-footer>
 </div>
