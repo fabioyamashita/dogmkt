@@ -1,7 +1,8 @@
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '../app.store';
+import Dog from '../models/dog';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Store } from '../app.store';
 export class DogmktService {
   constructor(private http: HttpClient, private store: Store) {}
 
-  // getTodoList$: Observable<Task[]> = this.http
-  //   .get<Task[]>('url')
-  //   .pipe(tap((next) => this.store.set('todolist', next)));
+  getDogsCollection$: Observable<Dog[]> = this.http
+    .get<Dog[]>('http://localhost:3000/dogs')
+    .pipe(tap((next) => this.store.set('dogsCollection', next)));
 }

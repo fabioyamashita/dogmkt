@@ -8,20 +8,21 @@ import { MaterialModule } from '../material/material.module';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { DogsCollectionComponent } from './dogs-collection/dogs-collection.component';
-import { DogBreedComponent } from './dogs-collection/dog-breed/dog-breed.component';
 import { DogDetailsComponent } from './dog-details/dog-details.component';
 import { CartComponent } from './cart/cart.component';
 import { CreateDogComponent } from './create-dog/create-dog.component';
+import { DogItemComponent } from './dogs-collection/dog-item/dog-item.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     SignupComponent,
     DogsCollectionComponent,
-    DogBreedComponent,
+
     DogDetailsComponent,
     CartComponent,
     CreateDogComponent,
+    DogItemComponent,
   ],
   imports: [
     CommonModule,

@@ -1,11 +1,12 @@
 import { BehaviorSubject, map, Observable } from 'rxjs';
+import Dog from './models/dog';
 
 export interface State {
-  // todolist: Task[];
+  dogsCollection: Dog[];
 }
 
 const state: State = {
-  // todolist:[];
+  dogsCollection: [],
 };
 
 export class Store {
@@ -16,9 +17,9 @@ export class Store {
     return this.subject.value;
   }
 
-  //   public getTodoList$(): Observable<Task[]> {
-  //     return this.store.pipe(map(store => store.todolist));
-  //   }
+  public getDogsCollection$(): Observable<Dog[]> {
+    return this.store.pipe(map((store) => store.dogsCollection));
+  }
 
   set(name: string, state: any) {
     this.subject.next({

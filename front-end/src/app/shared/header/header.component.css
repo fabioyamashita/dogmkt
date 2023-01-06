@@ -37,7 +37,7 @@ a:hover {
 
 .right-link {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 3rem;
 }
 

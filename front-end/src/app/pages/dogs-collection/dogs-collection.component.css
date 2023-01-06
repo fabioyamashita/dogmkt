@@ -1,11 +1,23 @@
 .collection-container {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   overflow: auto;
   overflow-x: hidden;
+}
+
+.collection-box {
+  /* height: 100%; */
+  height: max-content;
+  /* min-height: max-content; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
 }
 
 .heading {
@@ -96,4 +108,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.dogs-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3.4rem;
+
+  height: 100%;
+
+  padding: 4rem 2rem 4rem 2rem;
+}
+
+@media (max-width: 70rem) {
+  .dogs-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 45rem) {
+  .dogs-list {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
 }

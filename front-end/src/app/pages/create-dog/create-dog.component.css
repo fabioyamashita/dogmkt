@@ -10,13 +10,14 @@
 }
 
 .create-dog-container {
-  padding: 2rem 2rem;
+  padding: 2rem 2rem 4rem 2rem;
   height: max-content;
   width: min(100vw, 450px);
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 
 .heading {

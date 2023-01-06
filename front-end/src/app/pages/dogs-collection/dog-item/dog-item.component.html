@@ -1,0 +1,18 @@
+<div class="dog-item">
+  <div class="dog-img-box">
+    <img
+      src="{{ dog.pictureUrl }}"
+      alt="samoyed-img"
+      class="dog-img"
+      routerLink="/collection/dogid"
+    />
+  </div>
+  <div class="dog-info">
+    <span class="dog-name"> {{ dog.name }}</span>
+    <span>Breed: {{ dog.breed }}</span>
+    <div class="price-box">
+      <mat-icon class="price-icon">favorite</mat-icon>
+      <span class="price">{{ dog.price }}</span>
+    </div>
+  </div>
+</div>
