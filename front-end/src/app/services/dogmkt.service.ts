@@ -10,7 +10,9 @@ import Dog from '../models/dog';
 export class DogmktService {
   constructor(private http: HttpClient, private store: Store) {}
 
+  protected UrlServiceV1: string = 'http://localhost:3000/';
+
   getDogsCollection$: Observable<Dog[]> = this.http
-    .get<Dog[]>('http://localhost:3000/dogs')
+    .get<Dog[]>(this.UrlServiceV1 + 'dogs')
     .pipe(tap((next) => this.store.set('dogsCollection', next)));
 }

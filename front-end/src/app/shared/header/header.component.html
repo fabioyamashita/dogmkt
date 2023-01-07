@@ -1,5 +1,5 @@
 <mat-toolbar class="header">
-  <a class="logo-container" routerLink="/create">
+  <a class="logo-container" routerLink="/seller/create">
     <img
       class="logo-dogmkt"
       src="../../../assets/dogmkt-logo.png"
@@ -10,23 +10,33 @@
   <div class="center-link">
     <ul>
       <li class="center-option">
-        <a routerLink="/collection">DOG'S COLLECTION</a>
+        <a routerLink="/collection/list">DOG'S COLLECTION</a>
       </li>
     </ul>
   </div>
 
   <div class="right-link">
-    <a *ngIf="this.router.url === '/login'" routerLink="/signup">SIGN UP</a>
-    <a *ngIf="this.router.url === '/signup'" routerLink="/login">LOGIN</a>
+    <a *ngIf="this.router.url === '/account/login'" routerLink="/account/signup"
+      >SIGN UP</a
+    >
+    <a *ngIf="this.router.url === '/account/signup'" routerLink="/account/login"
+      >LOGIN</a
+    >
     <a
-      *ngIf="this.router.url !== '/login' && this.router.url !== '/signup'"
-      routerLink="/cart"
+      *ngIf="
+        this.router.url !== '/account/login' &&
+        this.router.url !== '/account/signup'
+      "
+      routerLink="/checkout/cart"
       >CART(0)</a
     >
     <a
       class="profile-link"
-      *ngIf="this.router.url !== '/login' && this.router.url !== '/signup'"
-      routerLink="/login"
+      *ngIf="
+        this.router.url !== '/account/login' &&
+        this.router.url !== '/account/signup'
+      "
+      routerLink="/account/login"
     >
       PROFILE
       <mat-icon>keyboard_arrow_down</mat-icon>

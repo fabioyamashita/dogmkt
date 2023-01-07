@@ -1,41 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartComponent } from './pages/cart/cart.component';
-import { CreateDogComponent } from './pages/create-dog/create-dog.component';
-import { DogDetailsComponent } from './pages/dog-details/dog-details.component';
-import { DogsCollectionComponent } from './pages/dogs-collection/dogs-collection.component';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'account/login', pathMatch: 'full' },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    path: 'account',
+    loadChildren: () =>
+      import('./account/account.module').then((m) => m.AccountModule),
   },
   {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'signup',
-    component: SignupComponent,
+    path: 'checkout',
+    loadChildren: () =>
+      import('./checkout/checkout.module').then((m) => m.CheckoutModule),
   },
   {
     path: 'collection',
-    component: DogsCollectionComponent,
+    loadChildren: () =>
+      import('./collection/collection.module').then((m) => m.CollectionModule),
   },
   {
-    path: 'collection/dogid',
-    component: DogDetailsComponent,
-  },
-  {
-    path: 'cart',
-    component: CartComponent,
-  },
-  {
-    path: 'create',
-    component: CreateDogComponent,
+    path: 'seller',
+    loadChildren: () =>
+      import('./seller/seller.module').then((m) => m.SellerModule),
   },
 ];
 
