@@ -21,10 +21,10 @@
     </div>
 
     <section class="dogs-list">
-      <app-dog-item
+      <app-item
         *ngFor="let dog of dogsCollection$ | async"
         [dog]="dog"
-      ></app-dog-item>
+      ></app-item>
     </section>
   </div>
 
