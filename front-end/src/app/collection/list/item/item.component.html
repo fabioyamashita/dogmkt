@@ -4,7 +4,7 @@
       src="{{ dog.pictureUrl }}"
       alt="samoyed-img"
       class="dog-img"
-      routerLink="/collection/details/id"
+      [routerLink]="['/collection/details/', dog.id]"
     />
   </div>
   <div class="dog-info">
@@ -12,7 +12,7 @@
     <span>Breed: {{ dog.breed }}</span>
     <div class="price-box">
       <mat-icon class="price-icon">favorite</mat-icon>
-      <span class="price">{{ dog.price }}</span>
+      <span class="price">{{ dog.price | number : "1.2-2" }}</span>
     </div>
   </div>
 </div>

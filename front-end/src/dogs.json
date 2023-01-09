@@ -12,7 +12,8 @@
       "weight": 35,
       "height": 30,
       "width": 15,
-      "pictureUrl": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"
+      "pictureUrl": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
+      "seller": "Seller name 1"
     },
     {
       "id": 2,
@@ -26,7 +27,52 @@
       "weight": 20,
       "height": 15,
       "width": 15,
-      "pictureUrl": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80"
+      "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+      "seller": "Seller name 2"
     }
-  ]
+  ],
+  "cart": {
+    "id": "1673225190132",
+    "summary": 331.05,
+    "discount": 0,
+    "total": 331.05,
+    "dogs": [
+      {
+        "dog": {
+          "id": 2,
+          "name": "John",
+          "breed": "Samoyed",
+          "genre": "Male",
+          "price": 105.5,
+          "maxQuantity": 2,
+          "description": "Lovely dog",
+          "dateOfBirth": "11-12-2022",
+          "weight": 20,
+          "height": 15,
+          "width": 15,
+          "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+          "seller": "Seller name 2"
+        },
+        "quantity": 2
+      },
+      {
+        "dog": {
+          "id": 1,
+          "name": "Nina the Samoyed",
+          "breed": "Samoyed",
+          "genre": "Female",
+          "price": 120.05,
+          "maxQuantity": 5,
+          "description": "The Samoyed is a breed of medium-sized herding dogs with thick, white, double-layer coats. They are a spitz-type dog which takes its name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika, they are a domesticated animal that assists in herding, hunting, protection and sled-pulling.",
+          "dateOfBirth": "10-12-2022",
+          "weight": 35,
+          "height": 30,
+          "width": 15,
+          "pictureUrl": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
+          "seller": "Seller name 1"
+        },
+        "quantity": 1
+      }
+    ]
+  }
 }

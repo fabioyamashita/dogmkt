@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import Dog from 'src/app/models/dog';
+import Dog from 'src/app/collection/models/dog';
 
 @Component({
   selector: 'app-item',

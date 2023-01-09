@@ -1,16 +1,33 @@
-import { Component } from '@angular/core';
+import { CheckoutService } from './../../checkout/services/checkout.services';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { Store } from 'src/app/app.store';
+import DogCart from 'src/app/checkout/models/dogCart';
+import Dog from 'src/app/collection/models/dog';
+import { findIndex } from 'rxjs';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private store: Store,
+    private checkoutService: CheckoutService
+  ) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.data.subscribe(({ dog }) => (this.dog = dog));
+  }
+
+  dog!: Dog;
+  currentQuantity: number = 1;
+
   showDogInfo: boolean = true;
   showDogDetails: boolean = false;
-
-  initialQuantity: number = 1;
-  maxQuantity: number = 5;
 
   onMoreInfoChange(event: any): void {
     if (event.target.value == 'dog-info') {
@@ -22,13 +39,13 @@ export class DetailsComponent {
     }
   }
 
-  increaseQuantity(): void {
-    if (this.initialQuantity >= this.maxQuantity) return;
-    this.initialQuantity++;
-  }
+  // Add to Cart
+  addItemToCart(): void {
+    const dogCart: DogCart = {
+      dog: this.dog,
+      quantity: this.currentQuantity,
+    };
 
-  decreaseQuantity(): void {
-    if (this.initialQuantity == 1) return;
-    this.initialQuantity--;
+    this.checkoutService.updateCart(dogCart).subscribe();
   }
 }

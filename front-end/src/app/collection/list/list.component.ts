@@ -1,27 +1,20 @@
-import { Component } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
-import { Store } from 'src/app/app.store';
-import Dog from 'src/app/models/dog';
-import { DogmktService } from 'src/app/services/dogmkt.service';
+import { CollectionService } from 'src/app/collection/services/collection.service';
+
+import Dog from 'src/app/collection/models/dog';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
 })
-export class ListComponent {
-  constructor(private dogmktService: DogmktService, private store: Store) {}
+export class ListComponent implements OnInit {
+  constructor(private collectionService: CollectionService) {}
 
-  dogsCollection$: Observable<Dog[]> | undefined;
-  subscription: Subscription | undefined;
+  public dogs?: Dog[];
 
   ngOnInit(): void {
-    this.dogsCollection$ = this.store.getDogsCollection$();
-    this.subscription = this.dogmktService.getDogsCollection$.subscribe();
-  }
-
-  ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
+    this.collectionService.getAll.subscribe((dogs) => (this.dogs = dogs));
   }
 }

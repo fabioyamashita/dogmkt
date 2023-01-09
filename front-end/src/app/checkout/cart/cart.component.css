@@ -10,18 +10,24 @@
 }
 
 .cart-container {
-  padding: 2rem 2rem;
+  padding: 0 2rem 5rem 2rem;
   width: min(650px, 100vw);
 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  flex: 1;
 }
 
 .title {
   font-size: 1.25rem;
   font-weight: 500;
-  margin-bottom: 2rem;
+  padding: 2rem 0 1rem 0;
+}
+
+.empty-list {
+  font-size: 1rem;
 }
 
 .product-info {
