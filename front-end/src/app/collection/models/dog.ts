@@ -1,5 +1,5 @@
 export default interface Dog {
-  id: number;
+  id: string;
   name: string;
   breed: string;
   genre: string;
@@ -11,4 +11,5 @@ export default interface Dog {
   height: number;
   width: number;
   pictureUrl: string;
+  seller: string;
 }

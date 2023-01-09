@@ -1,33 +1,43 @@
 <div class="container">
   <div class="dog-details-container">
-    <h3 class="title">DOG'S COLLECTION — SAMOYED</h3>
+    <h3 class="title">DOG'S COLLECTION — {{ dog.breed | uppercase }}</h3>
     <div class="dog-details">
       <div class="dog-img-box">
-        <img
-          src="https://images.unsplash.com/photo-1636998094276-f2e8f673c41c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"
-          alt="samoyed-img"
-          class="dog-img"
-        />
+        <img src="{{ dog.pictureUrl }}" alt="samoyed-img" class="dog-img" />
       </div>
       <div class="dog-info">
         <div class="name-price-box">
-          <span class="name-text">Nina the Samoyed</span>
+          <span class="name-text">{{ dog.name }}</span>
           <div class="price-box">
             <mat-icon class="price-icon">favorite</mat-icon>
-            <span class="price">105.50</span>
+            <span class="price">{{ dog.price | number : "1.2-2" }}</span>
           </div>
         </div>
 
         <div class="genre-box">
-          <button class="btn genre-btn">Male</button>
-          <button class="btn genre-btn selected">Female</button>
+          <button
+            class="btn genre-btn"
+            [ngClass]="dog.genre.toUpperCase() === 'MALE' ? 'selected' : ''"
+          >
+            Male
+          </button>
+          <button
+            class="btn genre-btn"
+            [ngClass]="dog.genre.toUpperCase() === 'FEMALE' ? 'selected' : ''"
+          >
+            Female
+          </button>
         </div>
 
         <div class="add-to-cart-area">
-          <div><button class="btn add-to-cart-btn">ADD TO CART</button></div>
+          <div>
+            <button class="btn add-to-cart-btn" (click)="addItemToCart()">
+              ADD TO CART
+            </button>
+          </div>
           <app-quantity-box
-            [currentQuantity]="1"
-            [maxQuantity]="5"
+            [(currentQuantity)]="currentQuantity"
+            [maxQuantity]="dog.maxQuantity"
           ></app-quantity-box>
         </div>
 
@@ -53,33 +63,37 @@
           </div>
           <div class="dog-info-details">
             <span class="dog-info-text" *ngIf="showDogInfo"
-              >Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Vestibulum lacus sapien, auctor vel risus non, commodo laoreet
-              libero. Curabitur fermentum sapien neque, vitae gravida odio
-              ultrices non. Sed maximus tincidunt lorem, vitae vulputate erat
-              vulputate ac.
+              >{{ dog.description }}
             </span>
 
             <table class="details-table" *ngIf="showDogDetails">
               <tr class="row">
                 <td class="col-title">Seller</td>
-                <td class="col-description">Name of the seller</td>
+                <td class="col-description">{{ dog.seller }}</td>
               </tr>
               <tr class="row">
-                <td class="col-title">Age</td>
-                <td class="col-description">2 years and 8 months</td>
+                <td class="col-title">Date of Birth</td>
+                <td class="col-description">
+                  {{ dog.dateOfBirth | date : "mediumDate" }}
+                </td>
               </tr>
               <tr class="row">
                 <td class="col-title">Weight</td>
-                <td class="col-description">20.2 kg</td>
+                <td class="col-description">
+                  {{ dog.weight | number : "1.1-1" }} kg
+                </td>
               </tr>
               <tr class="row">
                 <td class="col-title">Height</td>
-                <td class="col-description">15 cm</td>
+                <td class="col-description">
+                  {{ dog.height | number : "1.1-1" }} cm
+                </td>
               </tr>
               <tr class="row">
                 <td class="col-title">Width</td>
-                <td class="col-description">45 cm</td>
+                <td class="col-description">
+                  {{ dog.width | number : "1.1-1" }} cm
+                </td>
               </tr>
             </table>
           </div>

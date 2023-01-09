@@ -1,3 +1,4 @@
+import { CollectionResolve } from './services/collection.resolve';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -12,7 +13,13 @@ const collectionRouterConfig: Routes = [
 
     children: [
       { path: 'list', component: ListComponent },
-      { path: 'details/id', component: DetailsComponent },
+      {
+        path: 'details/:id',
+        component: DetailsComponent,
+        resolve: {
+          dog: CollectionResolve,
+        },
+      },
     ],
   },
 ];
