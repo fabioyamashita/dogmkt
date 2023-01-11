@@ -161,7 +161,7 @@
 .quantity-box {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 1.4rem;
 
   font-size: 1rem;
   font-weight: 500;

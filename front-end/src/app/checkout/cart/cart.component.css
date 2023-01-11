@@ -30,9 +30,13 @@
   font-size: 1rem;
 }
 
+.products-list {
+  width: 100%;
+}
+
 .product-info {
   display: flex;
-
+  width: 100%;
   gap: 2.25rem;
 
   margin-bottom: 2.5rem;
@@ -60,6 +64,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  width: 100%;
 }
 
 .dog-name {
@@ -90,7 +96,7 @@
 .genre-quantity-box {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
 
   margin-bottom: 1.4rem;
 }
@@ -107,6 +113,11 @@
 .quantity-title,
 .quantity {
   font-weight: 500;
+}
+
+.quantity {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .qt-btn {
@@ -127,6 +138,8 @@
   border: none;
   cursor: pointer;
   transition: all 0.2s;
+
+  padding: 0;
 }
 
 .delete-btn:hover {

@@ -4,7 +4,7 @@ export default interface Dog {
   breed: string;
   genre: string;
   price: number;
-  maxQuantity: number;
+  availableQuantity: number;
   description: string;
   dateOfBirth: Date;
   weight: number;
