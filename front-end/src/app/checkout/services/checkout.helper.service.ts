@@ -59,4 +59,25 @@ export class CheckoutHelperService {
 
     return cart;
   }
+
+  deleteDogInCart(id: string): Dog {
+    let cart = this.store.value.cart;
+
+    const index = cart.dogs.findIndex((dog) => dog.dog.id == id);
+    const quantity = cart.dogs[index].quantity;
+
+    cart.dogs.splice(index, 1);
+
+    let updatedCart = this.updateTotalStore(cart);
+
+    // Update Dog in Collection
+    let dogsCollection = this.store.value.dogsCollection;
+    const dogIndexCollection = dogsCollection.findIndex((dog) => dog.id == id);
+
+    dogsCollection[dogIndexCollection].availableQuantity += quantity;
+
+    this.store.set('dogsCollection', dogsCollection);
+
+    return dogsCollection[dogIndexCollection];
+  }
 }
