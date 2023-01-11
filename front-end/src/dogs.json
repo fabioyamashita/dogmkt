@@ -21,7 +21,7 @@
       "breed": "Samoyed",
       "genre": "Male",
       "price": 105.5,
-      "availableQuantity": 5,
+      "availableQuantity": 0,
       "description": "Lovely dog",
       "dateOfBirth": "11-12-2022",
       "weight": 20,
@@ -33,9 +33,28 @@
   ],
   "cart": {
     "id": "1673225190132",
-    "summary": 0,
+    "summary": 527.5,
     "discount": 0,
-    "total": 0,
-    "dogs": []
+    "total": 527.5,
+    "dogs": [
+      {
+        "dog": {
+          "id": 2,
+          "name": "John",
+          "breed": "Samoyed",
+          "genre": "Male",
+          "price": 105.5,
+          "availableQuantity": 0,
+          "description": "Lovely dog",
+          "dateOfBirth": "11-12-2022",
+          "weight": 20,
+          "height": 15,
+          "width": 15,
+          "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+          "seller": "Seller name 2"
+        },
+        "quantity": 5
+      }
+    ]
   }
 }

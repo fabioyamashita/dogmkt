@@ -124,7 +124,7 @@
 
   border: 1px solid #adb5bd;
   background: linear-gradient(
-    159deg,
+    162deg,
     transparent calc(50% - 1px),
     #adb5bd 50%,
     transparent calc(50% + 1px)
@@ -145,13 +145,30 @@
   margin-bottom: 4.5rem;
 }
 
-.add-to-cart-btn {
+.add-to-cart-btn,
+.sold-out-btn {
   padding: 0.8rem 4rem;
   font-weight: 700;
   letter-spacing: 0.05rem;
   transition: all 0.2s;
 
   flex: 0;
+}
+
+.sold-out-btn {
+  background-color: #f8f9fa;
+  color: #868e96;
+  font-weight: 700;
+
+  border: 1px solid #adb5bd;
+  background: linear-gradient(
+    168deg,
+    transparent calc(50% - 1px),
+    #adb5bd 50%,
+    transparent calc(50% + 1px)
+  );
+
+  cursor: auto;
 }
 
 .add-to-cart-btn:hover {

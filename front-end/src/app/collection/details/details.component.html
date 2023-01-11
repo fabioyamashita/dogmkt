@@ -31,8 +31,19 @@
 
         <div class="add-to-cart-area">
           <div>
-            <button class="btn add-to-cart-btn" (click)="addItemToCart()">
+            <button
+              class="btn add-to-cart-btn"
+              (click)="addItemToCart()"
+              *ngIf="dog.availableQuantity != 0"
+            >
               ADD TO CART
+            </button>
+            <button
+              class="btn sold-out-btn"
+              disabled
+              *ngIf="dog.availableQuantity == 0"
+            >
+              SOLD OUT
             </button>
           </div>
           <div class="quantity-box">
