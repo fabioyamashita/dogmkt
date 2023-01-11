@@ -1,11 +1,13 @@
 <div class="dog-item">
-  <div class="dog-img-box">
-    <img
-      src="{{ dog.pictureUrl }}"
-      alt="samoyed-img"
-      class="dog-img"
-      [routerLink]="['/collection/details/', dog.id]"
-    />
+  <div
+    class="dog-img-box"
+    [ngClass]="dog.availableQuantity == 0 ? 'sold-out' : ''"
+    [routerLink]="['/collection/details/', dog.id]"
+  >
+    <span class="sold-out-text" *ngIf="dog.availableQuantity == 0"
+      >Sold Out</span
+    >
+    <img src="{{ dog.pictureUrl }}" alt="samoyed-img" class="dog-img" />
   </div>
   <div class="dog-info">
     <span class="dog-name"> {{ dog.name }}</span>
