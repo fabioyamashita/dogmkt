@@ -52,8 +52,9 @@ export class DetailsComponent implements OnInit {
       this.checkoutHelperService.updateDogInCollection(dogCart);
     const cartUpdated = this.checkoutHelperService.updateCartStore(dogCart);
 
-    this.collectionService.updateDog(dogUpdated).subscribe();
-    this.checkoutService.updateCart(cartUpdated).subscribe();
+    this.collectionService.updateDog(dogUpdated).subscribe({
+      complete: () => this.checkoutService.updateCart(cartUpdated).subscribe(),
+    });
 
     this.router.navigate(['/checkout/cart']);
   }

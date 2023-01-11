@@ -5,7 +5,11 @@
       Your cart is empty!
     </div>
     <ul class="products-list" *ngIf="(cart$ | async)?.dogs?.length !== 0">
-      <li class="product-info" *ngFor="let dogCart of (cart$ | async)?.dogs">
+      <li
+        class="product-info"
+        id="{{ dogCart.dog.id }}"
+        *ngFor="let dogCart of (cart$ | async)?.dogs"
+      >
         <div class="dog-img-box">
           <img
             src="{{ dogCart.dog.pictureUrl }}"
@@ -36,7 +40,7 @@
             ></app-quantity-box> -->
 
             <div class="quantity">Quantity: {{ dogCart.quantity }}</div>
-            <button class="delete-btn">
+            <button class="delete-btn" (click)="deleteFromCart($event)">
               <mat-icon class="delete-icon">delete</mat-icon>
             </button>
           </div>
