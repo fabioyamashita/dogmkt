@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Store } from 'src/app/app.store';
 
 @Component({
   selector: 'app-quantity-box',
@@ -6,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./quantity-box.component.css'],
 })
 export class QuantityBoxComponent {
+  constructor(private store: Store) {}
   @Input() currentQuantity: number = 1;
   @Output() currentQuantityChange = new EventEmitter<number>();
 

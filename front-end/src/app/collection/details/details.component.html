@@ -35,10 +35,15 @@
               ADD TO CART
             </button>
           </div>
-          <app-quantity-box
-            [(currentQuantity)]="currentQuantity"
-            [maxQuantity]="dog.maxQuantity"
-          ></app-quantity-box>
+          <div class="quantity-box">
+            <app-quantity-box
+              [(currentQuantity)]="currentQuantity"
+              [maxQuantity]="dog.availableQuantity"
+            ></app-quantity-box>
+            <div class="available-quantity">
+              (Available: {{ dog.availableQuantity }})
+            </div>
+          </div>
         </div>
 
         <div class="more-details-section">

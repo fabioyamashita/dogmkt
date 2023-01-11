@@ -15,6 +15,9 @@ export class ListComponent implements OnInit {
   public dogs?: Dog[];
 
   ngOnInit(): void {
-    this.collectionService.getAll.subscribe((dogs) => (this.dogs = dogs));
+    this.collectionService.getAll.subscribe({
+      next: (dogs: Dog[]) => (this.dogs = dogs),
+      error: (err: Error) => console.error(err),
+    });
   }
 }

@@ -1,11 +1,11 @@
+import { CollectionService } from './../services/collection.service';
+import { CheckoutHelperService } from './../../checkout/services/checkout.helper.service';
 import { CheckoutService } from './../../checkout/services/checkout.services';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { Store } from 'src/app/app.store';
 import DogCart from 'src/app/checkout/models/dogCart';
 import Dog from 'src/app/collection/models/dog';
-import { findIndex } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -14,9 +14,11 @@ import { findIndex } from 'rxjs';
 })
 export class DetailsComponent implements OnInit {
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
-    private store: Store,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
+    private checkoutHelperService: CheckoutHelperService,
+    private collectionService: CollectionService
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +48,13 @@ export class DetailsComponent implements OnInit {
       quantity: this.currentQuantity,
     };
 
-    this.checkoutService.updateCart(dogCart).subscribe();
+    const dogUpdated =
+      this.checkoutHelperService.updateDogInCollection(dogCart);
+    const cartUpdated = this.checkoutHelperService.updateCartStore(dogCart);
+
+    this.collectionService.updateDog(dogUpdated).subscribe();
+    this.checkoutService.updateCart(cartUpdated).subscribe();
+
+    this.router.navigate(['/checkout/cart']);
   }
 }

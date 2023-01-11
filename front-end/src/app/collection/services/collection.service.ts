@@ -18,7 +18,9 @@ export class CollectionService {
     .get<Dog[]>(this.UrlServiceV1 + 'dogs')
     .pipe(tap((next) => this.store.set('dogsCollection', next)));
 
-  getById(id: string): Observable<Dog> {
-    return this.http.get<Dog>(this.UrlServiceV1 + 'dogs' + '/' + id);
-  }
+  getById = (id: string): Observable<Dog> =>
+    this.http.get<Dog>(this.UrlServiceV1 + 'dogs' + '/' + id);
+
+  updateDog = (dog: Dog): Observable<Dog> =>
+    this.http.put<Dog>(this.UrlServiceV1 + 'dogs/' + dog.id, dog);
 }
