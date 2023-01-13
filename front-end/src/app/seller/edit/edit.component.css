@@ -1,0 +1,33 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.create-dog-container {
+  padding: 2rem 2rem 4rem 2rem;
+  height: max-content;
+  width: min(100vw, 450px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.heading {
+  font-size: 2rem;
+  letter-spacing: 0.05rem;
+
+  margin-bottom: 0.8rem;
+}
+
+.form {
+  margin-bottom: 0.8rem;
+  width: 100%;
+}

@@ -1,14 +1,14 @@
 <div class="container">
   <h3 class="title">YOUR CART</h3>
   <div class="cart-container">
-    <div class="empty-list" *ngIf="(cart$ | async)?.dogs?.length == 0">
+    <div class="empty-list" *ngIf="cart?.dogs?.length == 0">
       Your cart is empty!
     </div>
-    <ul class="products-list" *ngIf="(cart$ | async)?.dogs?.length !== 0">
+    <ul class="products-list" *ngIf="cart?.dogs?.length !== 0">
       <li
         class="product-info"
         id="{{ dogCart.dog.id }}"
-        *ngFor="let dogCart of (cart$ | async)?.dogs"
+        *ngFor="let dogCart of cart?.dogs"
       >
         <div class="dog-img-box">
           <img
@@ -55,13 +55,13 @@
       </li>
     </ul>
 
-    <div class="total-box" *ngIf="(cart$ | async)?.dogs?.length !== 0">
+    <div class="total-box" *ngIf="cart?.dogs?.length !== 0">
       <div class="summary">
         <div class="summary-title">Summary:</div>
         <div class="summary-price-box">
           <mat-icon class="price-icon-1 summary-price-icon">favorite</mat-icon>
           <span class="summary-price">{{
-            (cart$ | async)?.summary | number : "1.2-2"
+            cart?.summary | number : "1.2-2"
           }}</span>
         </div>
       </div>
@@ -70,7 +70,7 @@
         <div class="discount-price-box">
           <mat-icon class="price-icon-1 discount-price-icon">favorite</mat-icon>
           <span class="discount-price">{{
-            (cart$ | async)?.discount | number : "1.2-2"
+            cart?.discount | number : "1.2-2"
           }}</span>
         </div>
       </div>
@@ -79,17 +79,12 @@
         <div class="total-title">Total:</div>
         <div class="total-price-box">
           <mat-icon class="price-icon-1 total-price-icon">favorite</mat-icon>
-          <span class="total-price">{{
-            (cart$ | async)?.total | number : "1.2-2"
-          }}</span>
+          <span class="total-price">{{ cart?.total | number : "1.2-2" }}</span>
         </div>
       </div>
     </div>
 
-    <button
-      class="btn submit-order-btn"
-      *ngIf="(cart$ | async)?.dogs?.length !== 0"
-    >
+    <button class="btn submit-order-btn" *ngIf="cart?.dogs?.length !== 0">
       SUBMIT ORDER
     </button>
   </div>

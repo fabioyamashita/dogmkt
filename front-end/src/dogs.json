@@ -1,18 +1,18 @@
 {
   "dogs": [
     {
-      "id": 1,
-      "name": "Nina the Samoyed",
+      "name": "Nina the Samoyed :)",
       "breed": "Samoyed",
       "genre": "Female",
-      "price": 120.05,
-      "availableQuantity": 4,
+      "price": 135.52,
+      "availableQuantity": 5,
       "description": "The Samoyed is a breed of medium-sized herding dogs with thick, white, double-layer coats. They are a spitz-type dog which takes its name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika, they are a domesticated animal that assists in herding, hunting, protection and sled-pulling.",
-      "dateOfBirth": "10-12-2022",
+      "dateOfBirth": "2023-01-19T00:00:00.000Z",
       "weight": 35,
-      "height": 30,
-      "width": 15,
+      "height": 15,
+      "width": 10,
       "pictureUrl": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
+      "id": 1,
       "seller": "Seller name 1"
     },
     {
@@ -23,7 +23,7 @@
       "price": 105.5,
       "availableQuantity": 5,
       "description": "Lovely dog",
-      "dateOfBirth": "11-12-2022",
+      "birthDate": "11-12-2022",
       "weight": 20,
       "height": 15,
       "width": 15,

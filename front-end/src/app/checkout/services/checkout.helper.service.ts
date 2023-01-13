@@ -15,15 +15,13 @@ export class CheckoutHelperService {
   updateCartStore(dogCart: DogCart): Cart {
     let cart = this.store.value.cart;
 
-    dogCart.dog.availableQuantity -= dogCart.quantity;
+    dogCart.dog.availableQuantity! -= dogCart.quantity;
     const dogIndex = cart.dogs.findIndex((dog) => dog.dog.id == dogCart.dog.id);
 
     if (dogIndex == -1) cart.dogs.push(dogCart);
     else cart.dogs[dogIndex].quantity += dogCart.quantity;
 
     cart = this.updateTotalStore(cart);
-
-    this.store.set('cart', cart);
 
     return cart;
   }
@@ -37,9 +35,7 @@ export class CheckoutHelperService {
       (dog) => dog.id == dogCart.dog.id
     );
 
-    dogsCollection[dogIndexCollection].availableQuantity -= quantityOnCart;
-
-    this.store.set('dogsCollection', dogsCollection);
+    dogsCollection[dogIndexCollection].availableQuantity! -= quantityOnCart;
 
     return dogsCollection[dogIndexCollection];
   }
@@ -48,7 +44,7 @@ export class CheckoutHelperService {
     let updatedSummary: number = 0;
 
     updatedCart.dogs.forEach(
-      (dog) => (updatedSummary += dog.quantity * dog.dog.price)
+      (dog) => (updatedSummary += dog.quantity * dog.dog.price!)
     );
 
     let updatedTotal: number = updatedSummary - updatedCart.discount;
@@ -68,15 +64,13 @@ export class CheckoutHelperService {
 
     cart.dogs.splice(index, 1);
 
-    let updatedCart = this.updateTotalStore(cart);
+    this.updateTotalStore(cart);
 
     // Update Dog in Collection
     let dogsCollection = this.store.value.dogsCollection;
     const dogIndexCollection = dogsCollection.findIndex((dog) => dog.id == id);
 
-    dogsCollection[dogIndexCollection].availableQuantity += quantity;
-
-    this.store.set('dogsCollection', dogsCollection);
+    dogsCollection[dogIndexCollection].availableQuantity! += quantity;
 
     return dogsCollection[dogIndexCollection];
   }

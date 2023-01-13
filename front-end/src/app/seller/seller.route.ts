@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SellerComponent } from './seller.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
+import { CollectionResolve } from '../collection/services/collection.resolve';
 
 const sellerRouterConfig: Routes = [
   {
@@ -12,7 +13,13 @@ const sellerRouterConfig: Routes = [
 
     children: [
       { path: 'create', component: CreateComponent },
-      { path: 'create', component: EditComponent },
+      {
+        path: 'edit/:id',
+        component: EditComponent,
+        resolve: {
+          dog: CollectionResolve,
+        },
+      },
     ],
   },
 ];

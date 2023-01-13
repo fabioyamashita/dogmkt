@@ -17,13 +17,13 @@
         <div class="genre-box">
           <button
             class="btn genre-btn"
-            [ngClass]="dog.genre.toUpperCase() === 'MALE' ? 'selected' : ''"
+            [ngClass]="dog.genre?.toUpperCase() === 'MALE' ? 'selected' : ''"
           >
             Male
           </button>
           <button
             class="btn genre-btn"
-            [ngClass]="dog.genre.toUpperCase() === 'FEMALE' ? 'selected' : ''"
+            [ngClass]="dog.genre?.toUpperCase() === 'FEMALE' ? 'selected' : ''"
           >
             Female
           </button>
@@ -49,7 +49,7 @@
           <div class="quantity-box">
             <app-quantity-box
               [(currentQuantity)]="currentQuantity"
-              [maxQuantity]="dog.availableQuantity"
+              [maxQuantity]="dog.availableQuantity!"
             ></app-quantity-box>
             <div class="available-quantity">
               (Available: {{ dog.availableQuantity }})
