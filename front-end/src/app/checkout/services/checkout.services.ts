@@ -20,5 +20,7 @@ export class CheckoutService {
     .pipe(tap((next) => this.store.set('cart', next)));
 
   updateCart = (cart: Cart): Observable<Cart> =>
-    this.http.put<Cart>(this.UrlServiceV1 + 'cart', cart);
+    this.http
+      .put<Cart>(this.UrlServiceV1 + 'cart', cart)
+      .pipe(tap((next) => this.store.set('cart', next)));
 }

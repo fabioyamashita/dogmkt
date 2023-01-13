@@ -1,0 +1,159 @@
+<form (ngSubmit)="onSubmitForm()" [formGroup]="createForm">
+  <h2 class="sub-heading">GENERAL INFO</h2>
+  <div class="input-box">
+    <label class="label">Name</label>
+    <input
+      class="input-text"
+      type="text"
+      placeholder="Enter the dog's name"
+      formControlName="name"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('name')">Enter a name </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Breed</label>
+    <select
+      name="breeds"
+      id="breeds"
+      class="html-select"
+      formControlName="breed"
+    >
+      <option hidden disabled selected value class="breed-placeholder">
+        -- Select a breed --
+      </option>
+      <option *ngFor="let breed of breedList" [value]="breed">
+        {{ breed }}
+      </option>
+    </select>
+    <span class="error-msg" *ngIf="inputIsValid('breed')">Select a breed </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Genre</label>
+    <select
+      name="genres"
+      id="genre"
+      class="html-select"
+      formControlName="genre"
+    >
+      <option hidden disabled selected value class="breed-placeholder">
+        -- Select a genre --
+      </option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <span class="error-msg" *ngIf="inputIsValid('genre')">Select a genre </span>
+  </div>
+
+  <h2 class="sub-heading">SALES INFO</h2>
+  <div class="input-box">
+    <label class="label">Price (Love)</label>
+    <input
+      class="input-text"
+      type="number"
+      placeholder="Enter the price"
+      formControlName="price"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('price')">Invalid price </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Available Quantity</label>
+    <input
+      class="input-text"
+      type="number"
+      placeholder="Enter the available quantity"
+      formControlName="availableQuantity"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('availableQuantity')"
+      >Invalid quantity
+    </span>
+  </div>
+
+  <h2 class="sub-heading">ADDITIONAL INFO</h2>
+  <div class="input-box">
+    <label class="label">Description</label>
+    <textarea
+      class="input-text"
+      name=""
+      id=""
+      rows="8"
+      placeholder="Enter a description"
+      formControlName="description"
+    ></textarea>
+    <span class="error-msg" *ngIf="inputIsValid('description')"
+      >Enter a description
+    </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Date of Birth</label>
+    <input
+      class="input-text input-date"
+      type="date"
+      formControlName="dateOfBirth"
+      [formControl]="createForm.get('dateOfBirth')"
+      [ngModel]="createForm.get('dateOfBirth').value | date : 'yyyy-MM-dd'"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('dateOfBirth')"
+      >Enter a Date
+    </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Weight (kg)</label>
+    <input
+      class="input-text"
+      type="number"
+      placeholder="Enter the weight"
+      formControlName="weight"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('weight')"
+      >Enter a weight
+    </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Height (cm)</label>
+    <input
+      class="input-text"
+      type="number"
+      placeholder="Enter the height"
+      formControlName="height"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('height')"
+      >Enter a height
+    </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Width (cm)</label>
+    <input
+      class="input-text"
+      type="number"
+      placeholder="Enter the width"
+      formControlName="width"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('width')">Enter a width </span>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Picture URL (Optional)</label>
+    <input
+      class="input-text"
+      type="text"
+      placeholder="Enter a URL of a picture"
+      formControlName="pictureUrl"
+    />
+    <span class="error-msg" *ngIf="inputIsValid('pictureUrl')"
+      >Enter a valid URL
+    </span>
+  </div>
+
+  <div class="submit-btn-area">
+    <button class="submit-btn" type="submit" [disabled]="!createForm.valid">
+      {{ router.url.includes("create") ? "ADD NEW DOG" : "EDIT DOG" }}
+    </button>
+  </div>
+</form>

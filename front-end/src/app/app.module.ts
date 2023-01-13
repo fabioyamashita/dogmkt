@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LOCALE_ID } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
@@ -20,7 +21,7 @@ import { Store } from './app.store';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [Store],
+  providers: [Store, { provide: LOCALE_ID, useValue: 'en-US' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

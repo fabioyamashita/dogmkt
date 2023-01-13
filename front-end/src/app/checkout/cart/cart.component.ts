@@ -21,10 +21,12 @@ export class CartComponent implements OnInit {
     private collectionService: CollectionService
   ) {}
 
-  cart$: Observable<Cart> | undefined;
+  cart: Cart | undefined;
 
   ngOnInit(): void {
-    this.cart$ = this.store.getCart$();
+    this.store.getCart$().subscribe({
+      next: (cart) => (this.cart = cart),
+    });
   }
 
   deleteFromCart(event: any): void {
