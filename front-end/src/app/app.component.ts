@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { CollectionService } from './services/collection.service';
 import { CheckoutService } from './services/checkout.services';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -15,14 +16,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private checkoutService: CheckoutService,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    private userService: UserService
   ) {}
 
   subscription: Subscription | undefined;
 
   ngOnInit(): void {
     this.subscription = this.checkoutService.getCart.subscribe();
-    this.subscription = this.collectionService.getAll.subscribe();
+    this.subscription = this.collectionService.getCollection.subscribe();
+    this.subscription = this.userService.getUsers.subscribe();
   }
 
   ngOnDestroy(): void {

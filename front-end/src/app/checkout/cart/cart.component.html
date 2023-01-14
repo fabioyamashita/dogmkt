@@ -25,7 +25,10 @@
           </div>
           <div class="default-info dog-id">ID: {{ dogCart.dog.id }}</div>
           <div class="default-info dog-seller">
-            Seller: {{ dogCart.dog.seller }}
+            Seller:
+            {{
+              this.sellerHelperService.getSellerName(dogCart.dog.sellerId ?? "")
+            }}
           </div>
 
           <div class="genre-quantity-box">

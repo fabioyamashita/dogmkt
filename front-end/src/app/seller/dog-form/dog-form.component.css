@@ -35,7 +35,8 @@
 }
 
 .input-box:has(.error-msg) .input-text,
-.input-box:has(.error-msg) .input-box {
+.input-box:has(.error-msg) .input-box,
+.input-box:has(.error-msg) .html-select {
   border: 1px solid #e03131;
 }
 

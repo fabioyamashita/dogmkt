@@ -1,11 +1,12 @@
+import { SellerHelperService } from './../../services/seller.helper.service';
 import { CollectionService } from '../../services/collection.service';
-import { CheckoutHelperService } from '../../services/dog.helper.service';
+import { DogHelperService } from '../../services/dog.helper.service';
 import { CheckoutService } from '../../services/checkout.services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import DogCart from 'src/app/checkout/models/dogCart';
-import Dog from 'src/app/collection/models/dog';
+import DogCart from 'src/app/models/dogCart';
+import Dog from 'src/app/models/dog';
 
 @Component({
   selector: 'app-details',
@@ -17,15 +18,20 @@ export class DetailsComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private checkoutService: CheckoutService,
-    private checkoutHelperService: CheckoutHelperService,
-    private collectionService: CollectionService
+    private dogHelperService: DogHelperService,
+    private collectionService: CollectionService,
+    private sellerHelperService: SellerHelperService
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ dog }) => (this.dog = dog));
+    this.sellerName = this.sellerHelperService.getSellerName(
+      this.dog.sellerId ?? ''
+    );
   }
 
   dog!: Dog;
+  sellerName: string = '';
   currentQuantity: number = 1;
 
   showDogInfo: boolean = true;
@@ -48,9 +54,8 @@ export class DetailsComponent implements OnInit {
       quantity: this.currentQuantity,
     };
 
-    const dogUpdated =
-      this.checkoutHelperService.updateDogInCollection(dogCart);
-    const cartUpdated = this.checkoutHelperService.updateCartStore(dogCart);
+    const dogUpdated = this.dogHelperService.updateDogInCollection(dogCart);
+    const cartUpdated = this.dogHelperService.updateCartStore(dogCart);
 
     this.collectionService.updateDog(dogUpdated).subscribe({
       complete: () => this.checkoutService.updateCart(cartUpdated).subscribe(),

@@ -5,15 +5,15 @@ import { CurrencyPipe, DatePipe } from '@angular/common';
 
 import { CollectionService } from 'src/app/services/collection.service';
 
-import Dog from 'src/app/collection/models/dog';
-import { DogBreeds } from 'src/app/collection/models/dog-breeds.enum';
+import Dog from 'src/app/models/dog';
+import { DogBreeds } from 'src/app/models/dog-breeds.enum';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
+  selector: 'app-dog-form',
+  templateUrl: './dog-form.component.html',
+  styleUrls: ['./dog-form.component.css'],
 })
-export class FormComponent implements OnInit {
+export class DogFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private collectionService: CollectionService,

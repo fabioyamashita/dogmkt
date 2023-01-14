@@ -19,9 +19,13 @@ const routes: Routes = [
       import('./collection/collection.module').then((m) => m.CollectionModule),
   },
   {
-    path: 'seller',
+    path: 'sellers',
     loadChildren: () =>
       import('./seller/seller.module').then((m) => m.SellerModule),
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
   },
 ];
 

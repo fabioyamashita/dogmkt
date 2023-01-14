@@ -5,19 +5,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
 import { SellerRoutingModule } from './seller.route';
+import { MaterialModule } from '../material/material.module';
+import { CollectionResolve } from '../services/collection.resolve';
 
 import { SellerComponent } from './seller.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
-import { FormComponent } from './form/form.component';
-import { CollectionResolve } from '../services/collection.resolve';
+import { DogFormComponent } from './dog-form/dog-form.component';
+import { SellerProfileComponent } from './seller-profile/seller-profile.component';
 
 @NgModule({
   declarations: [
     SellerComponent,
     EditComponent,
     CreateComponent,
-    FormComponent,
+    DogFormComponent,
+    SellerProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +29,7 @@ import { CollectionResolve } from '../services/collection.resolve';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
+    MaterialModule,
   ],
   providers: [CollectionResolve, DatePipe],
 })

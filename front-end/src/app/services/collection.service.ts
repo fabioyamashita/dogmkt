@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 import { BaseService } from 'src/app/services/base.service';
 import { Store } from '../app.store';
 
-import Dog from '../collection/models/dog';
+import Dog from '../models/dog';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class CollectionService extends BaseService {
     super();
   }
 
-  getAll: Observable<Dog[]> = this.http
+  getCollection: Observable<Dog[]> = this.http
     .get<Dog[]>(this.UrlServiceV1 + 'dogs')
     .pipe(tap((next) => this.store.set('dogsCollection', next)));
 

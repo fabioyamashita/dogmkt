@@ -1,4 +1,4 @@
-import Dog from 'src/app/collection/models/dog';
+import Dog from 'src/app/models/dog';
 
 export default class DogCart {
   dog: Dog;

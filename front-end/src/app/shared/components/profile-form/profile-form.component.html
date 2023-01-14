@@ -1,0 +1,35 @@
+<form [formGroup]="profileForm">
+  <div class="sub-heading">
+    <span>{{ "ID #" + user.id }}</span>
+    <div class="check-seller">
+      <input
+        class="checkbox-seller"
+        type="checkbox"
+        id="seller"
+        name="seller"
+        [attr.checked]="user.isSeller ? user.isSeller : null"
+        disabled
+      />
+      <label for="seller">Seller</label>
+    </div>
+  </div>
+
+  <div class="input-box">
+    <label class="label">Name</label>
+    <input
+      class="input-text"
+      type="text"
+      formControlName="name"
+      readonly="true"
+    />
+  </div>
+  <div class="input-box">
+    <label class="label">Email</label>
+    <input
+      class="input-text"
+      type="text"
+      formControlName="email"
+      readonly="true"
+    />
+  </div>
+</form>

@@ -1,7 +1,7 @@
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import Dog from 'src/app/collection/models/dog';
+import Dog from 'src/app/models/dog';
 
 @Component({
   selector: 'app-edit',
