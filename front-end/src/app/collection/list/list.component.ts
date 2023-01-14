@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { CollectionService } from 'src/app/services/collection.service';
 
-import Dog from 'src/app/collection/models/dog';
+import Dog from 'src/app/models/dog';
 
 @Component({
   selector: 'app-list',
@@ -12,10 +12,10 @@ import Dog from 'src/app/collection/models/dog';
 export class ListComponent implements OnInit {
   constructor(private collectionService: CollectionService) {}
 
-  public dogs?: Dog[];
+  public dogs!: Dog[];
 
   ngOnInit(): void {
-    this.collectionService.getAll.subscribe({
+    this.collectionService.getCollection.subscribe({
       next: (dogs: Dog[]) => (this.dogs = dogs),
       error: (err: Error) => console.error(err),
     });

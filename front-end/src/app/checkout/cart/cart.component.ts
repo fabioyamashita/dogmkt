@@ -1,12 +1,12 @@
-import { CollectionService } from 'src/app/services/collection.service';
-import { CheckoutService } from '../../services/checkout.services';
-import { CheckoutHelperService } from '../../services/dog.helper.service';
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 import { Store } from 'src/app/app.store';
 
-import Cart from '../models/cart';
+import Cart from '../../models/cart';
+import { SellerHelperService } from 'src/app/services/seller.helper.service';
+import { CollectionService } from 'src/app/services/collection.service';
+import { CheckoutService } from '../../services/checkout.services';
+import { DogHelperService } from '../../services/dog.helper.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,9 +16,10 @@ import Cart from '../models/cart';
 export class CartComponent implements OnInit {
   constructor(
     private store: Store,
-    private checkoutHelperService: CheckoutHelperService,
+    private dogHelperService: DogHelperService,
     private checkoutService: CheckoutService,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    public sellerHelperService: SellerHelperService
   ) {}
 
   cart: Cart | undefined;
@@ -31,7 +32,7 @@ export class CartComponent implements OnInit {
 
   deleteFromCart(event: any): void {
     const id = event.target.closest('.product-info').id;
-    let updatedDog = this.checkoutHelperService.deleteDogInCart(id);
+    let updatedDog = this.dogHelperService.deleteDogInCart(id);
 
     let updatedCart: any = this.store.value.cart;
 

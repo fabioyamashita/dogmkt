@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { Store } from '../app.store';
 
-import Cart from 'src/app/checkout/models/cart';
+import Cart from 'src/app/models/cart';
 
 @Injectable({
   providedIn: 'root',

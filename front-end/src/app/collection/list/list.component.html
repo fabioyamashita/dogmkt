@@ -1,28 +1,8 @@
 <div class="collection-container">
   <div class="collection-box">
     <h2 class="heading">BUY ANY DOG WITH LOVE</h2>
-    <div class="subheading">
-      <div class="sort-by">
-        <span class="sort-by-text">Sort by</span>
-        <button class="sort-by-btn">
-          <span class="sort-by-selected">New</span>
-          <mat-icon class="sort-by-icon">keyboard_arrow_down</mat-icon>
-        </button>
-      </div>
-
-      <form class="search-container">
-        <mat-icon class="search-icon">search</mat-icon>
-        <input
-          class="input-search"
-          type="text"
-          placeholder="Search by name..."
-        />
-      </form>
-    </div>
-
-    <section class="dogs-list">
-      <app-item *ngFor="let dog of dogs" [dog]="dog"></app-item>
-    </section>
+    <app-search-area></app-search-area>
+    <app-dog-list [dogs]="dogs"></app-dog-list>
   </div>
 
   <app-footer></app-footer>

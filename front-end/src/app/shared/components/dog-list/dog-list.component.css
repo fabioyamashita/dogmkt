@@ -1,0 +1,22 @@
+/* DOGS SECTION */
+
+.dogs-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3.4rem;
+
+  padding: 4rem 2rem 4rem 2rem;
+}
+
+@media (max-width: 70rem) {
+  .dogs-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 45rem) {
+  .dogs-list {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+}

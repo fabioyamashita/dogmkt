@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 
 import { Store } from 'src/app/app.store';
 
-import Dog from 'src/app/collection/models/dog';
-import Cart from '../checkout/models/cart';
-import DogCart from '../checkout/models/dogCart';
+import Dog from 'src/app/models/dog';
+import Cart from '../models/cart';
+import DogCart from '../models/dogCart';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CheckoutHelperService {
+export class DogHelperService {
   constructor(private store: Store) {}
 
   updateCartStore(dogCart: DogCart): Cart {

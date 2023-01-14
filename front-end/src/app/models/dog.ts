@@ -11,7 +11,7 @@ export default class Dog {
   height?: number;
   width?: number;
   pictureUrl?: string;
-  seller?: string;
+  sellerId?: string;
 
   constructor() {}
 }

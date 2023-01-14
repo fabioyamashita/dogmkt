@@ -12,22 +12,23 @@
       "height": 15,
       "width": 10,
       "pictureUrl": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
-      "id": 1
+      "id": "1",
+      "sellerId": "1"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "John",
       "breed": "Samoyed",
       "genre": "Male",
       "price": 105.5,
       "availableQuantity": 5,
       "description": "Lovely dog",
-      "birthDate": "2022-12-01",
+      "dateOfBirth": "2022-12-01",
       "weight": 20,
       "height": 15,
       "width": 15,
       "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-      "seller": "Seller name 2"
+      "sellerId": "2"
     }
   ],
   "cart": {
@@ -36,5 +37,19 @@
     "discount": 0,
     "total": 0,
     "dogs": []
-  }
+  },
+  "users": [
+    {
+      "id": "1",
+      "name": "user name id 1",
+      "email": "usernameid1@gmail.com",
+      "isSeller": false
+    },
+    {
+      "id": "2",
+      "name": "user name id 2",
+      "email": "usernameid2@gmail.com",
+      "isSeller": false
+    }
+  ]
 }

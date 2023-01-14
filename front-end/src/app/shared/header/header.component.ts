@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Store } from 'src/app/app.store';
-import Cart from 'src/app/checkout/models/cart';
+import Cart from 'src/app/models/cart';
 
 @Component({
   selector: 'app-header',

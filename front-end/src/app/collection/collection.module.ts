@@ -10,16 +10,10 @@ import { CollectionResolve } from '../services/collection.resolve';
 
 import { CollectionComponent } from './collection.component';
 import { ListComponent } from './list/list.component';
-import { ItemComponent } from './list/item/item.component';
 import { DetailsComponent } from './details/details.component';
 
 @NgModule({
-  declarations: [
-    CollectionComponent,
-    ListComponent,
-    DetailsComponent,
-    ItemComponent,
-  ],
+  declarations: [CollectionComponent, ListComponent, DetailsComponent],
   imports: [
     CommonModule,
     RouterModule,
