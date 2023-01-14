@@ -6,7 +6,7 @@ import { MaterialModule } from '../material/material.module';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { QuantityBoxComponent } from './quantity-box/quantity-box.component';
+import { QuantityBoxComponent } from './components/quantity-box/quantity-box.component';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, QuantityBoxComponent],

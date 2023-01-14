@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { Store } from 'src/app/app.store';
 
 import Dog from 'src/app/collection/models/dog';
-import Cart from '../models/cart';
-import DogCart from '../models/dogCart';
+import Cart from '../checkout/models/cart';
+import DogCart from '../checkout/models/dogCart';
 
 @Injectable({
   providedIn: 'root',

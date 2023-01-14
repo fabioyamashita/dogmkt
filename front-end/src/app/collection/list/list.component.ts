@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CollectionService } from 'src/app/collection/services/collection.service';
+import { CollectionService } from 'src/app/services/collection.service';
 
 import Dog from 'src/app/collection/models/dog';
 

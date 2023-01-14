@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -10,7 +10,7 @@ import { SellerComponent } from './seller.component';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { FormComponent } from './form/form.component';
-import { CollectionResolve } from '../collection/services/collection.resolve';
+import { CollectionResolve } from '../services/collection.resolve';
 
 @NgModule({
   declarations: [
@@ -27,6 +27,6 @@ import { CollectionResolve } from '../collection/services/collection.resolve';
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [CollectionResolve],
+  providers: [CollectionResolve, DatePipe],
 })
 export class SellerModule {}

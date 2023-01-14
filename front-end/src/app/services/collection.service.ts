@@ -3,9 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { BaseService } from 'src/app/services/base.service';
-import { Store } from '../../app.store';
+import { Store } from '../app.store';
 
-import Dog from '../models/dog';
+import Dog from '../collection/models/dog';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +36,7 @@ export class CollectionService extends BaseService {
     );
 
   createDog(newDog: Dog): Observable<Dog> {
-    if (newDog.pictureUrl == '')
+    if (!newDog.pictureUrl)
       newDog.pictureUrl =
         'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80';
 

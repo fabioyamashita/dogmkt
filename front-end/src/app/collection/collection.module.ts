@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { CollectionRoutingModule } from './collection.route';
-import { CollectionService } from './services/collection.service';
-import { CollectionResolve } from './services/collection.resolve';
+import { CollectionService } from '../services/collection.service';
+import { CollectionResolve } from '../services/collection.resolve';
 
 import { CollectionComponent } from './collection.component';
 import { ListComponent } from './list/list.component';

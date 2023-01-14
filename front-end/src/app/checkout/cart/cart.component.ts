@@ -1,6 +1,6 @@
-import { CollectionService } from 'src/app/collection/services/collection.service';
-import { CheckoutService } from './../services/checkout.services';
-import { CheckoutHelperService } from './../services/checkout.helper.service';
+import { CollectionService } from 'src/app/services/collection.service';
+import { CheckoutService } from '../../services/checkout.services';
+import { CheckoutHelperService } from '../../services/dog.helper.service';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 

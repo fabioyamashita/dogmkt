@@ -1,6 +1,6 @@
-import { CollectionService } from './../services/collection.service';
-import { CheckoutHelperService } from './../../checkout/services/checkout.helper.service';
-import { CheckoutService } from './../../checkout/services/checkout.services';
+import { CollectionService } from '../../services/collection.service';
+import { CheckoutHelperService } from '../../services/dog.helper.service';
+import { CheckoutService } from '../../services/checkout.services';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
