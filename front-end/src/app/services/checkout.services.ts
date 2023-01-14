@@ -2,10 +2,9 @@ import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Store } from '../../app.store';
+import { Store } from '../app.store';
 
 import Cart from 'src/app/checkout/models/cart';
-import DogCart from '../models/dogCart';
 
 @Injectable({
   providedIn: 'root',

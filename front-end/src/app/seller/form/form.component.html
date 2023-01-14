@@ -93,8 +93,6 @@
       class="input-text input-date"
       type="date"
       formControlName="dateOfBirth"
-      [formControl]="createForm.get('dateOfBirth')"
-      [ngModel]="createForm.get('dateOfBirth').value | date : 'yyyy-MM-dd'"
     />
     <span class="error-msg" *ngIf="inputIsValid('dateOfBirth')"
       >Enter a Date

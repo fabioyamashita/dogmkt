@@ -1,4 +1,4 @@
-import { CollectionResolve } from './services/collection.resolve';
+import { CollectionResolve } from '../services/collection.resolve';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 

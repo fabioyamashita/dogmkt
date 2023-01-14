@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SellerComponent } from './seller.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
-import { CollectionResolve } from '../collection/services/collection.resolve';
+import { CollectionResolve } from '../services/collection.resolve';
 
 const sellerRouterConfig: Routes = [
   {

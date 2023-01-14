@@ -1,8 +1,9 @@
-import { CollectionService } from './collection/services/collection.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { Subscription } from 'rxjs';
-import { Store } from './app.store';
-import { CheckoutService } from './checkout/services/checkout.services';
+
+import { CollectionService } from './services/collection.service';
+import { CheckoutService } from './services/checkout.services';
 
 @Component({
   selector: 'app-root',

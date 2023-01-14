@@ -1,8 +1,9 @@
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 
-import { CollectionService } from 'src/app/collection/services/collection.service';
+import { CollectionService } from 'src/app/services/collection.service';
 
 import Dog from 'src/app/collection/models/dog';
 import { DogBreeds } from 'src/app/collection/models/dog-breeds.enum';
@@ -16,7 +17,8 @@ export class FormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private collectionService: CollectionService,
-    public router: Router
+    public router: Router,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit(): void {
@@ -52,7 +54,11 @@ export class FormComponent implements OnInit {
     if (this.createForm.dirty && this.createForm.valid) {
       let dog: Dog = new Dog();
       dog = Object.assign({}, dog, this.createForm.value);
-      dog.dateOfBirth = new Date(this.createForm.value.dateOfBirth ?? '');
+      dog.dateOfBirth =
+        this.datePipe.transform(
+          this.createForm.value.dateOfBirth,
+          'yyyy-MM-dd'
+        ) ?? '';
 
       if (this.router.url.includes('create'))
         this.collectionService.createDog(dog).subscribe();

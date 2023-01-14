@@ -6,7 +6,7 @@ export default class Dog {
   price?: number;
   availableQuantity?: number;
   description?: string;
-  dateOfBirth?: Date;
+  dateOfBirth?: string;
   weight?: number;
   height?: number;
   width?: number;
