@@ -3,16 +3,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Store } from '../app.store';
+import { BaseService } from './base.service';
 
 import Cart from 'src/app/models/cart';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CheckoutService {
-  constructor(private http: HttpClient, private store: Store) {}
-
-  protected UrlServiceV1: string = 'http://localhost:3000/';
+export class CheckoutService extends BaseService {
+  constructor(private http: HttpClient, private store: Store) {
+    super();
+  }
 
   getCart: Observable<Cart> = this.http
     .get<Cart>(this.UrlServiceV1 + 'cart')

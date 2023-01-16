@@ -1,4 +1,27 @@
 {
+  "users": [
+    {
+      "email": "teste@gmail.com",
+      "password": "$2a$10$3G2a2r0Djk5I8hR8a6KP0.W3Ln6s1k2abXkBMaxdAqWHg6zsgGQKS",
+      "name": "fabio",
+      "isSeller": false,
+      "id": 1
+    },
+    {
+      "email": "fad@gmail.co",
+      "password": "$2a$10$d5yd9nmrGkYRhGK1JE03rearyWDYnpWqRxOvZqhs.BO7eRz991Ulm",
+      "name": "da",
+      "isSeller": false,
+      "id": 2
+    },
+    {
+      "email": "aaaa@gmail.com",
+      "password": "$2a$10$JaivJF8sxM6dAzOY8fZO/epCrsLAT/df9EGxNj6.2iM8rsM5uZM7e",
+      "name": "aaa",
+      "isSeller": false,
+      "id": 3
+    }
+  ],
   "dogs": [
     {
       "name": "Nina the Samoyed :)",
@@ -20,7 +43,7 @@
       "breed": "Samoyed",
       "genre": "Male",
       "price": 105.5,
-      "availableQuantity": 0,
+      "availableQuantity": 5,
       "description": "Lovely dog",
       "dateOfBirth": "2022-12-01",
       "weight": 20,
@@ -33,43 +56,9 @@
   ],
   "cart": {
     "id": "1673225190132",
-    "summary": 633,
+    "summary": 0,
     "discount": 0,
-    "total": 633,
-    "dogs": [
-      {
-        "dog": {
-          "name": "John",
-          "breed": "Samoyed",
-          "genre": "Male",
-          "price": 105.5,
-          "availableQuantity": 5,
-          "description": "Lovely dog",
-          "dateOfBirth": "2022-12-01",
-          "weight": 20,
-          "height": 15,
-          "width": 15,
-          "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-          "sellerId": "2",
-          "id": "2"
-        },
-        "dogId": "2",
-        "quantity": 6
-      }
-    ]
-  },
-  "users": [
-    {
-      "id": "1",
-      "name": "user name id 1",
-      "email": "usernameid1@gmail.com",
-      "isSeller": false
-    },
-    {
-      "id": "2",
-      "name": "user name id 2",
-      "email": "usernameid2@gmail.com",
-      "isSeller": false
-    }
-  ]
+    "total": 0,
+    "dogs": []
+  }
 }
