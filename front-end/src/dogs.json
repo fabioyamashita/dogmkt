@@ -16,27 +16,47 @@
       "sellerId": "1"
     },
     {
-      "id": "2",
       "name": "John",
       "breed": "Samoyed",
       "genre": "Male",
       "price": 105.5,
-      "availableQuantity": 5,
+      "availableQuantity": 0,
       "description": "Lovely dog",
       "dateOfBirth": "2022-12-01",
       "weight": 20,
       "height": 15,
       "width": 15,
       "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-      "sellerId": "2"
+      "sellerId": "2",
+      "id": "2"
     }
   ],
   "cart": {
     "id": "1673225190132",
-    "summary": 0,
+    "summary": 633,
     "discount": 0,
-    "total": 0,
-    "dogs": []
+    "total": 633,
+    "dogs": [
+      {
+        "dog": {
+          "name": "John",
+          "breed": "Samoyed",
+          "genre": "Male",
+          "price": 105.5,
+          "availableQuantity": 5,
+          "description": "Lovely dog",
+          "dateOfBirth": "2022-12-01",
+          "weight": 20,
+          "height": 15,
+          "width": 15,
+          "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+          "sellerId": "2",
+          "id": "2"
+        },
+        "dogId": "2",
+        "quantity": 6
+      }
+    ]
   },
   "users": [
     {

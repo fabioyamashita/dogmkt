@@ -1,0 +1,136 @@
+<div class="container">
+  <div class="dog-details-container">
+    <h3 class="title">DOG'S COLLECTION — {{ dog.breed | uppercase }}</h3>
+    <div class="dog-details">
+      <div class="dog-img-box">
+        <img src="{{ dog.pictureUrl }}" alt="samoyed-img" class="dog-img" />
+      </div>
+      <div class="dog-info">
+        <div class="name-price-box">
+          <span class="name-text">{{ dog.name }}</span>
+          <div class="price-box">
+            <mat-icon class="price-icon">favorite</mat-icon>
+            <span class="price">{{ dog.price | number : "1.2-2" }}</span>
+          </div>
+        </div>
+
+        <div class="genre-box">
+          <button
+            class="btn genre-btn"
+            [ngClass]="dog.genre?.toUpperCase() === 'MALE' ? 'selected' : ''"
+          >
+            Male
+          </button>
+          <button
+            class="btn genre-btn"
+            [ngClass]="dog.genre?.toUpperCase() === 'FEMALE' ? 'selected' : ''"
+          >
+            Female
+          </button>
+        </div>
+
+        <div class="add-to-cart-area">
+          <div>
+            <button
+              class="btn add-to-cart-btn"
+              (click)="addItemToCart()"
+              *ngIf="
+                dog.availableQuantity != 0 &&
+                !this.router.url.includes('/seller')
+              "
+            >
+              ADD TO CART
+            </button>
+            <button
+              class="btn sold-out-btn"
+              disabled
+              *ngIf="
+                dog.availableQuantity == 0 &&
+                !this.router.url.includes('/seller')
+              "
+            >
+              SOLD OUT
+            </button>
+            <button
+              class="btn edit-btn"
+              *ngIf="this.router.url.includes('/seller')"
+              [routerLink]="['/seller/edit/', dog.id]"
+            >
+              EDIT DOG
+            </button>
+          </div>
+          <div class="quantity-box">
+            <app-quantity-box
+              [(currentQuantity)]="currentQuantity"
+              [maxQuantity]="dog.availableQuantity!"
+              *ngIf="!this.router.url.includes('/seller')"
+            ></app-quantity-box>
+            <div class="available-quantity">
+              (Available: {{ dog.availableQuantity }})
+            </div>
+          </div>
+        </div>
+
+        <div class="more-details-section">
+          <div class="more-details-header" (change)="onMoreInfoChange($event)">
+            <input
+              type="radio"
+              class="more-details-header-btn"
+              id="dog-info"
+              name="more-info"
+              value="dog-info"
+              checked="true"
+            />
+            <label class="more-info-label" for="dog-info">Dog's Info</label>
+            <input
+              type="radio"
+              class="more-details-header-btn"
+              id="dog-details"
+              value="dog-details"
+              name="more-info"
+            />
+            <label class="more-info-label" for="dog-details">Details</label>
+          </div>
+          <div class="dog-info-details">
+            <span class="dog-info-text" *ngIf="showDogInfo"
+              >{{ dog.description }}
+            </span>
+
+            <table class="details-table" *ngIf="showDogDetails">
+              <tr class="row">
+                <td class="col-title">Seller</td>
+                <td class="col-description">{{ sellerName }}</td>
+              </tr>
+              <tr class="row">
+                <td class="col-title">Date of Birth</td>
+                <td class="col-description">
+                  {{ dog.dateOfBirth | date : "mediumDate" }}
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="col-title">Weight</td>
+                <td class="col-description">
+                  {{ dog.weight | number : "1.1-1" }} kg
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="col-title">Height</td>
+                <td class="col-description">
+                  {{ dog.height | number : "1.1-1" }} cm
+                </td>
+              </tr>
+              <tr class="row">
+                <td class="col-title">Width</td>
+                <td class="col-description">
+                  {{ dog.width | number : "1.1-1" }} cm
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

@@ -6,6 +6,7 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 import { CollectionResolve } from '../services/collection.resolve';
 import { SellerProfileComponent } from './seller-profile/seller-profile.component';
+import { DogPreviewComponent } from './dog-preview/dog-preview.component';
 
 const sellerRouterConfig: Routes = [
   {
@@ -17,6 +18,13 @@ const sellerRouterConfig: Routes = [
       {
         path: 'edit/:id',
         component: EditComponent,
+        resolve: {
+          dog: CollectionResolve,
+        },
+      },
+      {
+        path: 'preview/:id',
+        component: DogPreviewComponent,
         resolve: {
           dog: CollectionResolve,
         },
