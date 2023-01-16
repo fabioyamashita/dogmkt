@@ -3,7 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { CollectionService } from './services/collection.service';
-import { CheckoutService } from './services/checkout.services';
+import { CheckoutService } from './services/checkout.service';
 import { UserService } from './services/user.service';
 
 @Component({

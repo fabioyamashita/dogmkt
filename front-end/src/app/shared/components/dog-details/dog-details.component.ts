@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { CheckoutService } from 'src/app/services/checkout.services';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { CollectionService } from 'src/app/services/collection.service';
 import { DogHelperService } from 'src/app/services/dog.helper.service';
 

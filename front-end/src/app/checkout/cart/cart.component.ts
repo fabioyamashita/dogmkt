@@ -5,7 +5,7 @@ import { Store } from 'src/app/app.store';
 import { SellerHelperService } from 'src/app/services/seller.helper.service';
 import { CollectionService } from 'src/app/services/collection.service';
 import { CollectionHelperService } from './../../services/collection.helper.service';
-import { CheckoutService } from '../../services/checkout.services';
+import { CheckoutService } from '../../services/checkout.service';
 import { DogHelperService } from '../../services/dog.helper.service';
 import Cart from '../../models/cart';
 import Dog from 'src/app/models/dog';
