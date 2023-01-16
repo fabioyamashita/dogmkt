@@ -1,5 +1,5 @@
 <mat-toolbar class="header" aria-label="nav">
-  <a class="logo-container" routerLink="/sellers/create">
+  <a class="logo-container">
     <img
       class="logo-dogmkt"
       src="../../../assets/dogmkt-logo.png"
@@ -10,36 +10,112 @@
   <div class="center-link">
     <ul>
       <li class="center-option">
-        <a routerLink="/collection/list">DOG'S COLLECTION</a>
+        <button
+          mat-button
+          class="dogs-collection-link"
+          routerLink="/collection/list"
+          *ngIf="
+            !this.router.url.includes('/seller') &&
+            !this.router.url.includes('/account')
+          "
+        >
+          DOG'S COLLECTION
+        </button>
       </li>
     </ul>
   </div>
 
   <div class="right-link">
-    <a *ngIf="this.router.url === '/account/login'" routerLink="/account/signup"
-      >SIGN UP</a
+    <button
+      mat-button
+      class="signup-link"
+      *ngIf="this.router.url === '/account/login'"
+      routerLink="/account/signup"
     >
-    <a *ngIf="this.router.url === '/account/signup'" routerLink="/account/login"
-      >LOGIN</a
+      SIGN UP
+    </button>
+    <button
+      mat-button
+      class="login-link"
+      *ngIf="this.router.url === '/account/signup'"
+      routerLink="/account/login"
     >
-    <a
+      LOGIN
+    </button>
+
+    <button
+      mat-button
+      class="cart-link"
       *ngIf="
         this.router.url !== '/account/login' &&
-        this.router.url !== '/account/signup'
+        this.router.url !== '/account/signup' &&
+        !this.router.url.includes('/seller')
       "
       routerLink="/checkout/cart"
-      >CART({{ countDogsInCart }})</a
     >
-    <a
+      CART({{ countDogsInCart }})
+    </button>
+
+    <button
+      mat-button
+      class="cart-link"
+      *ngIf="this.router.url.includes('/seller')"
+      routerLink="/seller/create"
+    >
+      ADD A NEW DOG
+    </button>
+
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
       class="profile-link"
       *ngIf="
         this.router.url !== '/account/login' &&
         this.router.url !== '/account/signup'
       "
-      routerLink="/account/login"
     >
       PROFILE
       <mat-icon>keyboard_arrow_down</mat-icon>
-    </a>
+    </button>
+    <mat-menu #menu="matMenu" class="menu">
+      <button
+        mat-menu-item
+        class="menu-item"
+        routerLink="/seller/profile"
+        *ngIf="this.router.url.includes('/seller')"
+      >
+        My Profile
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item"
+        routerLink="/user/profile"
+        *ngIf="!this.router.url.includes('/seller')"
+      >
+        My Profile
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item"
+        routerLink="/collection/list"
+        *ngIf="this.router.url.includes('/seller')"
+      >
+        User View
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item"
+        routerLink="/seller/profile"
+        *ngIf="!this.router.url.includes('/seller')"
+      >
+        Seller View
+      </button>
+      <button mat-menu-item class="menu-item" routerLink="/account/login">
+        Logout
+      </button>
+    </mat-menu>
   </div>
 </mat-toolbar>

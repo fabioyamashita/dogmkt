@@ -2,7 +2,11 @@
   <div
     class="dog-img-box"
     [ngClass]="dog.availableQuantity == 0 ? 'sold-out' : ''"
-    [routerLink]="['/collection/details/', dog.id]"
+    [routerLink]="
+      this.router.url.includes('/seller')
+        ? ['/seller/preview/', dog.id]
+        : ['/collection/details/', dog.id]
+    "
   >
     <span class="sold-out-text" *ngIf="dog.availableQuantity == 0"
       >Sold Out</span

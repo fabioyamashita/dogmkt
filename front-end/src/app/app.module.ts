@@ -11,7 +11,6 @@ import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { Store } from './app.store';
 import { UserComponent } from './user/user.component';
-import { UserProfileComponent } from './user/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [AppComponent, UserComponent],

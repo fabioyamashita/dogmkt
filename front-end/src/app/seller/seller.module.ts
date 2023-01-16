@@ -13,6 +13,7 @@ import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
 import { DogFormComponent } from './dog-form/dog-form.component';
 import { SellerProfileComponent } from './seller-profile/seller-profile.component';
+import { DogPreviewComponent } from './dog-preview/dog-preview.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SellerProfileComponent } from './seller-profile/seller-profile.componen
     CreateComponent,
     DogFormComponent,
     SellerProfileComponent,
+    DogPreviewComponent,
   ],
   imports: [
     CommonModule,

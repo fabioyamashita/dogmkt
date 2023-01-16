@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 import { Store } from 'src/app/app.store';
 
-import Cart from '../../models/cart';
 import { SellerHelperService } from 'src/app/services/seller.helper.service';
 import { CollectionService } from 'src/app/services/collection.service';
+import { CollectionHelperService } from './../../services/collection.helper.service';
 import { CheckoutService } from '../../services/checkout.services';
 import { DogHelperService } from '../../services/dog.helper.service';
+import Cart from '../../models/cart';
+import Dog from 'src/app/models/dog';
 
 @Component({
   selector: 'app-cart',
@@ -19,7 +21,8 @@ export class CartComponent implements OnInit {
     private dogHelperService: DogHelperService,
     private checkoutService: CheckoutService,
     private collectionService: CollectionService,
-    public sellerHelperService: SellerHelperService
+    public sellerHelperService: SellerHelperService,
+    private collectionHelperService: CollectionHelperService
   ) {}
 
   cart: Cart | undefined;
