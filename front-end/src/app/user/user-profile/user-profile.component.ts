@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Store } from 'src/app/app.store';
+import User from 'src/app/models/user';
+import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 @Component({
   selector: 'app-profile',
@@ -6,14 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-profile.component.css'],
 })
 export class UserProfileComponent implements OnInit {
-  user: any;
+  constructor(
+    private store: Store,
+    private localStorageUtils: LocalStorageUtils
+  ) {}
+  user!: any;
 
   ngOnInit(): void {
-    this.user = {
-      id: '1111',
-      name: 'fabio',
-      email: 'fabio@gmail.com',
-      isSeller: false,
-    };
+    this.user = this.store.value.users.find(
+      (user) => user.id == parseInt(this.localStorageUtils.getUserId())
+    );
   }
 }

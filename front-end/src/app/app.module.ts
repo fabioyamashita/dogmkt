@@ -1,3 +1,4 @@
+import { AppGuard } from './services/app.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -11,6 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { AppComponent } from './app.component';
 import { Store } from './app.store';
 import { UserComponent } from './user/user.component';
+import { LocalStorageUtils } from './utils/localStorage';
 
 @NgModule({
   declarations: [AppComponent, UserComponent],
@@ -22,7 +24,12 @@ import { UserComponent } from './user/user.component';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [Store, { provide: LOCALE_ID, useValue: 'en-US' }],
+  providers: [
+    Store,
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    LocalStorageUtils,
+    AppGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

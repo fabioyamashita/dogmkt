@@ -1,5 +1,5 @@
 import { Observable, tap } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { BaseService } from 'src/app/services/base.service';
@@ -33,7 +33,7 @@ export class UserService extends BaseService {
       )
     );
 
-  getById = (id: string): Observable<User> =>
+  getById = (id: number): Observable<User> =>
     this.http.get<User>(this.UrlServiceV1 + 'users' + '/' + id);
 
   createUser(newUser: User): Observable<User> {

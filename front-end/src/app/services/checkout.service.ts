@@ -15,12 +15,26 @@ export class CheckoutService extends BaseService {
     super();
   }
 
-  getCart: Observable<Cart> = this.http
-    .get<Cart>(this.UrlServiceV1 + 'cart')
-    .pipe(tap((next) => this.store.set('cart', next)));
+  getCart = (userId: number): Observable<Cart> =>
+    this.http
+      .get<Cart>(this.UrlServiceV1 + 'carts/' + userId, super.getHttpHeaders())
+      .pipe(
+        tap((next) => {
+          this.store.set('cart', next);
+        })
+      );
 
   updateCart = (cart: Cart): Observable<Cart> =>
     this.http
-      .put<Cart>(this.UrlServiceV1 + 'cart', cart)
+      .put<Cart>(
+        this.UrlServiceV1 + 'carts/' + cart.id,
+        cart,
+        super.getHttpHeaders()
+      )
+      .pipe(tap((next) => this.store.set('cart', next)));
+
+  createCart = (cart: Cart): Observable<Cart> =>
+    this.http
+      .post<Cart>(this.UrlServiceV1 + 'carts', cart, super.getHttpHeaders())
       .pipe(tap((next) => this.store.set('cart', next)));
 }

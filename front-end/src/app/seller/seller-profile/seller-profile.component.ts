@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import Dog from 'src/app/models/dog';
+
 import { CollectionService } from 'src/app/services/collection.service';
+import Dog from 'src/app/models/dog';
+import { Store } from 'src/app/app.store';
+import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 @Component({
   selector: 'app-seller-profile',
@@ -8,22 +11,30 @@ import { CollectionService } from 'src/app/services/collection.service';
   styleUrls: ['./seller-profile.component.css'],
 })
 export class SellerProfileComponent {
-  constructor(private collectionService: CollectionService) {}
+  constructor(
+    private collectionService: CollectionService,
+    private store: Store,
+    private localStorageUtils: LocalStorageUtils
+  ) {}
 
   public dogs!: Dog[];
-  user: any;
+  user!: any;
 
   ngOnInit(): void {
     this.collectionService.getCollection.subscribe({
-      next: (dogs: Dog[]) => (this.dogs = dogs),
+      next: (dogs: Dog[]) =>
+        (this.dogs = dogs.filter(
+          (dog) => dog.sellerId == parseInt(this.localStorageUtils.getUserId())
+        )),
       error: (err: Error) => console.error(err),
     });
 
-    this.user = {
-      id: '1111',
-      name: 'fabio',
-      email: 'fabio@gmail.com',
-      isSeller: true,
-    };
+    this.user = this.store.value.users.find(
+      (user) => user.id == parseInt(this.localStorageUtils.getUserId())
+    );
+
+    this.user = this.store.value.users.find(
+      (user) => user.id == parseInt(this.localStorageUtils.getUserId())
+    );
   }
 }

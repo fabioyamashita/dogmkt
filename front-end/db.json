@@ -1,64 +1,112 @@
 {
   "users": [
     {
-      "email": "teste@gmail.com",
-      "password": "$2a$10$3G2a2r0Djk5I8hR8a6KP0.W3Ln6s1k2abXkBMaxdAqWHg6zsgGQKS",
-      "name": "fabio",
-      "isSeller": false,
+      "email": "fabio@gmail.com",
+      "password": "$2a$10$k6x6lx0QawROt2t7KWR/yOqdlfcdVwpyGRqy/ZfTtCDAlfjcWv5Zy",
+      "name": "FAbio Yamashita",
+      "isSeller": true,
       "id": 1
     },
     {
-      "email": "fad@gmail.co",
-      "password": "$2a$10$d5yd9nmrGkYRhGK1JE03rearyWDYnpWqRxOvZqhs.BO7eRz991Ulm",
-      "name": "da",
-      "isSeller": false,
+      "email": "teste@gmail.com",
+      "password": "$2a$10$BGHK69.cRrQ9BKEpln4iwupvk4bH6paDIE099RCvjnMrhxzlSW1Sq",
+      "name": "teste",
+      "isSeller": true,
       "id": 2
-    },
-    {
-      "email": "aaaa@gmail.com",
-      "password": "$2a$10$JaivJF8sxM6dAzOY8fZO/epCrsLAT/df9EGxNj6.2iM8rsM5uZM7e",
-      "name": "aaa",
-      "isSeller": false,
-      "id": 3
     }
   ],
   "dogs": [
     {
-      "name": "Nina the Samoyed :)",
+      "name": "Nina the Samoyed",
       "breed": "Samoyed",
       "genre": "Female",
-      "price": 135.52,
-      "availableQuantity": 5,
-      "description": "The Samoyed is a breed of medium-sized herding dogs with thick, white, double-layer coats. They are a spitz-type dog which takes its name from the Samoyedic peoples of Siberia. Descending from the Nenets Herding Laika, they are a domesticated animal that assists in herding, hunting, protection and sled-pulling.",
-      "dateOfBirth": "2021-12-02",
+      "price": 150.18,
+      "availableQuantity": 9,
+      "description": "Description Teste",
+      "dateOfBirth": "2023-01-01",
       "weight": 35,
-      "height": 15,
-      "width": 10,
-      "pictureUrl": "https://images.unsplash.com/photo-1529429617124-95b109e86bb8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1935&q=80",
-      "id": "1",
-      "sellerId": "1"
+      "height": 12,
+      "width": 5,
+      "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+      "sellerId": 1,
+      "id": 1
     },
     {
+      "availableQuantity": 1,
       "name": "John",
-      "breed": "Samoyed",
+      "breed": "Airedale Terrier",
       "genre": "Male",
-      "price": 105.5,
-      "availableQuantity": 5,
-      "description": "Lovely dog",
-      "dateOfBirth": "2022-12-01",
-      "weight": 20,
-      "height": 15,
+      "price": 147,
+      "description": "Test",
+      "dateOfBirth": "2023-01-03",
+      "weight": 15,
+      "height": 14,
       "width": 15,
-      "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-      "sellerId": "2",
-      "id": "2"
+      "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+      "sellerId": 1,
+      "id": 2
+    },
+    {
+      "availableQuantity": 5,
+      "name": "Maria",
+      "breed": "Afghan Hound",
+      "genre": "Female",
+      "price": 142,
+      "description": "Teste",
+      "dateOfBirth": "2023-01-19",
+      "weight": 14,
+      "height": 14,
+      "width": 10,
+      "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+      "sellerId": 1,
+      "id": 3
+    },
+    {
+      "availableQuantity": 5,
+      "name": "Seller 2 Dog",
+      "breed": "Afghan Hound",
+      "genre": "Male",
+      "price": 125,
+      "description": "teste",
+      "dateOfBirth": "2023-01-21",
+      "weight": 14,
+      "height": 15,
+      "width": 14,
+      "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+      "sellerId": 2,
+      "id": 4
     }
   ],
-  "cart": {
-    "id": "1673225190132",
-    "summary": 0,
-    "discount": 0,
-    "total": 0,
-    "dogs": []
-  }
+  "carts": [
+    {
+      "userId": 1,
+      "summary": 250,
+      "discount": 0,
+      "total": 250,
+      "dogs": [
+        {
+          "dogId": 4,
+          "quantity": 2
+        }
+      ],
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "summary": 591.18,
+      "discount": 0,
+      "total": 591.18,
+      "dogs": [
+        {
+          "dogId": 1,
+          "quantity": 1
+        },
+        {
+          "dogId": 2,
+          "quantity": 3
+        }
+      ],
+      "id": 2
+    }
+  ]
 }

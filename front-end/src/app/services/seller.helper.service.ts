@@ -10,13 +10,13 @@ import Dog from '../models/dog';
 export class SellerHelperService {
   constructor(private store: Store) {}
 
-  getDogsBySeller(sellerId: string): Dog[] {
+  getDogsBySeller(sellerId: number): Dog[] {
     let dogsCollection = this.store.value.dogsCollection;
 
     return dogsCollection.filter((dog) => (dog.sellerId = sellerId)) ?? [];
   }
 
-  getSellerName(sellerId: string): string {
+  getSellerName(sellerId: number): string {
     let users = this.store.value.users;
 
     return users.find((user) => user.id == sellerId)?.name ?? '';

@@ -1,18 +1,21 @@
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import Cart from './models/cart';
 import Dog from './models/dog';
+import DogCartDetailed from './models/dogCartDetailed';
 import User from './models/user';
 
 export interface State {
   dogsCollection: Dog[];
   cart: Cart;
   users: User[];
+  dogCartDetailed: DogCartDetailed;
 }
 
 const state: State = {
   dogsCollection: [],
   cart: new Cart(),
   users: [],
+  dogCartDetailed: new DogCartDetailed(),
 };
 
 export class Store {
@@ -33,6 +36,10 @@ export class Store {
 
   public getUser$(): Observable<User[]> {
     return this.store.pipe(map((store) => store.users));
+  }
+
+  public getDogCartDetailed$(): Observable<DogCartDetailed> {
+    return this.store.pipe(map((store) => store.dogCartDetailed));
   }
 
   set(name: string, state: any) {

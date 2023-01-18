@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CurrencyPipe, DatePipe } from '@angular/common';
@@ -7,6 +7,8 @@ import { CollectionService } from 'src/app/services/collection.service';
 
 import Dog from 'src/app/models/dog';
 import { DogBreeds } from 'src/app/models/dog-breeds.enum';
+import { LocalStorageUtils } from 'src/app/utils/localStorage';
+import { tap, concatMap } from 'rxjs';
 
 @Component({
   selector: 'app-dog-form',
@@ -18,7 +20,9 @@ export class DogFormComponent implements OnInit {
     private fb: FormBuilder,
     private collectionService: CollectionService,
     public router: Router,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private localStorageUtils: LocalStorageUtils,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -51,22 +55,57 @@ export class DogFormComponent implements OnInit {
     /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
 
   onSubmitForm() {
-    if (this.createForm.dirty && this.createForm.valid) {
+    if (this.createForm.valid) {
       let dog: Dog = new Dog();
-      dog = Object.assign({}, dog, this.createForm.value);
-      dog.dateOfBirth =
-        this.datePipe.transform(
-          this.createForm.value.dateOfBirth,
-          'yyyy-MM-dd'
-        ) ?? '';
 
-      if (this.router.url.includes('create'))
-        this.collectionService.createDog(dog).subscribe();
-      else {
-        dog.id = this.dog?.id;
-        this.collectionService.updateDog(dog).subscribe();
+      if (this.router.url.includes('create')) {
+        this.createDog(dog);
+      } else {
+        this.updateDog(dog);
       }
     }
+  }
+
+  createDog(dog: Dog): void {
+    dog = Object.assign({}, dog, this.createForm.value);
+    dog = Object.assign({}, dog, {
+      sellerId: parseInt(this.localStorageUtils.getUserId()),
+    });
+
+    dog.dateOfBirth =
+      this.datePipe.transform(
+        this.createForm.value.dateOfBirth,
+        'yyyy-MM-dd'
+      ) ?? '';
+
+    this.collectionService.createDog(dog).subscribe({
+      next: () => {},
+      complete: () => {
+        this.createForm.reset();
+      },
+    });
+  }
+
+  updateDog(dog: Dog): void {
+    this.collectionService
+      .getById(parseInt(this.activatedRoute.snapshot.paramMap.get('id') ?? ''))
+      .pipe(
+        tap((dogFound) => {
+          dog = dogFound;
+          dog = Object.assign({}, dog, this.createForm.value);
+          dog = Object.assign({}, dog, {
+            sellerId: parseInt(this.localStorageUtils.getUserId()),
+          });
+
+          dog.dateOfBirth =
+            this.datePipe.transform(
+              this.createForm.value.dateOfBirth,
+              'yyyy-MM-dd'
+            ) ?? '';
+        }),
+        concatMap(() => this.collectionService.updateDog(dog))
+      )
+      .subscribe({ complete: () => this.router.navigate(['/seller/profile']) });
   }
 
   inputIsValid(formControlName: string): boolean {

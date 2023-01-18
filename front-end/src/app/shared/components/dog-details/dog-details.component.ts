@@ -3,10 +3,12 @@ import { Router } from '@angular/router';
 
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { CollectionService } from 'src/app/services/collection.service';
-import { DogHelperService } from 'src/app/services/dog.helper.service';
+import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 import Dog from 'src/app/models/dog';
+import Cart from 'src/app/models/cart';
 import DogCart from 'src/app/models/dogCart';
+import { concatMap, finalize, tap } from 'rxjs';
 
 @Component({
   selector: 'app-dog-details',
@@ -17,8 +19,8 @@ export class DogDetailsComponent {
   constructor(
     public router: Router,
     private checkoutService: CheckoutService,
-    private dogHelperService: DogHelperService,
-    private collectionService: CollectionService
+    private collectionService: CollectionService,
+    private localStorageUtils: LocalStorageUtils
   ) {}
 
   @Input() dog!: Dog;
@@ -28,6 +30,8 @@ export class DogDetailsComponent {
 
   showDogInfo: boolean = true;
   showDogDetails: boolean = false;
+  updatedDog!: Dog;
+  updatedCart!: Cart;
 
   onMoreInfoChange(event: any): void {
     if (event.target.value == 'dog-info') {
@@ -41,19 +45,44 @@ export class DogDetailsComponent {
 
   // Add to Cart
   addItemToCart(): void {
-    const dogCart: DogCart = {
-      dog: this.dog,
+    const dogCartAdd: DogCart = {
       dogId: this.dog.id!,
       quantity: this.currentQuantity,
     };
 
-    const dogUpdated = this.dogHelperService.updateDogInCollection(dogCart);
-    const cartUpdated = this.dogHelperService.updateCartStore(dogCart);
+    this.collectionService
+      .getById(this.dog.id!)
+      .pipe(
+        concatMap((dog) => {
+          this.updatedDog = dog;
+          this.updatedDog.availableQuantity -= this.currentQuantity;
+          return this.collectionService.updateDog(this.updatedDog);
+        }),
+        concatMap(() =>
+          this.checkoutService.getCart(
+            parseInt(this.localStorageUtils.getUserId())
+          )
+        ),
+        tap((cart) => {
+          this.updatedCart = cart;
+          let index = this.updatedCart.dogs.findIndex(
+            (dogCart) => dogCart.dogId == this.updatedDog.id
+          );
 
-    this.collectionService.updateDog(dogUpdated).subscribe({
-      complete: () => this.checkoutService.updateCart(cartUpdated).subscribe(),
-    });
+          if (index == -1) {
+            this.updatedCart.dogs.push(dogCartAdd);
+          } else {
+            this.updatedCart.dogs[index].quantity += this.currentQuantity;
+          }
 
-    this.router.navigate(['/checkout/cart']);
+          let sumToAdd = this.updatedDog.price! * this.currentQuantity;
+
+          this.updatedCart.summary += sumToAdd;
+          this.updatedCart.total =
+            this.updatedCart.summary - this.updatedCart.discount;
+        }),
+        concatMap(() => this.checkoutService.updateCart(this.updatedCart))
+      )
+      .subscribe(() => this.router.navigate(['/checkout/cart']));
   }
 }

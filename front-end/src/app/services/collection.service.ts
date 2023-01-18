@@ -1,5 +1,5 @@
 import { Observable, tap } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { BaseService } from 'src/app/services/base.service';
@@ -19,7 +19,7 @@ export class CollectionService extends BaseService {
     .get<Dog[]>(this.UrlServiceV1 + 'dogs')
     .pipe(tap((next) => this.store.set('dogsCollection', next)));
 
-  getById = (id: string): Observable<Dog> =>
+  getById = (id: number): Observable<Dog> =>
     this.http.get<Dog>(this.UrlServiceV1 + 'dogs' + '/' + id);
 
   updateDog = (dog: Dog): Observable<Dog> =>

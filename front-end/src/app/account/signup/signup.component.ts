@@ -1,9 +1,10 @@
+import { CheckoutService } from './../../services/checkout.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Store } from 'src/app/app.store';
 import User from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
+import Cart from 'src/app/models/cart';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private userService: UserService,
-    private store: Store
+    private checkoutService: CheckoutService
   ) {}
 
   signupForm: any;
@@ -35,7 +36,11 @@ export class SignupComponent implements OnInit {
     user = Object.assign({}, user, this.signupForm.value);
 
     this.userService.createUser(user).subscribe({
-      next: () => this.router.navigate(['/account/login']),
+      next: (response: any) => {
+        this.checkoutService.createCart(new Cart(response.user.id)).subscribe();
+
+        this.router.navigate(['/account/login']);
+      },
       error: (err) => {
         this.errorMsg = err.error;
       },
