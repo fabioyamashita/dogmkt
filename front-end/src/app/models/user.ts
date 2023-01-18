@@ -1,5 +1,5 @@
 export default class User {
-  id?: string;
+  id?: number;
   name?: string;
   email?: string;
   isSeller?: boolean;

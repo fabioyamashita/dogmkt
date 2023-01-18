@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import User from 'src/app/models/user';
 
 @Component({
   selector: 'app-profile-form',
@@ -16,6 +17,6 @@ export class ProfileFormComponent implements OnInit {
     });
   }
 
-  @Input() user: any;
+  @Input() user!: User;
   profileForm: any;
 }

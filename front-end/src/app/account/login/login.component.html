@@ -1,22 +1,28 @@
 <div class="login-container">
   <div class="card">
     <h2 class="heading">LOGIN</h2>
-    <form class="form">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmitForm()">
       <div class="input-box">
         <span class="label">Email</span>
-        <input class="input-text input-email" type="text" />
-        <!-- <span class="error-msg">wrong email/password</span> -->
+        <input
+          class="input-text input-email"
+          type="text"
+          formControlName="email"
+        />
+        <span class="error-msg" *ngIf="errorMsg != ''">{{ errorMsg }}</span>
       </div>
 
       <div class="input-box input-box-password">
         <span class="label">Password</span>
-        <input class="input-text input-email" type="password" />
+        <input
+          class="input-text input-email"
+          type="password"
+          formControlName="password"
+        />
       </div>
 
       <div class="submit-btn-area">
-        <button class="submit-btn" type="submit" routerLink="/collection/list">
-          LOGIN
-        </button>
+        <button class="submit-btn" type="submit">LOGIN</button>
       </div>
     </form>
 

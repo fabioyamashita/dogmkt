@@ -22,7 +22,7 @@ export class DogPreviewComponent implements OnInit {
     this.activatedRoute.data.subscribe(({ dog }) => (this.dog = dog));
 
     this.sellerName = this.sellerHelperService.getSellerName(
-      this.dog.sellerId ?? ''
+      this.dog.sellerId!
     );
   }
 }
