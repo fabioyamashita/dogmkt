@@ -21,7 +21,7 @@ export class UserService extends BaseService {
   }
 
   getUsers: Observable<User[]> = this.http
-    .get<User[]>(this.UrlServiceV1 + 'users')
+    .get<User[]>(this.UrlServiceV1 + 'users', super.getAuthHttpHeaders())
     .pipe(
       tap((next) =>
         this.store.set(
@@ -34,7 +34,10 @@ export class UserService extends BaseService {
     );
 
   getById = (id: number): Observable<User> =>
-    this.http.get<User>(this.UrlServiceV1 + 'users' + '/' + id);
+    this.http.get<User>(
+      this.UrlServiceV1 + 'users' + '/' + id,
+      super.getAuthHttpHeaders()
+    );
 
   createUser(newUser: User): Observable<User> {
     if (!newUser.isSeller) newUser.isSeller = false;

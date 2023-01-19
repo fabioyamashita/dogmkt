@@ -81,7 +81,11 @@
       </div>
     </div>
 
-    <button class="btn submit-order-btn" *ngIf="cart?.dogs?.length !== 0">
+    <button
+      class="btn submit-order-btn"
+      (click)="submitOrder()"
+      *ngIf="cart?.dogs?.length !== 0"
+    >
       SUBMIT ORDER
     </button>
   </div>
