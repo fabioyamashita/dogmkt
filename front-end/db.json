@@ -13,6 +13,13 @@
       "name": "teste",
       "isSeller": true,
       "id": 2
+    },
+    {
+      "email": "admin@admin.com",
+      "password": "$2a$10$cTnG5vbDJPMZBTP2FOdOjO65OE4MesbT2MQyiK.9mcxjg1qypsf7O",
+      "name": "admin",
+      "isSeller": true,
+      "id": 3
     }
   ],
   "dogs": [
@@ -21,7 +28,7 @@
       "breed": "Samoyed",
       "genre": "Female",
       "price": 150.18,
-      "availableQuantity": 9,
+      "availableQuantity": 10,
       "description": "Description Teste",
       "dateOfBirth": "2023-01-01",
       "weight": 35,
@@ -32,7 +39,7 @@
       "id": 1
     },
     {
-      "availableQuantity": 1,
+      "availableQuantity": 3,
       "name": "John",
       "breed": "Airedale Terrier",
       "genre": "Male",
@@ -42,12 +49,12 @@
       "weight": 15,
       "height": 14,
       "width": 15,
-      "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+      "pictureUrl": "https://images.unsplash.com/photo-1558368315-d44d7462073e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1165&q=80",
       "sellerId": 1,
       "id": 2
     },
     {
-      "availableQuantity": 5,
+      "availableQuantity": 2,
       "name": "Maria",
       "breed": "Afghan Hound",
       "genre": "Female",
@@ -57,14 +64,14 @@
       "weight": 14,
       "height": 14,
       "width": 10,
-      "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+      "pictureUrl": "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "sellerId": 1,
       "id": 3
     },
     {
-      "availableQuantity": 5,
+      "availableQuantity": 7,
       "name": "Seller 2 Dog",
-      "breed": "Afghan Hound",
+      "breed": "Australian Cattle Dog",
       "genre": "Male",
       "price": 125,
       "description": "teste",
@@ -75,38 +82,52 @@
       "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
       "sellerId": 2,
       "id": 4
+    },
+    {
+      "availableQuantity": 1,
+      "name": "Admin dog",
+      "breed": "Others",
+      "genre": "Male",
+      "price": 5000,
+      "description": "Admin dog",
+      "dateOfBirth": "2023-01-05",
+      "weight": 50,
+      "height": 50,
+      "width": 50,
+      "pictureUrl": "https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
+      "sellerId": 3,
+      "id": 5
     }
   ],
   "carts": [
     {
       "userId": 1,
-      "summary": 250,
+      "summary": 0,
       "discount": 0,
-      "total": 250,
-      "dogs": [
-        {
-          "dogId": 4,
-          "quantity": 2
-        }
-      ],
+      "total": 0,
+      "dogs": [],
       "id": 1
     },
     {
       "userId": 2,
-      "summary": 591.18,
+      "summary": 142,
       "discount": 0,
-      "total": 591.18,
+      "total": 142,
       "dogs": [
         {
-          "dogId": 1,
+          "dogId": 3,
           "quantity": 1
-        },
-        {
-          "dogId": 2,
-          "quantity": 3
         }
       ],
       "id": 2
+    },
+    {
+      "userId": 3,
+      "summary": 0,
+      "discount": 0,
+      "total": 0,
+      "dogs": [],
+      "id": 3
     }
   ]
 }

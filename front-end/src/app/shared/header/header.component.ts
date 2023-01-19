@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
 import { Store } from 'src/app/app.store';
 import Cart from 'src/app/models/cart';
+import User from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 @Component({
   selector: 'app-header',
@@ -10,10 +14,16 @@ import Cart from 'src/app/models/cart';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(public router: Router, private store: Store) {}
+  constructor(
+    public router: Router,
+    private store: Store,
+    private userService: UserService,
+    private localStorageUtils: LocalStorageUtils
+  ) {}
 
   cart: Cart | undefined;
   countDogsInCart: number | undefined;
+  user: User | undefined;
 
   ngOnInit(): void {
     this.store.getCart$().subscribe({

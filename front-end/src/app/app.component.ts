@@ -25,11 +25,11 @@ export class AppComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
 
   ngOnInit(): void {
-    this.subscription = this.checkoutService
-      .getCart(parseInt(this.localStorageUtils.getUserId()))
-      .subscribe();
-    this.subscription = this.collectionService.getCollection.subscribe();
-    this.subscription = this.userService.getUsers.subscribe();
+    // this.subscription = this.checkoutService
+    //   .getCart(parseInt(this.localStorageUtils.getUserId()))
+    //   .subscribe();
+    // this.subscription = this.collectionService.getCollection.subscribe();
+    // this.subscription = this.userService.getUsers.subscribe();
   }
 
   ngOnDestroy(): void {

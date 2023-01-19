@@ -18,8 +18,8 @@ import Dog from 'src/app/models/dog';
 })
 export class CartComponent implements OnInit {
   constructor(
-    private store: Store,
     private checkoutService: CheckoutService,
+    private store: Store,
     private collectionService: CollectionService,
     public sellerHelperService: SellerHelperService,
     private localStorageUtils: LocalStorageUtils
@@ -27,9 +27,49 @@ export class CartComponent implements OnInit {
 
   cart?: Cart;
   dogsCart: any[] = [];
-  newDogCart: any[] = [];
 
   ngOnInit(): void {
+    // VERSÃO REDIGIDA 'CRUA'
+    // Primeiro eu preciso fazer a requisição GET do meu carrinho - tanto para pegar o carrinho atualizado
+    //    quanto para settar um valor pro meu Cart no Store.
+
+    // A ideia é ficar ouvindo o this.store.getCart$() (que é uma observable) e popular o component de acordo com esse Cart que vai vir da Store
+
+    // Depois eu preciso transformar o objeto Cart (que vai vir da store) em um objeto customizado
+    //    para que tenha as informações detalhadas de cada cachorro.
+    // Para isso, preciso fazer N requisições GET para cada ID de cachorro encontrado.
+    // A minha propriedade dogsCart é o que está populando todo o componente HTML,
+    //    por isso achei mais fácil fazer um objeto completo. Mas parece que só dificultou as coisas :(
+    // Obs.: Cada requisição precisa esperar a anterior finalizar para ser chamada (com exceção das getById dos cachorros)
+
+    this.checkoutService
+      .getCart(parseInt(this.localStorageUtils.getUserId()))
+      .subscribe({
+        next: () => {
+          this.store.getCart$().subscribe({
+            next: (cart) => {
+              this.cart = cart;
+              let customDogObject: any = [];
+
+              cart.dogs.map((dog) => {
+                this.collectionService.getById(dog.dogId).subscribe({
+                  next: (dogFoundById) => {
+                    customDogObject.push({
+                      dog: dogFoundById,
+                      quantity: dog.quantity,
+                      dogId: dogFoundById.id,
+                    });
+                  },
+                });
+              });
+
+              this.dogsCart = customDogObject;
+            },
+          });
+        },
+      });
+
+    // VERSÃO MOSTRADA EM AULA
     // this.checkoutService
     //   .getCart(parseInt(this.localStorageUtils.getUserId()))
     //   .subscribe(() =>
@@ -60,68 +100,126 @@ export class CartComponent implements OnInit {
     //       })
     //   );
 
-    this.checkoutService
-      .getCart(parseInt(this.localStorageUtils.getUserId()))
-      .pipe(
-        tap((cart) => {
-          this.cart = cart;
-          console.log(this.cart);
-        }),
-        concatMap((cart) => from(cart?.dogs)),
-        concatMap((dog) =>
-          this.collectionService.getById(dog.dogId).pipe(
-            map((dogInfo) => ({
-              dog: dogInfo,
-              quantity: dog.quantity,
-              dogId: dogInfo.id,
-            }))
-          )
-        ),
-        toArray()
-      )
-      .subscribe({
-        next: (dogsCart) => {
-          this.dogsCart = dogsCart;
-        },
-      });
+    //   this.checkoutService
+    //     .getCart(parseInt(this.localStorageUtils.getUserId()))
+    //     .pipe(
+    //       tap((cart) => {
+    //         this.cart = cart;
+    //       }),
+    //       concatMap((cart) => from(cart?.dogs)),
+    //       concatMap((dog) =>
+    //         this.collectionService.getById(dog.dogId).pipe(
+    //           map((dogInfo) => ({
+    //             dog: dogInfo,
+    //             quantity: dog.quantity,
+    //             dogId: dogInfo.id,
+    //           }))
+    //         )
+    //       ),
+    //       toArray()
+    //     )
+    //     .subscribe({
+    //       next: (dogsCart) => {
+    //         this.dogsCart = dogsCart;
+    //       },
+    //     });
+    // }
   }
 
   deleteFromCart(event: any): void {
     const id: number = parseInt(event.target.closest('.product-info').id);
 
-    let updatedCart = this.cart!;
+    let updatedCart = JSON.parse(JSON.stringify(this.cart!));
     let indexDogInCart = this.cart?.dogs.findIndex((dog) => dog.dogId == id)!;
     let quantityInCart = this.cart?.dogs[indexDogInCart].quantity;
 
     let updatedDog: Dog;
 
-    this.collectionService
-      .getById(id)
-      .pipe(
-        tap((dog) => {
-          updatedDog = dog;
-          updatedDog.availableQuantity += quantityInCart!;
-        }),
-        concatMap(() => this.collectionService.updateDog(updatedDog)),
-        tap(() => {
-          let sumToSubtract = updatedDog.price! * quantityInCart!;
+    // VERSÃO REDIGIDA 'CRUA'
+    // Para deletar, primeiro pego as informações atualizadas do cachorro pelo getById na service
+    // Depois preciso atualizar a quantidade disponível que vai ser salva no banco
+    // Atualizo o cachorro no banco via this.collectionService.updateDog com o cachorro atualizado
+    // Só depois do cachorro ter atualizado, eu vou atualizar o meu carrinho
+    // Faço todas as contas para atualizar os valores
+    // Atualizo o Cart via this.checkoutService.updateCart com o cart atualizado
+    // Finalmente atualizo o meu cart que serve para popular meu componente
+    this.collectionService.getById(id).subscribe({
+      next: (dog) => {
+        updatedDog = dog;
+        updatedDog.availableQuantity += quantityInCart!;
 
-          updatedCart.summary -= sumToSubtract;
-          updatedCart.total = updatedCart.summary - updatedCart.discount;
+        this.collectionService.updateDog(updatedDog).subscribe({
+          next: () => {
+            let sumToSubtract = updatedDog.price! * quantityInCart!;
 
-          updatedCart?.dogs.splice(indexDogInCart, 1);
-        }),
-        concatMap(() => this.checkoutService.updateCart(updatedCart!)),
-        tap(() => {
-          let sumToSubtract = updatedDog.price! * quantityInCart!;
+            updatedCart.summary -= sumToSubtract;
+            updatedCart.total = updatedCart.summary - updatedCart.discount;
 
-          this.cart!.summary -= sumToSubtract;
-          this.cart!.total = updatedCart.summary - updatedCart.discount;
+            updatedCart.summary = +updatedCart.summary.toFixed(2);
+            updatedCart.total = +updatedCart.total.toFixed(2);
 
-          this.cart!.dogs.splice(indexDogInCart, 1);
-        })
-      )
-      .subscribe({ next: () => window.location.reload() });
-    // .subscribe();
+            updatedCart?.dogs.splice(indexDogInCart, 1);
+
+            this.checkoutService.updateCart(updatedCart!).subscribe({
+              next: () => {
+                this.cart = updatedCart;
+              },
+            });
+          },
+        });
+      },
+    });
+
+    // VERSÃO MOSTRADA NA AULA
+    // this.collectionService
+    //   .getById(id)
+    //   .pipe(
+    //     tap((dog) => {
+    //       updatedDog = dog;
+    //       updatedDog.availableQuantity += quantityInCart!;
+    //     }),
+    //     concatMap(() => this.collectionService.updateDog(updatedDog)),
+    //     tap(() => {
+    //       this.updateCartInfo(
+    //         updatedCart,
+    //         updatedDog,
+    //         indexDogInCart,
+    //         quantityInCart!
+    //       );
+    //     }),
+    //     concatMap(() => this.checkoutService.updateCart(updatedCart!)),
+    //     tap(() => {
+    //       this.updateCartInfo(
+    //         this.cart!,
+    //         updatedDog,
+    //         indexDogInCart,
+    //         quantityInCart!
+    //       );
+    //     })
+    //   )
+    //   .subscribe({
+    //     next: () => window.location.reload(),
+    //   });
+  }
+
+  submitOrder(): void {
+    console.log(this.cart);
+  }
+
+  updateCartInfo(
+    cart: Cart,
+    updatedDog: Dog,
+    index: number,
+    quantityInCart: number
+  ): void {
+    let sumToSubtract = updatedDog.price! * quantityInCart!;
+
+    cart.summary -= sumToSubtract;
+    cart.total = cart.summary - cart.discount;
+
+    cart.summary = +this.cart!.summary.toFixed(2);
+    cart.total = +this.cart!.total.toFixed(2);
+
+    cart?.dogs.splice(index, 1);
   }
 }
