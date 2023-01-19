@@ -51,3 +51,5 @@ The app will be running at: `http://localhost:4200/`.
 Use the following login and password to access the app:
 - Login: admin@admin.com
 - Password: admin
+
+You can also create new users for tests.
