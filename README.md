@@ -8,7 +8,7 @@ Figma: https://www.figma.com/file/Lq5SXN1EkqOUpi4tUcNv7Q?fuid=105022278135204124
 - Clone the repository:
 
 ```
-$ git clone $ https://github.com/fabioyamashita/dogmkt.git
+$ git clone https://github.com/fabioyamashita/dogmkt.git
 ```
 
 - Run npm install:
@@ -16,6 +16,7 @@ $ git clone $ https://github.com/fabioyamashita/dogmkt.git
 ```
 $ npm i
 ```
+
 - Install [JSON Server](https://www.npmjs.com/package/json-server) and [JSON Server Auth](https://github.com/jeremyben/json-server-auth):
 
 ```
