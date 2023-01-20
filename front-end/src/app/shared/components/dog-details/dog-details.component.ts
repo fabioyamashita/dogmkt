@@ -1,3 +1,4 @@
+import { NavigationUtils } from './../../../utils/navigationUtils';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -20,7 +21,8 @@ export class DogDetailsComponent {
     public router: Router,
     private checkoutService: CheckoutService,
     private collectionService: CollectionService,
-    private localStorageUtils: LocalStorageUtils
+    private localStorageUtils: LocalStorageUtils,
+    private navigationUtils: NavigationUtils
   ) {}
 
   @Input() dog!: Dog;
@@ -86,7 +88,7 @@ export class DogDetailsComponent {
                     +this.updatedCart.summary.toFixed(2);
 
                   this.checkoutService.updateCart(this.updatedCart).subscribe({
-                    next: () => this.router.navigate(['/checkout/cart']),
+                    next: () => this.navigationUtils.navigateToCart(),
                   });
                 },
               });

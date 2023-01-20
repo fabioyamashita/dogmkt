@@ -4,6 +4,7 @@ import { CollectionService } from 'src/app/services/collection.service';
 
 import Dog from 'src/app/models/dog';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
+import { HttpError } from 'src/app/utils/httpError';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,8 @@ import { LocalStorageUtils } from 'src/app/utils/localStorage';
 export class ListComponent implements OnInit {
   constructor(
     private collectionService: CollectionService,
-    private localStorageUtils: LocalStorageUtils
+    private localStorageUtils: LocalStorageUtils,
+    private httpError: HttpError
   ) {}
 
   public dogs!: Dog[];
@@ -27,7 +29,9 @@ export class ListComponent implements OnInit {
       //   (dog) => dog.sellerId != parseInt(this.localStorageUtils.getUserId())
       // )),
 
-      error: (err: Error) => console.error(err),
+      error: (err) => {
+        this.httpError.process(err.status);
+      },
     });
   }
 }

@@ -69,7 +69,7 @@
       "id": 3
     },
     {
-      "availableQuantity": 7,
+      "availableQuantity": 3,
       "name": "Seller 2 Dog",
       "breed": "Australian Cattle Dog",
       "genre": "Male",
@@ -102,10 +102,15 @@
   "carts": [
     {
       "userId": 1,
-      "summary": 0,
+      "summary": 500,
       "discount": 0,
-      "total": 0,
-      "dogs": [],
+      "total": 500,
+      "dogs": [
+        {
+          "dogId": 4,
+          "quantity": 4
+        }
+      ],
       "id": 1
     },
     {

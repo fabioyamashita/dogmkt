@@ -19,4 +19,17 @@ export class LocalStorageUtils {
   public saveUserId(userId: string): void {
     localStorage.setItem('userId', userId);
   }
+
+  public removeCredentials() {
+    this.removeToken();
+    this.removeUserId();
+  }
+
+  public removeToken(): void {
+    localStorage.removeItem('token');
+  }
+
+  public removeUserId(): void {
+    localStorage.removeItem('userId');
+  }
 }

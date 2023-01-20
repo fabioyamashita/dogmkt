@@ -9,6 +9,7 @@ import Dog from 'src/app/models/dog';
 import { DogBreeds } from 'src/app/models/dog-breeds.enum';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
 import { tap, concatMap } from 'rxjs';
+import { NavigationUtils } from 'src/app/utils/navigationUtils';
 
 @Component({
   selector: 'app-dog-form',
@@ -22,7 +23,8 @@ export class DogFormComponent implements OnInit {
     public router: Router,
     private datePipe: DatePipe,
     private localStorageUtils: LocalStorageUtils,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private navigationUtils: NavigationUtils
   ) {}
 
   ngOnInit(): void {
@@ -105,7 +107,9 @@ export class DogFormComponent implements OnInit {
         }),
         concatMap(() => this.collectionService.updateDog(dog))
       )
-      .subscribe({ complete: () => this.router.navigate(['/seller/profile']) });
+      .subscribe({
+        complete: () => this.navigationUtils.navigateToSellerProfile(),
+      });
   }
 
   inputIsValid(formControlName: string): boolean {

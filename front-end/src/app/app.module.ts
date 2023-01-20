@@ -1,3 +1,4 @@
+import { HttpError } from './utils/httpError';
 import { AppGuard } from './services/app.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
