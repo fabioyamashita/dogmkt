@@ -1,3 +1,4 @@
+import { NavigationUtils } from './../../utils/navigationUtils';
 import { CheckoutService } from './../../services/checkout.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -16,7 +17,8 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private userService: UserService,
-    private checkoutService: CheckoutService
+    private checkoutService: CheckoutService,
+    private navigationUtils: NavigationUtils
   ) {}
 
   signupForm: any;
@@ -38,8 +40,7 @@ export class SignupComponent implements OnInit {
     this.userService.createUser(user).subscribe({
       next: (response: any) => {
         this.checkoutService.createCart(new Cart(response.user.id)).subscribe();
-
-        this.router.navigate(['/account/login']);
+        this.navigationUtils.navigateToLogin();
       },
       error: (err) => {
         this.errorMsg = err.error;

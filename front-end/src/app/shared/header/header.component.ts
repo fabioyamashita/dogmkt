@@ -1,3 +1,4 @@
+import { NavigationUtils } from './../../utils/navigationUtils';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -17,8 +18,8 @@ export class HeaderComponent {
   constructor(
     public router: Router,
     private store: Store,
-    private userService: UserService,
-    private localStorageUtils: LocalStorageUtils
+    private localStorageUtils: LocalStorageUtils,
+    private navigationUtils: NavigationUtils
   ) {}
 
   cart: Cart | undefined;
@@ -35,5 +36,10 @@ export class HeaderComponent {
         );
       },
     });
+  }
+
+  logout(): void {
+    this.localStorageUtils.removeCredentials();
+    this.navigationUtils.navigateToLogin();
   }
 }

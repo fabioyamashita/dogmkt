@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { CheckoutService } from './../services/checkout.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { LocalStorageUtils } from '../utils/localStorage';
+import { HttpError } from '../utils/httpError';
 
 @Component({
   selector: 'app-collection',
@@ -14,7 +15,8 @@ export class CollectionComponent implements OnInit, OnDestroy {
     private checkoutService: CheckoutService,
     private localStorageUtils: LocalStorageUtils,
     private collectionService: CollectionService,
-    private userService: UserService
+    private userService: UserService,
+    private httpError: HttpError
   ) {}
 
   subscription: Subscription | undefined;
@@ -22,9 +24,23 @@ export class CollectionComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.checkoutService
       .getCart(parseInt(this.localStorageUtils.getUserId()))
-      .subscribe();
-    this.subscription = this.collectionService.getCollection.subscribe();
-    this.subscription = this.userService.getUsers.subscribe();
+      .subscribe({
+        error: (err) => {
+          this.httpError.process(err.status);
+        },
+      });
+
+    this.subscription = this.collectionService.getCollection.subscribe({
+      error: (err) => {
+        this.httpError.process(err.status);
+      },
+    });
+
+    this.subscription = this.userService.getUsers.subscribe({
+      error: (err) => {
+        this.httpError.process(err.status);
+      },
+    });
   }
 
   ngOnDestroy(): void {

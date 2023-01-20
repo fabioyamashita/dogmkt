@@ -1,3 +1,4 @@
+import { NavigationUtils } from './../../utils/navigationUtils';
 import { UserService } from './../../services/user.service';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
@@ -17,7 +18,7 @@ export class LoginComponent {
     private router: Router,
     private authService: AuthService,
     private localStorageUtils: LocalStorageUtils,
-    private userService: UserService
+    private navigationUtils: NavigationUtils
   ) {}
 
   loginForm: any;
@@ -34,12 +35,9 @@ export class LoginComponent {
     this.authService
       .login(this.loginForm.value.email, this.loginForm.value.password)
       .subscribe({
-        next: (next) => {
-          this.localStorageUtils.saveDataFromResponse(next);
-          this.userService.getById(
-            parseInt(this.localStorageUtils.getUserId())
-          );
-          this.router.navigate(['/collection/list']);
+        next: (res) => {
+          this.localStorageUtils.saveDataFromResponse(res);
+          this.navigationUtils.navigateToCollection();
         },
         error: (err) => {
           this.errorMsg = 'Wrong email/password';
