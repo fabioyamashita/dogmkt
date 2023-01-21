@@ -8,41 +8,47 @@ Figma: https://www.figma.com/file/Lq5SXN1EkqOUpi4tUcNv7Q?fuid=105022278135204124
 - Clone the repository:
 
 ```
-$ git clone https://github.com/fabioyamashita/dogmkt.git
+git clone https://github.com/fabioyamashita/dogmkt.git
 ```
 
 - Run npm install:
 
 ```
-$ npm i
+npm i
 ```
 
 - Install [JSON Server](https://www.npmjs.com/package/json-server) and [JSON Server Auth](https://github.com/jeremyben/json-server-auth):
 
 ```
 # NPM
-$ npm install -D json-server json-server-auth
+npm install -D json-server json-server-auth
 
 # Yarn
-$ yarn add -D json-server json-server-auth
+yarn add -D json-server json-server-auth
 ```
 
 ## Run the application
 - Navigate to front-end directory
 ```
-$ cd .\front-end\
+cd .\front-end\
 ```
 
-- Start JSON server (with JSON server Auth as middleware):
+- Start JSON server (with JSON server Auth as middleware and Guarded Routes):
 ```
-$ json-server db.json -m ./node_modules/json-server-auth
+json-server db.json -m ./node_modules/json-server-auth -r routes.json
+# with json-server installed globally and json-server-auth installed locally
+```
+
+- or... start JSON server (with JSON server Auth as middleware):
+```
+json-server db.json -m ./node_modules/json-server-auth
 # with json-server installed globally and json-server-auth installed locally
 ```
 
 - Run the Angular dev server:
 
 ```
-$ ng serve
+ng serve
 ```
 
 The app will be running at: `http://localhost:4200/`.
