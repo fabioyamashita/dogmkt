@@ -1,7 +1,7 @@
 <div class="collection-container">
   <div class="collection-box">
     <h2 class="heading">BUY ANY DOG WITH LOVE</h2>
-    <app-search-area></app-search-area>
+    <app-search-area (searchEvent)="searchCollection($event)"></app-search-area>
     <app-dog-list [dogs]="dogs"></app-dog-list>
   </div>
 

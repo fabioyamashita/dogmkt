@@ -40,11 +40,11 @@ export class SignupComponent implements OnInit {
     this.userService.createUser(user).subscribe({
       next: (response: any) => {
         this.checkoutService.createCart(new Cart(response.user.id)).subscribe();
-        this.navigationUtils.navigateToLogin();
       },
       error: (err) => {
         this.errorMsg = err.error;
       },
+      complete: () => this.navigationUtils.navigateToLogin(),
     });
   }
 }

@@ -1,3 +1,4 @@
 <section class="dogs-list">
   <app-dog-item *ngFor="let dog of dogs" [dog]="dog"></app-dog-item>
+  <div class="no-dogs" *ngIf="dogs?.length == 0">No dogs found!</div>
 </section>
