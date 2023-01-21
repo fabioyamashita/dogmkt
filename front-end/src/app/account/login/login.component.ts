@@ -37,11 +37,11 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           this.localStorageUtils.saveDataFromResponse(res);
-          this.navigationUtils.navigateToCollection();
         },
         error: (err) => {
           this.errorMsg = 'Wrong email/password';
         },
+        complete: () => this.navigationUtils.navigateToCollection(),
       });
   }
 }

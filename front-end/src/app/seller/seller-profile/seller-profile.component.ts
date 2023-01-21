@@ -37,4 +37,15 @@ export class SellerProfileComponent {
       (user) => user.id == parseInt(this.localStorageUtils.getUserId())
     );
   }
+
+  searchCollection(event: any): void {
+    this.collectionService.getCollection.subscribe({
+      next: (dogs: Dog[]) =>
+        (this.dogs = dogs.filter(
+          (dog) =>
+            dog.name?.toUpperCase().includes(event.toString().toUpperCase()) &&
+            dog.sellerId == this.user.id
+        )),
+    });
+  }
 }

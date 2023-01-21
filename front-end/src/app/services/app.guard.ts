@@ -6,7 +6,6 @@ import { LocalStorageUtils } from '../utils/localStorage';
 @Injectable()
 export class AppGuard implements CanActivate {
   constructor(
-    private router: Router,
     private localStorageUtils: LocalStorageUtils,
     private navigationUtils: NavigationUtils
   ) {}

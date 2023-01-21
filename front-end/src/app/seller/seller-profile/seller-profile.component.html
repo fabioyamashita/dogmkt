@@ -9,7 +9,9 @@
     <div class="list-container">
       <h2 class="heading">YOUR DOGS IN SALE</h2>
 
-      <app-search-area></app-search-area>
+      <app-search-area
+        (searchEvent)="searchCollection($event)"
+      ></app-search-area>
       <app-dog-list [dogs]="dogs"></app-dog-list>
     </div>
   </div>

@@ -34,4 +34,13 @@ export class ListComponent implements OnInit {
       },
     });
   }
+
+  searchCollection(event: any): void {
+    this.collectionService.getCollection.subscribe({
+      next: (dogs: Dog[]) =>
+        (this.dogs = dogs.filter((dog) =>
+          dog.name?.toUpperCase().includes(event.toString().toUpperCase())
+        )),
+    });
+  }
 }
