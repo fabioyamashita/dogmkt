@@ -28,7 +28,7 @@
       "breed": "Samoyed",
       "genre": "Female",
       "price": 150.18,
-      "availableQuantity": 7,
+      "availableQuantity": 5,
       "description": "Description Teste",
       "dateOfBirth": "2023-01-01",
       "weight": 35,
@@ -54,7 +54,7 @@
       "id": 2
     },
     {
-      "availableQuantity": 2,
+      "availableQuantity": 1,
       "name": "Maria",
       "breed": "Afghan Hound",
       "genre": "Female",
@@ -69,7 +69,7 @@
       "id": 3
     },
     {
-      "availableQuantity": 7,
+      "availableQuantity": 4,
       "name": "Seller 2 Dog",
       "breed": "Australian Cattle Dog",
       "genre": "Male",
@@ -127,20 +127,26 @@
   ],
   "purchases": [
     {
+      "date": "2023-01-21",
       "userId": 1,
-      "summary": 150.18,
+      "summary": 425.36,
       "discount": 0,
-      "total": 150.18,
+      "total": 425.36,
       "dogs": [
         {
           "dogId": 1,
+          "quantity": 2
+        },
+        {
+          "dogId": 4,
           "quantity": 1
         }
       ],
       "id": 1
     },
     {
-      "userId": 2,
+      "date": "2023-01-21",
+      "userId": 1,
       "summary": 142,
       "discount": 0,
       "total": 142,
