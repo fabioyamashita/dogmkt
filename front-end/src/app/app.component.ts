@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
     //   .getCart(parseInt(this.localStorageUtils.getUserId()))
     //   .subscribe();
     // this.subscription = this.collectionService.getCollection.subscribe();
-    // this.subscription = this.userService.getUsers.subscribe();
+    this.subscription = this.userService.getUsers.subscribe();
   }
 
   ngOnDestroy(): void {

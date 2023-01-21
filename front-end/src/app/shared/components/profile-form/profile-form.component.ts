@@ -12,11 +12,11 @@ export class ProfileFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileForm = this.fb.group({
-      name: [this.user.name],
-      email: [this.user.email],
+      name: [this.user?.name],
+      email: [this.user?.email],
     });
   }
 
-  @Input() user!: User;
+  @Input() user: User | undefined;
   profileForm: any;
 }

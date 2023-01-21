@@ -1,19 +1,19 @@
-import DogCartDetailed from './dogCartDetailed';
+import DogCart from './dogCart';
 
-export default class CartDetailed {
+export default class Purchase {
   id?: number;
-  userId?: number;
+  userId: number;
   summary: number;
   discount: number;
   total: number;
-  dogs: DogCartDetailed[];
+  dogs: DogCart[];
 
   constructor(
     userId: number = 0,
     summary: number = 0,
     discout: number = 0,
     total: number = 0,
-    dogs: DogCartDetailed[] = []
+    dogs: DogCart[] = []
   ) {
     this.userId = userId;
     this.summary = summary;

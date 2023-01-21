@@ -1,3 +1,4 @@
+import { NavigationUtils } from './../../utils/navigationUtils';
 import { concatMap, map, tap, forkJoin, switchMap, from, toArray } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,6 +11,7 @@ import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 import Cart from '../../models/cart';
 import Dog from 'src/app/models/dog';
+import Purchase from 'src/app/models/purchase';
 
 @Component({
   selector: 'app-cart',
@@ -22,7 +24,8 @@ export class CartComponent implements OnInit {
     private store: Store,
     private collectionService: CollectionService,
     public sellerHelperService: SellerHelperService,
-    private localStorageUtils: LocalStorageUtils
+    private localStorageUtils: LocalStorageUtils,
+    private navigationUtils: NavigationUtils
   ) {}
 
   cart?: Cart;
@@ -203,7 +206,29 @@ export class CartComponent implements OnInit {
   }
 
   submitOrder(): void {
-    console.log(this.cart);
+    let purchase = new Purchase(
+      this.cart?.userId,
+      this.cart?.summary,
+      this.cart?.discount,
+      this.cart?.total,
+      this.cart?.dogs
+    );
+
+    this.checkoutService.createPurchase(purchase).subscribe({
+      next: () => {
+        this.checkoutService
+          .updateCart({
+            id: this.cart?.id,
+            userId: this.cart?.userId,
+            summary: 0,
+            discount: 0,
+            total: 0,
+            dogs: [],
+          })
+          .subscribe();
+      },
+      complete: () => this.navigationUtils.navigateToUserProfile(),
+    });
   }
 
   updateCartInfo(

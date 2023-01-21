@@ -1,13 +1,13 @@
 <form [formGroup]="profileForm">
   <div class="sub-heading">
-    <span>{{ "ID #" + user.id }}</span>
+    <span>{{ "ID #" + user?.id }}</span>
     <div class="check-seller">
       <input
         class="checkbox-seller"
         type="checkbox"
         id="seller"
         name="seller"
-        [attr.checked]="user.isSeller ? user.isSeller : null"
+        [attr.checked]="user?.isSeller ? user?.isSeller : null"
         disabled
       />
       <label for="seller">Seller</label>
