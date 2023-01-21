@@ -1,0 +1,10 @@
+<div class="purchase-box" (click)="navigateToDetails(purchase.id!)">
+  <span>Purchase ID #{{ purchase.id }} ({{ purchase.date }})</span>
+  <div class="total-box">
+    <span>Total:</span>
+    <div class="price-box">
+      <mat-icon class="price-icon">favorite</mat-icon>
+      <span>{{ purchase.total | number : "1.2-2" }}</span>
+    </div>
+  </div>
+</div>

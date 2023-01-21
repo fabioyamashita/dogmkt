@@ -96,7 +96,7 @@ export class CartComponent implements OnInit {
   }
 
   submitOrder(): void {
-    let purchase = new Purchase(
+    let purchase: Purchase = new Purchase(
       this.cart?.userId,
       this.cart?.summary,
       this.cart?.discount,
