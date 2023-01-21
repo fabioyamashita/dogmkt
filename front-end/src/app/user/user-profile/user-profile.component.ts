@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from 'src/app/app.store';
 import User from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 @Component({
@@ -13,11 +14,17 @@ export class UserProfileComponent implements OnInit {
     private store: Store,
     private localStorageUtils: LocalStorageUtils
   ) {}
-  user!: any;
+
+  user: User | undefined;
 
   ngOnInit(): void {
-    this.user = this.store.value.users.find(
-      (user) => user.id == parseInt(this.localStorageUtils.getUserId())
-    );
+    this.store
+      .getUser$()
+      .subscribe({
+        next: (users) =>
+          (this.user = users.find(
+            (user) => user.id == parseInt(this.localStorageUtils.getUserId())
+          )),
+      });
   }
 }

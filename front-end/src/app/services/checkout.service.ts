@@ -6,6 +6,7 @@ import { Store } from '../app.store';
 import { BaseService } from './base.service';
 
 import Cart from 'src/app/models/cart';
+import Purchase from '../models/purchase';
 
 @Injectable({
   providedIn: 'root',
@@ -40,4 +41,13 @@ export class CheckoutService extends BaseService {
     this.http
       .post<Cart>(this.UrlServiceV1 + 'carts', cart, super.getAuthHttpHeaders())
       .pipe(tap((next) => this.store.set('cart', next)));
+
+  createPurchase = (purchase: Purchase): Observable<Purchase> =>
+    this.http
+      .post<Purchase>(
+        this.UrlServiceV1 + 'purchases',
+        purchase,
+        super.getAuthHttpHeaders()
+      )
+      .pipe(tap((next) => this.store.set('purchases', next)));
 }

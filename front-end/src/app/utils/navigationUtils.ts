@@ -22,4 +22,8 @@ export class NavigationUtils {
   navigateToCart(): void {
     this.router.navigate(['/checkout/cart']);
   }
+
+  navigateToUserProfile(): void {
+    this.router.navigate(['/user/profile']);
+  }
 }

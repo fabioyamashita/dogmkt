@@ -22,13 +22,14 @@
       "id": 3
     }
   ],
+
   "dogs": [
     {
       "name": "Nina the Samoyed",
       "breed": "Samoyed",
       "genre": "Female",
       "price": 150.18,
-      "availableQuantity": 10,
+      "availableQuantity": 7,
       "description": "Description Teste",
       "dateOfBirth": "2023-01-01",
       "weight": 35,
@@ -39,7 +40,7 @@
       "id": 1
     },
     {
-      "availableQuantity": 3,
+      "availableQuantity": 2,
       "name": "John",
       "breed": "Airedale Terrier",
       "genre": "Male",
@@ -99,13 +100,46 @@
       "id": 5
     }
   ],
+
   "carts": [
     {
+      "id": 1,
       "userId": 1,
       "summary": 0,
       "discount": 0,
       "total": 0,
+      "dogs": []
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "summary": 0,
+      "discount": 0,
+      "total": 0,
+      "dogs": []
+    },
+    {
+      "userId": 3,
+      "summary": 0,
+      "discount": 0,
+      "total": 0,
       "dogs": [],
+      "id": 3
+    }
+  ],
+
+  "purchases": [
+    {
+      "userId": 1,
+      "summary": 150.18,
+      "discount": 0,
+      "total": 150.18,
+      "dogs": [
+        {
+          "dogId": 1,
+          "quantity": 1
+        }
+      ],
       "id": 1
     },
     {
@@ -120,14 +154,6 @@
         }
       ],
       "id": 2
-    },
-    {
-      "userId": 3,
-      "summary": 0,
-      "discount": 0,
-      "total": 0,
-      "dogs": [],
-      "id": 3
     }
   ]
 }
