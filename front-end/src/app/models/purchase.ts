@@ -7,6 +7,7 @@ export default class Purchase {
   discount: number;
   total: number;
   dogs: DogCart[];
+  date: string = new Date().toISOString().slice(0, 10);
 
   constructor(
     userId: number = 0,
