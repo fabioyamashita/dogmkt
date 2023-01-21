@@ -22,7 +22,6 @@
       "id": 3
     }
   ],
-
   "dogs": [
     {
       "name": "Nina the Samoyed",
@@ -100,7 +99,6 @@
       "id": 5
     }
   ],
-
   "carts": [
     {
       "id": 1,
@@ -127,7 +125,6 @@
       "id": 3
     }
   ],
-
   "purchases": [
     {
       "userId": 1,

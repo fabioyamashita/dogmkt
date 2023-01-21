@@ -1,13 +1,11 @@
-import { NavigationUtils } from './../../utils/navigationUtils';
-import { concatMap, map, tap, forkJoin, switchMap, from, toArray } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from 'src/app/app.store';
-
 import { SellerHelperService } from 'src/app/services/seller.helper.service';
 import { CollectionService } from 'src/app/services/collection.service';
 import { CheckoutService } from '../../services/checkout.service';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
+import { NavigationUtils } from './../../utils/navigationUtils';
 
 import Cart from '../../models/cart';
 import Dog from 'src/app/models/dog';
@@ -32,19 +30,6 @@ export class CartComponent implements OnInit {
   dogsCart: any[] = [];
 
   ngOnInit(): void {
-    // VERSÃO REDIGIDA 'CRUA'
-    // Primeiro eu preciso fazer a requisição GET do meu carrinho - tanto para pegar o carrinho atualizado
-    //    quanto para settar um valor pro meu Cart no Store.
-
-    // A ideia é ficar ouvindo o this.store.getCart$() (que é uma observable) e popular o component de acordo com esse Cart que vai vir da Store
-
-    // Depois eu preciso transformar o objeto Cart (que vai vir da store) em um objeto customizado
-    //    para que tenha as informações detalhadas de cada cachorro.
-    // Para isso, preciso fazer N requisições GET para cada ID de cachorro encontrado.
-    // A minha propriedade dogsCart é o que está populando todo o componente HTML,
-    //    por isso achei mais fácil fazer um objeto completo. Mas parece que só dificultou as coisas :(
-    // Obs.: Cada requisição precisa esperar a anterior finalizar para ser chamada (com exceção das getById dos cachorros)
-
     this.checkoutService
       .getCart(parseInt(this.localStorageUtils.getUserId()))
       .subscribe({
@@ -71,62 +56,6 @@ export class CartComponent implements OnInit {
           });
         },
       });
-
-    // VERSÃO MOSTRADA EM AULA
-    // this.checkoutService
-    //   .getCart(parseInt(this.localStorageUtils.getUserId()))
-    //   .subscribe(() =>
-    //     this.store
-    //       .getCart$()
-    //       .pipe(
-    //         tap((cart) => {
-    //           this.cart = cart;
-    //         }),
-    //         switchMap((cart: Cart) =>
-    //           forkJoin(
-    //             cart.dogs.map((dog: any, index: any) =>
-    //               this.collectionService.getById(dog.dogId).pipe(
-    //                 map((dogInfo) => ({
-    //                   dog: dogInfo,
-    //                   quantity: dog.quantity,
-    //                   dogId: dogInfo.id,
-    //                 }))
-    //               )
-    //             )
-    //           )
-    //         )
-    //       )
-    //       .subscribe({
-    //         next: (dogsCart) => {
-    //           this.dogsCart = dogsCart;
-    //         },
-    //       })
-    //   );
-
-    //   this.checkoutService
-    //     .getCart(parseInt(this.localStorageUtils.getUserId()))
-    //     .pipe(
-    //       tap((cart) => {
-    //         this.cart = cart;
-    //       }),
-    //       concatMap((cart) => from(cart?.dogs)),
-    //       concatMap((dog) =>
-    //         this.collectionService.getById(dog.dogId).pipe(
-    //           map((dogInfo) => ({
-    //             dog: dogInfo,
-    //             quantity: dog.quantity,
-    //             dogId: dogInfo.id,
-    //           }))
-    //         )
-    //       ),
-    //       toArray()
-    //     )
-    //     .subscribe({
-    //       next: (dogsCart) => {
-    //         this.dogsCart = dogsCart;
-    //       },
-    //     });
-    // }
   }
 
   deleteFromCart(event: any): void {
@@ -138,14 +67,6 @@ export class CartComponent implements OnInit {
 
     let updatedDog: Dog;
 
-    // VERSÃO REDIGIDA 'CRUA'
-    // Para deletar, primeiro pego as informações atualizadas do cachorro pelo getById na service
-    // Depois preciso atualizar a quantidade disponível que vai ser salva no banco
-    // Atualizo o cachorro no banco via this.collectionService.updateDog com o cachorro atualizado
-    // Só depois do cachorro ter atualizado, eu vou atualizar o meu carrinho
-    // Faço todas as contas para atualizar os valores
-    // Atualizo o Cart via this.checkoutService.updateCart com o cart atualizado
-    // Finalmente atualizo o meu cart que serve para popular meu componente
     this.collectionService.getById(id).subscribe({
       next: (dog) => {
         updatedDog = dog;
@@ -172,37 +93,6 @@ export class CartComponent implements OnInit {
         });
       },
     });
-
-    // VERSÃO MOSTRADA NA AULA
-    // this.collectionService
-    //   .getById(id)
-    //   .pipe(
-    //     tap((dog) => {
-    //       updatedDog = dog;
-    //       updatedDog.availableQuantity += quantityInCart!;
-    //     }),
-    //     concatMap(() => this.collectionService.updateDog(updatedDog)),
-    //     tap(() => {
-    //       this.updateCartInfo(
-    //         updatedCart,
-    //         updatedDog,
-    //         indexDogInCart,
-    //         quantityInCart!
-    //       );
-    //     }),
-    //     concatMap(() => this.checkoutService.updateCart(updatedCart!)),
-    //     tap(() => {
-    //       this.updateCartInfo(
-    //         this.cart!,
-    //         updatedDog,
-    //         indexDogInCart,
-    //         quantityInCart!
-    //       );
-    //     })
-    //   )
-    //   .subscribe({
-    //     next: () => window.location.reload(),
-    //   });
   }
 
   submitOrder(): void {
