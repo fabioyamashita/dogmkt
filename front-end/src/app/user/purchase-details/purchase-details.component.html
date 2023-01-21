@@ -1,0 +1,85 @@
+<div class="container">
+  <h3 class="title">
+    PURCHASE ID #{{ purchaseDetails.id }} ({{ purchaseDetails.date }})
+  </h3>
+  <div class="cart-container">
+    <div class="empty-list" *ngIf="purchaseDetails?.dogs?.length == 0">
+      No data found!
+    </div>
+    <ul class="products-list" *ngIf="purchaseDetails?.dogs?.length !== 0">
+      <li class="product-info" *ngFor="let dogCart of purchaseDetails.dogs">
+        <div class="dog-img-box">
+          <img
+            src="{{ dogCart?.dog?.pictureUrl }}"
+            alt="samoyed-img"
+            class="dog-img"
+          />
+        </div>
+
+        <div class="dog-info">
+          <div class="dog-name">{{ dogCart?.dog?.name }}</div>
+          <div class="default-info dog-breed">
+            Breed: {{ dogCart?.dog?.breed }}
+          </div>
+          <div class="default-info dog-id">ID: {{ dogCart?.dog?.id }}</div>
+          <div class="default-info dog-seller">
+            Seller:
+            {{
+              this.sellerHelperService.getSellerName(
+                dogCart?.dog?.sellerId ?? ""
+              )
+            }}
+          </div>
+
+          <div class="genre-quantity-box">
+            <div class="default-info dog-genre">
+              Genre:
+              <strong class="strong">{{ dogCart?.dog?.genre }}</strong>
+            </div>
+            <div class="quantity">Quantity: {{ dogCart.quantity }}</div>
+          </div>
+
+          <div class="price-box">
+            <mat-icon class="price-icon">favorite</mat-icon>
+            <span class="price">{{
+              dogCart?.dog?.price | number : "1.2-2"
+            }}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="total-box" *ngIf="purchaseDetails?.dogs?.length !== 0">
+      <div class="summary">
+        <div class="summary-title">Summary:</div>
+        <div class="summary-price-box">
+          <mat-icon class="price-icon-1 summary-price-icon">favorite</mat-icon>
+          <span class="summary-price">{{
+            purchaseDetails?.summary | number : "1.2-2"
+          }}</span>
+        </div>
+      </div>
+      <div class="discount">
+        <div class="discount-title">Discount:</div>
+        <div class="discount-price-box">
+          <mat-icon class="price-icon-1 discount-price-icon">favorite</mat-icon>
+          <span class="discount-price">{{
+            purchaseDetails?.discount | number : "1.2-2"
+          }}</span>
+        </div>
+      </div>
+
+      <div class="total">
+        <div class="total-title">Total:</div>
+        <div class="total-price-box">
+          <mat-icon class="price-icon-1 total-price-icon">favorite</mat-icon>
+          <span class="total-price">{{
+            purchaseDetails?.total | number : "1.2-2"
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>

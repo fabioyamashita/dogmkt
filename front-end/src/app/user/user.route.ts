@@ -1,9 +1,11 @@
+import { PurchaseResolve } from './../services/purchase.resolve';
 import { UserComponent } from './user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { CollectionResolve } from '../services/collection.resolve';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { PurchaseDetailsComponent } from './purchase-details/purchase-details.component';
 
 const userRouterConfig: Routes = [
   {
@@ -14,9 +16,13 @@ const userRouterConfig: Routes = [
       {
         path: 'profile',
         component: UserProfileComponent,
-        // resolve: {
-        //   dog: CollectionResolve,
-        // },
+      },
+      {
+        path: 'purchases/:id',
+        component: PurchaseDetailsComponent,
+        resolve: {
+          purchase: PurchaseResolve,
+        },
       },
     ],
   },

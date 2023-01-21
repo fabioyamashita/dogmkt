@@ -1,0 +1,45 @@
+.purchase-box {
+  border: 1px solid #868e96;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 5%);
+
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+
+  padding: 1rem 2.8rem;
+
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.purchase-box:hover {
+  background-color: #495057;
+}
+
+.purchase-box:hover > * {
+  color: #fff;
+}
+
+.purchase-box:hover > * > * {
+  color: #fff;
+}
+
+.purchase-box:hover > * > * > *:not(.price-icon) {
+  color: #fff;
+}
+
+.total-box,
+.price-box {
+  display: flex;
+  align-items: center;
+}
+
+.total-box {
+  gap: 0.6rem;
+}
+
+.price-icon {
+  color: #e03131;
+  transform: scale(0.7);
+}

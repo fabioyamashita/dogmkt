@@ -28,7 +28,7 @@
       "breed": "Samoyed",
       "genre": "Female",
       "price": 150.18,
-      "availableQuantity": 5,
+      "availableQuantity": 4,
       "description": "Description Teste",
       "dateOfBirth": "2023-01-01",
       "weight": 35,
@@ -39,7 +39,7 @@
       "id": 1
     },
     {
-      "availableQuantity": 2,
+      "availableQuantity": 1,
       "name": "John",
       "breed": "Airedale Terrier",
       "genre": "Male",
@@ -54,7 +54,7 @@
       "id": 2
     },
     {
-      "availableQuantity": 1,
+      "availableQuantity": 0,
       "name": "Maria",
       "breed": "Afghan Hound",
       "genre": "Female",
@@ -69,7 +69,7 @@
       "id": 3
     },
     {
-      "availableQuantity": 4,
+      "availableQuantity": 3,
       "name": "Seller 2 Dog",
       "breed": "Australian Cattle Dog",
       "genre": "Male",
@@ -103,10 +103,15 @@
     {
       "id": 1,
       "userId": 1,
-      "summary": 0,
+      "summary": 142,
       "discount": 0,
-      "total": 0,
-      "dogs": []
+      "total": 142,
+      "dogs": [
+        {
+          "dogId": 3,
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": 2,
@@ -157,6 +162,28 @@
         }
       ],
       "id": 2
+    },
+    {
+      "date": "2023-01-21",
+      "userId": 2,
+      "summary": 422.18,
+      "discount": 0,
+      "total": 422.18,
+      "dogs": [
+        {
+          "dogId": 4,
+          "quantity": 1
+        },
+        {
+          "dogId": 1,
+          "quantity": 1
+        },
+        {
+          "dogId": 2,
+          "quantity": 1
+        }
+      ],
+      "id": 3
     }
   ]
 }

@@ -1,6 +1,7 @@
-import { CollectionService } from 'src/app/services/collection.service';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
+
+import { CollectionService } from 'src/app/services/collection.service';
 import Dog from '../models/dog';
 
 @Injectable()

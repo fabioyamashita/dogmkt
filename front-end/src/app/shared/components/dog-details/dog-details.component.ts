@@ -45,14 +45,12 @@ export class DogDetailsComponent {
     }
   }
 
-  // Add to Cart
   addItemToCart(): void {
     const dogCartAdd: DogCart = {
       dogId: this.dog.id!,
       quantity: this.currentQuantity,
     };
 
-    // RAW VERSION
     this.collectionService.getById(this.dog.id!).subscribe({
       next: (dog) => {
         this.updatedDog = dog;
@@ -96,44 +94,5 @@ export class DogDetailsComponent {
         });
       },
     });
-
-    // OLD VERSION
-    // this.collectionService
-    //   .getById(this.dog.id!)
-    //   .pipe(
-    //     concatMap((dog) => {
-    //       this.updatedDog = dog;
-    //       this.updatedDog.availableQuantity -= this.currentQuantity;
-    //       return this.collectionService.updateDog(this.updatedDog);
-    //     }),
-    //     concatMap(() =>
-    //       this.checkoutService.getCart(
-    //         parseInt(this.localStorageUtils.getUserId())
-    //       )
-    //     ),
-    //     tap((cart) => {
-    //       this.updatedCart = cart;
-    //       let index = this.updatedCart.dogs.findIndex(
-    //         (dogCart) => dogCart.dogId == this.updatedDog.id
-    //       );
-
-    //       if (index == -1) {
-    //         this.updatedCart.dogs.push(dogCartAdd);
-    //       } else {
-    //         this.updatedCart.dogs[index].quantity += this.currentQuantity;
-    //       }
-
-    //       let sumToAdd = this.updatedDog.price! * this.currentQuantity;
-
-    //       this.updatedCart.summary += sumToAdd;
-    //       this.updatedCart.total =
-    //         this.updatedCart.summary - this.updatedCart.discount;
-
-    //       this.updatedCart.total = +this.updatedCart.total.toFixed(2);
-    //       this.updatedCart.summary = +this.updatedCart.summary.toFixed(2);
-    //     }),
-    //     concatMap(() => this.checkoutService.updateCart(this.updatedCart))
-    //   )
-    //   .subscribe(() => this.router.navigate(['/checkout/cart']));
   }
 }

@@ -2,12 +2,12 @@ import DogCart from './dogCart';
 
 export default class Purchase {
   id?: number;
-  userId: number;
-  summary: number;
-  discount: number;
-  total: number;
-  dogs: DogCart[];
-  date: string = new Date().toISOString().slice(0, 10);
+  userId?: number;
+  summary?: number;
+  discount?: number;
+  total?: number;
+  dogs?: DogCart[];
+  date?: string = new Date().toISOString().slice(0, 10);
 
   constructor(
     userId: number = 0,
