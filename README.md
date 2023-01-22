@@ -28,11 +28,6 @@ yarn add -D json-server json-server-auth
 ```
 
 ## Run the application
-- Navigate to front-end directory
-```
-cd .\front-end\
-```
-
 - Start JSON server (with JSON server Auth as middleware and Guarded Routes):
 ```
 json-server db.json -m ./node_modules/json-server-auth -r routes.json
