@@ -64,3 +64,14 @@ Use the following login and password as example to access the app:
 - Password: maria
 
 You can also create new users for your tests.
+
+## Features
+
+### Sign-up Page
+Sign-up page with the following features:
+- Email and Password validations
+- Input Checkbox to create a user as a seller
+
+![sign-up-page](https://user-images.githubusercontent.com/98363297/213942581-c7481b9c-3249-4b55-835a-325447c8e942.png)
+
+
