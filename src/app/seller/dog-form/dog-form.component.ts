@@ -84,6 +84,7 @@ export class DogFormComponent implements OnInit {
       next: () => {},
       complete: () => {
         this.createForm.reset();
+        this.navigationUtils.navigateToSellerProfile();
       },
     });
   }

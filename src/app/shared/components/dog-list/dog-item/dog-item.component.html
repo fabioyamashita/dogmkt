@@ -11,7 +11,7 @@
     <span class="sold-out-text" *ngIf="dog.availableQuantity == 0"
       >Sold Out</span
     >
-    <img src="{{ dog.pictureUrl }}" alt="samoyed-img" class="dog-img" />
+    <img src="{{ dog.pictureUrl }}" alt="{{ dog.breed }}" class="dog-img" />
   </div>
   <div class="dog-info">
     <span class="dog-name"> {{ dog.name }}</span>
