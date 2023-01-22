@@ -236,3 +236,36 @@
 
   padding: 0.6rem 2rem;
 }
+
+@media (max-width: 43.75em) {
+  .cart-container {
+    width: 85vw;
+  }
+}
+
+@media (max-width: 37.5em) {
+  .product-info {
+    flex-direction: column;
+  }
+  .dog-info {
+    width: max-content;
+    margin: 0 auto;
+  }
+
+  .dog-seller {
+    margin-bottom: 0.8rem;
+  }
+  .genre-quantity-box {
+    gap: 2rem;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .total-box {
+    width: 100%;
+  }
+
+  .product-info {
+    margin-bottom: 3.5rem;
+  }
+}

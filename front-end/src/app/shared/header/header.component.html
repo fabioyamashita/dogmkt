@@ -7,7 +7,7 @@
     />
   </a>
 
-  <div class="center-link">
+  <div class="center-link lg-screen">
     <ul>
       <li class="center-option">
         <button
@@ -45,7 +45,7 @@
 
     <button
       mat-button
-      class="cart-link"
+      class="cart-link lg-screen"
       *ngIf="
         this.router.url !== '/account/login' &&
         this.router.url !== '/account/signup' &&
@@ -58,7 +58,7 @@
 
     <button
       mat-button
-      class="cart-link"
+      class="cart-link lg-screen"
       *ngIf="this.router.url.includes('/seller')"
       routerLink="/seller/create"
     >
@@ -68,7 +68,7 @@
     <button
       mat-button
       [matMenuTriggerFor]="menu"
-      class="profile-link"
+      class="profile-link lg-screen"
       *ngIf="
         this.router.url !== '/account/login' &&
         this.router.url !== '/account/signup'
@@ -114,6 +114,96 @@
         Seller's View
       </button>
       <button mat-menu-item class="menu-item" (click)="logout()">Logout</button>
+    </mat-menu>
+
+    <!-- MENU FOR SMALL SCREENS -->
+    <div class="btn-menu">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menuSM"
+        class="menu sm-screen"
+        *ngIf="
+          this.router.url !== '/account/login' &&
+          this.router.url !== '/account/signup'
+        "
+      >
+        <mat-icon class="menu-icon">menu</mat-icon>
+      </button>
+    </div>
+
+    <mat-menu #menuSM="matMenu" class="menu">
+      <button
+        mat-menu-item
+        class="menu-item sm-screen"
+        routerLink="/collection/list"
+        *ngIf="
+          !this.router.url.includes('/seller') &&
+          !this.router.url.includes('/account')
+        "
+      >
+        DOG'S COLLECTION
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item sm-screen"
+        *ngIf="
+          this.router.url !== '/account/login' &&
+          this.router.url !== '/account/signup' &&
+          !this.router.url.includes('/seller')
+        "
+        routerLink="/checkout/cart"
+      >
+        CART({{ countDogsInCart }})
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item sm-screen"
+        *ngIf="this.router.url.includes('/seller')"
+        routerLink="/seller/create"
+      >
+        ADD A NEW DOG
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item sm-screen"
+        routerLink="/seller/profile"
+        *ngIf="this.router.url.includes('/seller')"
+      >
+        Seller Profile
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item sm-screen"
+        routerLink="/user/profile"
+        *ngIf="!this.router.url.includes('/seller')"
+      >
+        User Profile
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item sm-screen"
+        routerLink="/collection/list"
+        *ngIf="this.router.url.includes('/seller')"
+      >
+        User's View
+      </button>
+
+      <button
+        mat-menu-item
+        class="menu-item sm-screen"
+        routerLink="/seller/profile"
+        *ngIf="!this.router.url.includes('/seller') && user?.isSeller"
+      >
+        Seller's View
+      </button>
+      <button mat-menu-item class="menu-item sm-screen" (click)="logout()">
+        Logout
+      </button>
     </mat-menu>
   </div>
 </mat-toolbar>

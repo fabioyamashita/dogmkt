@@ -120,3 +120,8 @@ select:focus {
 input:focus::placeholder {
   color: transparent;
 }
+@media (max-width: 37.5em) {
+  .submit-btn {
+    padding: 0.6rem 0;
+  }
+}

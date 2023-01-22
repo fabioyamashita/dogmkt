@@ -27,7 +27,7 @@
   flex-direction: column;
   align-items: center;
 
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .heading {
@@ -49,4 +49,15 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
+}
+
+@media (max-width: 37.5em) {
+  .info-container,
+  .list-container {
+    width: 90vw;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
 }

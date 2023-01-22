@@ -1,11 +1,9 @@
-import { NavigationUtils } from './../../utils/navigationUtils';
-import { UserService } from './../../services/user.service';
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
+import { NavigationUtils } from './../../utils/navigationUtils';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +13,6 @@ import { LocalStorageUtils } from 'src/app/utils/localStorage';
 export class LoginComponent {
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private authService: AuthService,
     private localStorageUtils: LocalStorageUtils,
     private navigationUtils: NavigationUtils

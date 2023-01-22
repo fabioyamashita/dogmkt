@@ -43,3 +43,10 @@
   color: #e03131;
   transform: scale(0.7);
 }
+
+@media (max-width: 37.5em) {
+  .purchase-box {
+    padding: 1rem 1.4rem;
+    gap: 1.4rem;
+  }
+}

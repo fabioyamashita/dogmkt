@@ -26,4 +26,13 @@
 
   margin-bottom: 0.8rem;
   padding-top: 2rem;
+
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (max-width: 37.5em) {
+  .heading {
+    font-size: 1.6rem;
+  }
 }

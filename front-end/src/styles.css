@@ -14,13 +14,11 @@ app-root {
 }
 
 app-root > :not(app-header):not(router-outlet) {
-  /* flex: 1; */
   height: calc(100% - 64px);
 }
 
 app-footer {
   width: 100%;
-  /* margin-top: 5rem; */
 }
 
 body {
