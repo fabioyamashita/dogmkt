@@ -1,8 +1,8 @@
-# DOGMKT
+# :dog: DOGMKT
 
 ![collection-preview](https://user-images.githubusercontent.com/98363297/213941825-10ccfeb4-752c-4997-9fe0-d262be864dd5.png)
 
-## Description
+## :books: Description
 
 DOGMKT is a project built with Angular. It's a website which you can only buy dogs with love.
 
@@ -34,7 +34,7 @@ npm install -D json-server json-server-auth
 yarn add -D json-server json-server-auth
 ```
 
-## Run the application
+## 🖥️ Run the application
 - Start JSON server (with JSON server Auth as middleware and Guarded Routes):
 ```
 json-server db.json -m ./node_modules/json-server-auth -r routes.json
@@ -55,7 +55,7 @@ ng serve
 
 The app will be running at: `http://localhost:4200/`.
 
-## Tests
+## 🖥️ Tests
 
 For tests purposes, you can login with any user already registered by default.
 
@@ -65,7 +65,7 @@ Use the following login and password as example to access the app:
 
 You can also create new users for your tests.
 
-## Features
+## :tada: Features
 
 ### Mobile Friendly
 
