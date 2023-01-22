@@ -72,6 +72,7 @@ You can also create new users for your tests.
 The app was built to work in all devices.
 
 ![mobile-friendly](https://user-images.githubusercontent.com/98363297/213942749-b2c85f85-2f06-4995-b1cf-c82102355fa8.png)
+<hr>
 
 ### Sign-up Page
 Sign-up page with the following features:
@@ -79,6 +80,7 @@ Sign-up page with the following features:
 - Input Checkbox to create a user as a seller
 
 ![sign-up-page](https://user-images.githubusercontent.com/98363297/213942581-c7481b9c-3249-4b55-835a-325447c8e942.png)
+<hr>
 
 ### Login Page
 Login page with the following features:
@@ -86,6 +88,7 @@ Login page with the following features:
 - JWT Authentication
 
 ![login-page](https://user-images.githubusercontent.com/98363297/213942874-5459fc94-958a-4d00-a555-bf76493d5dd2.png)
+<hr>
 
 ### Header
 - Dynamic content
@@ -93,6 +96,7 @@ Login page with the following features:
 - Option of Seller's View (in Profile) only showing if the user is also a seller
 
 ![header](https://user-images.githubusercontent.com/98363297/213943387-13509495-00c3-4c38-aa4d-4f1eacda7c87.png)
+<hr>
 
 ### Dog's Collection
 Dog's Collection page with the following features:
@@ -101,7 +105,7 @@ Dog's Collection page with the following features:
 - Search tool
 
 ![collection-preview](https://user-images.githubusercontent.com/98363297/213943334-98388974-5e97-466c-985b-c301e4088d24.png)
-
+<hr>
 
 
 
