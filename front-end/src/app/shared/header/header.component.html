@@ -84,7 +84,7 @@
         routerLink="/seller/profile"
         *ngIf="this.router.url.includes('/seller')"
       >
-        My Profile
+        Seller Profile
       </button>
 
       <button
@@ -93,7 +93,7 @@
         routerLink="/user/profile"
         *ngIf="!this.router.url.includes('/seller')"
       >
-        My Profile
+        User Profile
       </button>
 
       <button
@@ -102,16 +102,16 @@
         routerLink="/collection/list"
         *ngIf="this.router.url.includes('/seller')"
       >
-        User View
+        User's View
       </button>
 
       <button
         mat-menu-item
         class="menu-item"
         routerLink="/seller/profile"
-        *ngIf="!this.router.url.includes('/seller')"
+        *ngIf="!this.router.url.includes('/seller') && user?.isSeller"
       >
-        Seller View
+        Seller's View
       </button>
       <button mat-menu-item class="menu-item" (click)="logout()">Logout</button>
     </mat-menu>

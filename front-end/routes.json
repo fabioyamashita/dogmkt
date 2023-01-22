@@ -1,6 +1,5 @@
 {
   "/users*": "/644/users$1",
   "/dogs*": "/660/dogs$1",
-  "/carts*": "/660/carts$1",
   "/purchases*": "/660/purchases$1"
 }

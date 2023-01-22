@@ -15,7 +15,6 @@ import Cart from 'src/app/models/cart';
 export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     private userService: UserService,
     private checkoutService: CheckoutService,
     private navigationUtils: NavigationUtils
@@ -41,6 +40,7 @@ export class SignupComponent implements OnInit {
       next: (response: any) => {
         this.checkoutService.createCart(new Cart(response.user.id)).subscribe();
       },
+
       error: (err) => {
         this.errorMsg = err.error;
       },
