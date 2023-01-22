@@ -32,10 +32,6 @@ export class SellerProfileComponent {
     this.user = this.store.value.users.find(
       (user) => user.id == parseInt(this.localStorageUtils.getUserId())
     );
-
-    this.user = this.store.value.users.find(
-      (user) => user.id == parseInt(this.localStorageUtils.getUserId())
-    );
   }
 
   searchCollection(event: any): void {

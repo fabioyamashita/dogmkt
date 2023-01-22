@@ -1,146 +1,208 @@
 {
   "users": [
     {
-      "email": "fabio@gmail.com",
-      "password": "$2a$10$c6HIM68hAL0Cxy03NmpZ5.yW7C41kLgysJbmMNvhVICvM914oW7Pu",
-      "name": "Fabio Yamashita",
+      "email": "admin@admin.com",
+      "password": "$2a$10$0KDJno5asHrzFcJP6/myAOCAj9h2hfB7G9Utl.pDH4oJqVUAgjjNW",
+      "name": "Admin Account",
       "isSeller": true,
       "id": 1
     },
     {
-      "email": "teste@gmail.com",
-      "password": "$2a$10$wO2PUmDc6E0EeCiuZAGs1e6sP7HjqXc1zwWhoAwwJEkVu3KqN6uvW",
-      "name": "testeaaa",
+      "email": "arnold@gmail.com",
+      "password": "$2a$10$Nuh1.VHeUG8/arwgnYyk5.rvAplJspItmlG6SE8RzUDJdt7dtiwoy",
+      "name": "Arnold Schwarzenegger",
       "isSeller": true,
       "id": 2
     },
     {
-      "email": "admin@admin.com",
-      "password": "$2a$10$cTnG5vbDJPMZBTP2FOdOjO65OE4MesbT2MQyiK.9mcxjg1qypsf7O",
-      "name": "admin",
+      "email": "john@gmail.com",
+      "password": "$2a$10$GeYnj53QkfzA.bSQBnx0meve8L4f9MpygRMBNt66E0Y564U7WbZQm",
+      "name": "John Gilbbert",
       "isSeller": true,
       "id": 3
+    },
+    {
+      "email": "maria@gmail.com",
+      "password": "$2a$10$dIZEgowvTXkv5LBRHSObD.N6w2/kxc7tcInqMFfNIoMXuf0Yf1eq.",
+      "name": "Maria Buyer",
+      "isSeller": false,
+      "id": 4
     }
   ],
   "dogs": [
     {
-      "name": "Nina the Samoyed",
-      "breed": "Samoyed",
-      "genre": "Female",
-      "price": 150.18,
-      "availableQuantity": 1,
-      "description": "Description Teste",
-      "dateOfBirth": "2023-01-01",
-      "weight": 35,
-      "height": 12,
-      "width": 5,
-      "pictureUrl": "https://images.unsplash.com/photo-1625334955193-c7c208aba883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+      "availableQuantity": 0,
+      "name": "Admin Dog",
+      "breed": "Others",
+      "genre": "Male",
+      "price": 5000,
+      "description": "Admin Dog.",
+      "dateOfBirth": "2001-01-01",
+      "weight": 5000,
+      "height": 5000,
+      "width": 5000,
+      "pictureUrl": "https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
       "sellerId": 1,
       "id": 1
     },
     {
-      "availableQuantity": 0,
-      "name": "John",
-      "breed": "Airedale Terrier",
+      "availableQuantity": 4,
+      "name": "Arnold's favorite dog",
+      "breed": "Bulldog",
       "genre": "Male",
-      "price": 147,
-      "description": "Test",
-      "dateOfBirth": "2023-01-03",
-      "weight": 15,
-      "height": 14,
-      "width": 15,
-      "pictureUrl": "https://images.unsplash.com/photo-1558368315-d44d7462073e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1165&q=80",
-      "sellerId": 1,
+      "price": 125.14,
+      "description": "Arnold's favorite dog.",
+      "dateOfBirth": "2012-12-10",
+      "weight": 25,
+      "height": 14.5,
+      "width": 12.5,
+      "pictureUrl": "https://images.unsplash.com/photo-1611611158876-41699b77a059?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+      "sellerId": 2,
       "id": 2
     },
     {
-      "availableQuantity": 0,
-      "name": "Maria",
-      "breed": "Afghan Hound",
-      "genre": "Female",
-      "price": 142,
-      "description": "Teste",
-      "dateOfBirth": "2023-01-19",
-      "weight": 14,
-      "height": 14,
-      "width": 10,
-      "pictureUrl": "https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      "sellerId": 1,
+      "availableQuantity": 2,
+      "name": "Arnold's 2nd favorite dog",
+      "breed": "Beagle",
+      "genre": "Male",
+      "price": 145.52,
+      "description": "Arnold's 2nd favorite dog.",
+      "dateOfBirth": "2023-01-04",
+      "weight": 12,
+      "height": 14.5,
+      "width": 14,
+      "pictureUrl": "https://images.unsplash.com/photo-1610174830067-9382e4953a2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "sellerId": 2,
       "id": 3
     },
     {
-      "availableQuantity": 2,
-      "name": "Seller 2 Dog",
-      "breed": "Australian Cattle Dog",
-      "genre": "Male",
-      "price": 125,
-      "description": "testeaaa",
-      "dateOfBirth": "2023-01-21",
-      "weight": 14,
-      "height": 15,
-      "width": 14,
-      "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+      "availableQuantity": 3,
+      "name": "Nina the Samoyed",
+      "breed": "Samoyed",
+      "genre": "Female",
+      "price": 520.52,
+      "description": "Nina the Samoyed.",
+      "dateOfBirth": "2023-01-01",
+      "weight": 25,
+      "height": 14.4,
+      "width": 16.3,
+      "pictureUrl": "https://images.unsplash.com/photo-1636998196796-8fec5c29bc5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
       "sellerId": 2,
       "id": 4
     },
     {
       "availableQuantity": 1,
-      "name": "Admin dog",
-      "breed": "Others",
+      "name": "Hacker Dog",
+      "breed": "Unknown",
       "genre": "Male",
-      "price": 5000,
-      "description": "Admin dog",
-      "dateOfBirth": "2023-01-05",
-      "weight": 50,
-      "height": 50,
-      "width": 50,
-      "pictureUrl": "https://images.unsplash.com/photo-1535930749574-1399327ce78f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=736&q=80",
+      "price": 1337,
+      "description": "Hacker Dog.",
+      "dateOfBirth": "1773-03-01",
+      "weight": 17,
+      "height": 17,
+      "width": 17,
+      "pictureUrl": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "sellerId": 3,
       "id": 5
+    },
+    {
+      "availableQuantity": 8,
+      "name": "Caramelo Dog",
+      "breed": "Others",
+      "genre": "Male",
+      "price": 240.54,
+      "description": "Caramelo Dog.",
+      "dateOfBirth": "2023-01-04",
+      "weight": 21,
+      "height": 10,
+      "width": 12,
+      "pictureUrl": "https://images.unsplash.com/photo-1504826260979-242151ee45b7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "sellerId": 3,
+      "id": 6
+    },
+    {
+      "availableQuantity": 0,
+      "name": "The Akita",
+      "breed": "Japanese Akita",
+      "genre": "Female",
+      "price": 240.5,
+      "description": "The Akita.",
+      "dateOfBirth": "2023-01-02",
+      "weight": 14,
+      "height": 25,
+      "width": 25,
+      "pictureUrl": "https://images.unsplash.com/photo-1613410180211-106788bd2d94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+      "sellerId": 3,
+      "id": 7
     }
   ],
   "carts": [
     {
       "id": 1,
       "userId": 1,
-      "summary": 142,
+      "summary": 0,
       "discount": 0,
-      "total": 142,
+      "total": 0,
+      "dogs": []
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "summary": 240.5,
+      "discount": 0,
+      "total": 240.5,
       "dogs": [
         {
-          "dogId": 3,
+          "dogId": 7,
           "quantity": 1
         }
       ]
     },
     {
-      "id": 2,
-      "userId": 2,
-      "summary": 0,
-      "discount": 0,
-      "total": 0,
-      "dogs": []
-    },
-    {
-      "id": 3,
       "userId": 3,
       "summary": 0,
       "discount": 0,
       "total": 0,
-      "dogs": []
+      "dogs": [],
+      "id": 3
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "summary": 761.06,
+      "discount": 0,
+      "total": 761.06,
+      "dogs": [
+        {
+          "dogId": 6,
+          "quantity": 1
+        },
+        {
+          "dogId": 4,
+          "quantity": 1
+        }
+      ]
     }
   ],
   "purchases": [
     {
-      "date": "2023-01-21",
-      "userId": 1,
-      "summary": 425.36,
+      "date": "2023-01-22",
+      "userId": 4,
+      "summary": 1031.68,
       "discount": 0,
-      "total": 425.36,
+      "total": 1031.68,
       "dogs": [
         {
-          "dogId": 1,
-          "quantity": 2
+          "dogId": 7,
+          "quantity": 1
+        },
+        {
+          "dogId": 3,
+          "quantity": 1
+        },
+        {
+          "dogId": 2,
+          "quantity": 1
         },
         {
           "dogId": 4,
@@ -150,36 +212,28 @@
       "id": 1
     },
     {
-      "date": "2023-01-21",
-      "userId": 1,
-      "summary": 142,
+      "date": "2023-01-22",
+      "userId": 4,
+      "summary": 240.5,
       "discount": 0,
-      "total": 142,
+      "total": 240.5,
       "dogs": [
         {
-          "dogId": 3,
+          "dogId": 7,
           "quantity": 1
         }
       ],
       "id": 2
     },
     {
-      "date": "2023-01-21",
-      "userId": 2,
-      "summary": 422.18,
+      "date": "2023-01-22",
+      "userId": 1,
+      "summary": 5000,
       "discount": 0,
-      "total": 422.18,
+      "total": 5000,
       "dogs": [
         {
-          "dogId": 4,
-          "quantity": 1
-        },
-        {
           "dogId": 1,
-          "quantity": 1
-        },
-        {
-          "dogId": 2,
           "quantity": 1
         }
       ],
@@ -187,17 +241,13 @@
     },
     {
       "date": "2023-01-22",
-      "userId": 3,
-      "summary": 297.18,
+      "userId": 2,
+      "summary": 240.54,
       "discount": 0,
-      "total": 297.18,
+      "total": 240.54,
       "dogs": [
         {
-          "dogId": 1,
-          "quantity": 1
-        },
-        {
-          "dogId": 2,
+          "dogId": 6,
           "quantity": 1
         }
       ],
