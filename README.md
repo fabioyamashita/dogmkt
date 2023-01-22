@@ -83,6 +83,7 @@ Sign-up page with the following features:
 ### Login Page
 Login page with the following features:
 - Email and Password validations
+- JWT Authentication
 
 ![login-page](https://user-images.githubusercontent.com/98363297/213942874-5459fc94-958a-4d00-a555-bf76493d5dd2.png)
 
