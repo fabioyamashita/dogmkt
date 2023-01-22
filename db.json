@@ -106,7 +106,7 @@
       "id": 5
     },
     {
-      "availableQuantity": 8,
+      "availableQuantity": 9,
       "name": "Caramelo Dog",
       "breed": "Others",
       "genre": "Male",
@@ -169,14 +169,10 @@
     {
       "id": 4,
       "userId": 4,
-      "summary": 761.06,
+      "summary": 520.52,
       "discount": 0,
-      "total": 761.06,
+      "total": 520.52,
       "dogs": [
-        {
-          "dogId": 6,
-          "quantity": 1
-        },
         {
           "dogId": 4,
           "quantity": 1

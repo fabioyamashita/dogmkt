@@ -117,15 +117,17 @@
     </mat-menu>
 
     <!-- MENU FOR SMALL SCREENS -->
-    <div class="btn-menu sm-screen">
+    <div
+      class="btn-menu sm-screen"
+      *ngIf="
+        this.router.url !== '/account/login' &&
+        this.router.url !== '/account/signup'
+      "
+    >
       <button
         mat-icon-button
         [matMenuTriggerFor]="menuSM"
         class="menu sm-screen"
-        *ngIf="
-          this.router.url !== '/account/login' &&
-          this.router.url !== '/account/signup'
-        "
       >
         <mat-icon class="menu-icon">menu</mat-icon>
       </button>
