@@ -11,8 +11,6 @@
 
 .card {
   height: max-content;
-  /* height: 100%; */
-  /* max-width: 300px; */
 
   border: 1px solid #868e96;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
@@ -38,7 +36,6 @@
   display: flex;
   flex-direction: column;
   width: 25rem;
-
   margin-bottom: 1.4rem;
 }
 
@@ -129,4 +126,28 @@
 .btn-action:hover {
   transition: all 0.2s;
   color: #868e96;
+}
+
+@media (max-height: 43.75em) {
+  .login-container {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 35em) {
+  .card,
+  .input-box {
+    width: 100%;
+  }
+
+  .card {
+    border: none;
+    box-shadow: none;
+    padding: 3rem 2rem 1.4rem 2rem;
+  }
+
+  .submit-btn {
+    padding: 0.6rem 0;
+    font-size: 1.125rem;
+  }
 }

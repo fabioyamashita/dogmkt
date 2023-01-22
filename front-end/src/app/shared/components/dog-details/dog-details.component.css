@@ -274,21 +274,41 @@ th {
 @media (max-width: 70em) {
   .dog-details-container,
   .dog-details {
-    width: 100vw;
+    width: 90vw;
   }
 }
 
 @media (max-width: 62.5em) {
   .dog-img-box,
   .dog-img {
-    width: 27.5rem;
-    height: 27.5rem;
+    max-width: 27.5rem;
+    max-height: 27.5rem;
   }
 }
 
 @media (max-width: 54.5em) {
   .dog-details {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+    width: 100%;
+  }
+
+  .dog-img-box,
+  .dog-img {
+    max-width: 19.5rem;
+    max-height: 19.5rem;
+  }
+
+  .name-price-box {
+    margin-bottom: 2.5rem;
+  }
+
+  .add-to-cart-area {
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    text-align: center;
   }
 
   .dog-details-container {
@@ -300,9 +320,27 @@ th {
     width: 100%;
   }
 
-  .dog-details > * {
+  .dog-info {
+    width: max-content;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .dog-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-to-cart-btn,
+  .sold-out-btn,
+  .edit-btn,
+  .add-to-cart-area {
+    width: 100%;
+  }
+
+  .more-details-section {
+    width: 100%;
   }
 }

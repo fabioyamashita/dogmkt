@@ -68,3 +68,28 @@ a:hover {
 .menu {
   transform: translateY(-10px) !important;
 }
+
+.sm-screen {
+  display: none;
+}
+
+@media (max-width: 59em) {
+  .lg-screen {
+    display: none;
+  }
+
+  .sm-screen {
+    display: block;
+  }
+
+  .header > * {
+    width: calc(100% / 2);
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0) !important;
+  }
+}

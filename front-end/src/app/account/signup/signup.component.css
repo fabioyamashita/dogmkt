@@ -150,3 +150,27 @@
 
   cursor: pointer;
 }
+
+@media (max-height: 43.75em) {
+  .login-container {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 35em) {
+  .card,
+  .input-box {
+    width: 100%;
+  }
+
+  .card {
+    border: none;
+    box-shadow: none;
+    padding: 3rem 2rem 1.4rem 2rem;
+  }
+
+  .submit-btn {
+    padding: 0.6rem 0;
+    font-size: 1.125rem;
+  }
+}
