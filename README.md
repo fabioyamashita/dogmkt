@@ -121,5 +121,40 @@ Dog's Details page with the following features:
 ![dog-details-2](https://user-images.githubusercontent.com/98363297/213943712-67b1bb76-fdae-4be7-ae54-cbd063f027f1.png)
 <hr>
 
+### Cart
+Cart page with the following features:
+- Delete item from cart
+- Real-time update of Total
+- Submit Order button
+
+![cart](https://user-images.githubusercontent.com/98363297/213943826-cd3a653e-2d7a-4f44-b4f1-38b70ec01b9b.png)
+<hr>
+
+### User Profile Section
+Profile Section page with the following features:
+- Edit user button to edit changes
+- If the user is alreasy a seller, he can't uncheck the seller checkbox
+- Purchase history redirecting to purchase details if the card is clicked
+
+![profile-section](https://user-images.githubusercontent.com/98363297/213943961-c7f13b15-e5e0-480f-9c79-e39c94d8c46c.png)
+<hr>
+
+### Purchase History
+Purchase History page with the following features:
+- Purchase ID and Date on heading
+- Purchase Details
+
+![purchase-history](https://user-images.githubusercontent.com/98363297/213944052-db1b80ac-3ec6-44d7-b960-ede939d5bec7.png)
+
+### Seller Profile Section
+Seller Section page with the following features:
+- Edit user button to edit changes
+- If the user is alreasy a seller, he can't uncheck the seller checkbox
+- List of dogs in sale
+- Search tool
+- Redirecting to dog's details if the picture is clicked
+
+![seller-profile](https://user-images.githubusercontent.com/98363297/213944157-b8d299b3-60c9-4252-91ac-6e8afacdacb7.png)
+
 
 
