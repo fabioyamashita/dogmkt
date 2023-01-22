@@ -145,6 +145,7 @@ Purchase History page with the following features:
 - Purchase Details
 
 ![purchase-history](https://user-images.githubusercontent.com/98363297/213944052-db1b80ac-3ec6-44d7-b960-ede939d5bec7.png)
+<hr>
 
 ### Seller Profile Section
 Seller Section page with the following features:
@@ -155,6 +156,28 @@ Seller Section page with the following features:
 - Redirecting to dog's details if the picture is clicked
 
 ![seller-profile](https://user-images.githubusercontent.com/98363297/213944157-b8d299b3-60c9-4252-91ac-6e8afacdacb7.png)
+<hr>
 
+### Seller Dog's Details
+Seller Dog's Details page with the following features:
+- Dog's details info
+- Edit Ddog button
 
+![seller-dog-details](https://user-images.githubusercontent.com/98363297/213944227-584929df-8f1d-4ad5-a03e-6609b75cf8cc.png)
+<hr>
+
+### Edit Dog
+Edit Dog page with the following features:
+- Data automatically filled
+
+![edit-dog](https://user-images.githubusercontent.com/98363297/213944304-20661ea0-5aba-47b7-8b9f-e3a8cda91a2c.png)
+<hr>
+
+### Add A New Dog
+Add A New Dog page with the following features:
+- Add New Dog button only working if all data is valid
+- Input Validations
+
+![add-new-dog](https://user-images.githubusercontent.com/98363297/213944369-30dd1762-9afe-4336-ab82-bd49c651b875.png)
+<hr>
 
