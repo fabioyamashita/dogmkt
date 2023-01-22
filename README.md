@@ -67,6 +67,12 @@ You can also create new users for your tests.
 
 ## Features
 
+### Mobile Friendly
+
+The app was built to work in all devices.
+
+![mobile-friendly](https://user-images.githubusercontent.com/98363297/213942749-b2c85f85-2f06-4995-b1cf-c82102355fa8.png)
+
 ### Sign-up Page
 Sign-up page with the following features:
 - Email and Password validations
