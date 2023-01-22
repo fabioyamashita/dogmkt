@@ -87,4 +87,21 @@ Login page with the following features:
 
 ![login-page](https://user-images.githubusercontent.com/98363297/213942874-5459fc94-958a-4d00-a555-bf76493d5dd2.png)
 
+### Header
+- Dynamic content
+- Cart items number updating in real-time (in header)
+- Option of Seller's View (in Profile) only showing if the user is also a seller
+
+![header](https://user-images.githubusercontent.com/98363297/213943387-13509495-00c3-4c38-aa4d-4f1eacda7c87.png)
+
+### Dog's Collection
+Dog's Collection page with the following features:
+- List of all dogs in sale
+- Sold Out banner
+- Search tool
+
+![collection-preview](https://user-images.githubusercontent.com/98363297/213943334-98388974-5e97-466c-985b-c301e4088d24.png)
+
+
+
 
