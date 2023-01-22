@@ -1,7 +1,14 @@
 # DOGMKT
+
+![collection-preview](https://user-images.githubusercontent.com/98363297/213941825-10ccfeb4-752c-4997-9fe0-d262be864dd5.png)
+
+## Description
+
 DOGMKT is a project built with Angular. It's a website which you can only buy dogs with love.
 
-Figma: https://www.figma.com/file/Lq5SXN1EkqOUpi4tUcNv7Q?fuid=1050222781352041246
+- **My Design on Figma**: https://www.figma.com/file/Lq5SXN1EkqOUpi4tUcNv7Q?fuid=1050222781352041246
+- **Front-End**: Angular
+- **Back-End**: Fake back-end with JSON server. Back-end in node.js coming soon...
 
 ## 🖥️ Getting Started
 
