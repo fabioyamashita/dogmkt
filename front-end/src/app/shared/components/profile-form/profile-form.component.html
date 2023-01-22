@@ -7,8 +7,8 @@
         type="checkbox"
         id="seller"
         name="seller"
+        formControlName="isSeller"
         [attr.checked]="user?.isSeller ? user?.isSeller : null"
-        disabled
       />
       <label for="seller">Seller</label>
     </div>
@@ -16,12 +16,7 @@
 
   <div class="input-box">
     <label class="label">Name</label>
-    <input
-      class="input-text"
-      type="text"
-      formControlName="name"
-      readonly="true"
-    />
+    <input class="input-text" type="text" formControlName="name" />
   </div>
   <div class="input-box">
     <label class="label">Email</label>
@@ -32,4 +27,8 @@
       readonly="true"
     />
   </div>
+
+  <button class="btn submit-edit-btn" (click)="editUser()">EDIT USER</button>
+
+  <!-- [attr.disabled]="!profileForm.touched && !profileForm.dirty ? true : null" -->
 </form>

@@ -57,3 +57,41 @@
 
   cursor: pointer;
 }
+
+/* BUTTON */
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  background-color: #495057;
+  color: #fff;
+
+  border-radius: 4px;
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+  font-size: 1.25rem;
+  font-family: inherit;
+
+  padding: 0.6rem 2rem;
+}
+
+.submit-edit-btn {
+  padding: 0.6rem 4rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
+  transition: all 0.2s;
+
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.submit-edit-btn:hover {
+  background-color: #646a6e;
+}
+
+.submit-edit-btn:disabled {
+  background-color: #888888;
+  cursor: auto;
+}

@@ -2,8 +2,8 @@
   "users": [
     {
       "email": "fabio@gmail.com",
-      "password": "$2a$10$k6x6lx0QawROt2t7KWR/yOqdlfcdVwpyGRqy/ZfTtCDAlfjcWv5Zy",
-      "name": "FAbio Yamashita",
+      "password": "$2a$10$c6HIM68hAL0Cxy03NmpZ5.yW7C41kLgysJbmMNvhVICvM914oW7Pu",
+      "name": "Fabio Yamashita",
       "isSeller": true,
       "id": 1
     },
@@ -28,7 +28,7 @@
       "breed": "Samoyed",
       "genre": "Female",
       "price": 150.18,
-      "availableQuantity": 4,
+      "availableQuantity": 2,
       "description": "Description Teste",
       "dateOfBirth": "2023-01-01",
       "weight": 35,
@@ -69,7 +69,7 @@
       "id": 3
     },
     {
-      "availableQuantity": 3,
+      "availableQuantity": 2,
       "name": "Seller 2 Dog",
       "breed": "Australian Cattle Dog",
       "genre": "Male",

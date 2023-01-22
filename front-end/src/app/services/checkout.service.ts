@@ -39,7 +39,7 @@ export class CheckoutService extends BaseService {
 
   createCart = (cart: Cart): Observable<Cart> =>
     this.http
-      .post<Cart>(this.UrlServiceV1 + 'carts', cart, super.getAuthHttpHeaders())
+      .post<Cart>(this.UrlServiceV1 + 'carts', cart, super.getHttpHeaders())
       .pipe(tap((next) => this.store.set('cart', next)));
 
   getPurchases = (): Observable<Purchase> =>

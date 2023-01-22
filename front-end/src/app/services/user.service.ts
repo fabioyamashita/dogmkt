@@ -58,4 +58,22 @@ export class UserService extends BaseService {
         })
       );
   }
+
+  editUser(user: User): Observable<User> {
+    return this.http
+      .put<User>(
+        this.UrlServiceV1 + 'users/' + user.id,
+        user,
+        super.getAuthHttpHeaders()
+      )
+      .pipe(
+        tap((user) => {
+          let updatedUsers = this.store.value.users;
+          updatedUsers.push(
+            this.userHelperService.removePasswordFromObject(user)
+          );
+          this.store.set('users', updatedUsers);
+        })
+      );
+  }
 }
