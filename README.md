@@ -80,4 +80,10 @@ Sign-up page with the following features:
 
 ![sign-up-page](https://user-images.githubusercontent.com/98363297/213942581-c7481b9c-3249-4b55-835a-325447c8e942.png)
 
+### Login Page
+Login page with the following features:
+- Email and Password validations
+
+![login-page](https://user-images.githubusercontent.com/98363297/213942874-5459fc94-958a-4d00-a555-bf76493d5dd2.png)
+
 
