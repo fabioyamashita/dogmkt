@@ -161,7 +161,7 @@ Seller Section page with the following features:
 ### Seller Dog's Details
 Seller Dog's Details page with the following features:
 - Dog's details info
-- Edit Ddog button
+- Edit Dog button
 
 ![seller-dog-details](https://user-images.githubusercontent.com/98363297/213944227-584929df-8f1d-4ad5-a03e-6609b75cf8cc.png)
 <hr>
