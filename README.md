@@ -103,8 +103,22 @@ Dog's Collection page with the following features:
 - List of all dogs in sale
 - Sold Out banner
 - Search tool
+- Redirecting to dog's details if the picture is clicked
 
 ![collection-preview](https://user-images.githubusercontent.com/98363297/213943334-98388974-5e97-466c-985b-c301e4088d24.png)
+<hr>
+
+### Dog's Details
+Dog's Details page with the following features:
+- Dog's Info and Details changing information on click
+- Add To Cart button
+- '+' and '-' buttons
+- Max. quantity blocking '+' button when Available is reached
+- Button will appear as 'Sold Out' if Available quantity = 0
+
+![dog-details-1](https://user-images.githubusercontent.com/98363297/213943703-91e8157e-b7a9-4b53-bdfe-ef78995f3057.png)
+
+![dog-details-2](https://user-images.githubusercontent.com/98363297/213943712-67b1bb76-fdae-4be7-ae54-cbd063f027f1.png)
 <hr>
 
 
