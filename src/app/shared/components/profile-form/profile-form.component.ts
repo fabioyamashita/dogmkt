@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 import User from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
@@ -14,7 +15,8 @@ export class ProfileFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private localStorageUtils: LocalStorageUtils
+    private localStorageUtils: LocalStorageUtils,
+    private toastr: ToastrService
   ) {}
 
   @Input() user: User | undefined;
@@ -49,7 +51,19 @@ export class ProfileFormComponent implements OnInit {
 
       this.userService.editUser(userFound).subscribe({
         next: () => {
-          window.location.reload();
+          // window.location.reload();
+
+          let toast = this.toastr.success(
+            'User edited successfully!',
+            'Edit User',
+            { timeOut: 2000 }
+          );
+        },
+
+        error: (err) => {
+          this.toastr.error('An error has occurred!', 'Ops...', {
+            timeOut: 2000,
+          });
         },
       });
     });

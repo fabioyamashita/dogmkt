@@ -1,10 +1,12 @@
-import { NavigationUtils } from './../../utils/navigationUtils';
-import { CheckoutService } from './../../services/checkout.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import User from 'src/app/models/user';
+
+import { ToastrService } from 'ngx-toastr';
+
+import { CheckoutService } from './../../services/checkout.service';
 import { UserService } from 'src/app/services/user.service';
+import { NavigationUtils } from './../../utils/navigationUtils';
+import User from 'src/app/models/user';
 import Cart from 'src/app/models/cart';
 
 @Component({
@@ -17,7 +19,8 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private checkoutService: CheckoutService,
-    private navigationUtils: NavigationUtils
+    private navigationUtils: NavigationUtils,
+    private toastr: ToastrService
   ) {}
 
   signupForm: any;
@@ -38,13 +41,29 @@ export class SignupComponent implements OnInit {
 
     this.userService.createUser(user).subscribe({
       next: (response: any) => {
-        this.checkoutService.createCart(new Cart(response.user.id)).subscribe();
+        this.checkoutService
+          .createCart(new Cart(response.user.id))
+          .subscribe(() => {
+            let toast = this.toastr.success(
+              'New account registered!',
+              'Welcome!!',
+              { timeOut: 1000 }
+            );
+
+            if (toast) {
+              toast.onHidden.subscribe(() =>
+                this.navigationUtils.navigateToLogin()
+              );
+            }
+          });
       },
 
       error: (err) => {
         this.errorMsg = err.error;
+        this.toastr.error('An error has occurred!', 'Ops...', {
+          timeOut: 2000,
+        });
       },
-      complete: () => this.navigationUtils.navigateToLogin(),
     });
   }
 }

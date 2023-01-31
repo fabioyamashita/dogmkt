@@ -1,4 +1,7 @@
+import { tap } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+
+import { ToastrService } from 'ngx-toastr';
 
 import { Store } from 'src/app/app.store';
 import { SellerHelperService } from 'src/app/services/seller.helper.service';
@@ -23,7 +26,8 @@ export class CartComponent implements OnInit {
     private collectionService: CollectionService,
     public sellerHelperService: SellerHelperService,
     private localStorageUtils: LocalStorageUtils,
-    private navigationUtils: NavigationUtils
+    private navigationUtils: NavigationUtils,
+    private toastr: ToastrService
   ) {}
 
   cart?: Cart;
@@ -105,7 +109,7 @@ export class CartComponent implements OnInit {
     );
 
     this.checkoutService.createPurchase(purchase).subscribe({
-      next: () => {
+      next: (purchase: Purchase) => {
         this.checkoutService
           .updateCart({
             id: this.cart?.id,
@@ -115,9 +119,20 @@ export class CartComponent implements OnInit {
             total: 0,
             dogs: [],
           })
-          .subscribe();
+          .subscribe(() => {
+            let toast = this.toastr.success(
+              `Order ID #${purchase.id} created!`,
+              'Thank you!!!',
+              { timeOut: 3000 }
+            );
+
+            if (toast) {
+              toast.onShown.subscribe(() =>
+                this.navigationUtils.navigateToUserProfile()
+              );
+            }
+          });
       },
-      complete: () => this.navigationUtils.navigateToUserProfile(),
     });
   }
 

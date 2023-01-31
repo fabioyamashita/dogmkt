@@ -1,5 +1,3 @@
-import { HttpError } from './utils/httpError';
-import { AppGuard } from './services/app.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,7 +7,10 @@ import { LOCALE_ID } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material/material.module';
+import { ToastrModule } from 'ngx-toastr';
 
+import { AppGuard } from './services/app.guard';
+import { HttpError } from './utils/httpError';
 import { AppComponent } from './app.component';
 import { Store } from './app.store';
 import { UserComponent } from './user/user.component';
@@ -24,6 +25,7 @@ import { LocalStorageUtils } from './utils/localStorage';
     SharedModule,
     MaterialModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     Store,

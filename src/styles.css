@@ -171,3 +171,32 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #212529;
 }
+
+/* TOASTR CONFIG */
+.toast-success {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.2s !important;
+  background-color: #2f9e44 !important;
+}
+
+.toast-success:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.toast-error {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.2s !important;
+  background-color: #e03131 !important;
+}
+
+.toast-error:hover {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+.toast-title {
+  color: #fff !important;
+}
+
+.toast-message {
+  color: #fff !important;
+}

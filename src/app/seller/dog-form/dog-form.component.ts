@@ -10,6 +10,7 @@ import { DogBreeds } from 'src/app/models/dog-breeds.enum';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
 import { tap, concatMap } from 'rxjs';
 import { NavigationUtils } from 'src/app/utils/navigationUtils';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-dog-form',
@@ -24,7 +25,8 @@ export class DogFormComponent implements OnInit {
     private datePipe: DatePipe,
     private localStorageUtils: LocalStorageUtils,
     private activatedRoute: ActivatedRoute,
-    private navigationUtils: NavigationUtils
+    private navigationUtils: NavigationUtils,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -81,10 +83,23 @@ export class DogFormComponent implements OnInit {
       ) ?? '';
 
     this.collectionService.createDog(dog).subscribe({
-      next: () => {},
-      complete: () => {
+      next: () => {
         this.createForm.reset();
         this.navigationUtils.navigateToSellerProfile();
+      },
+      error: (err) => {
+        this.toastr.error('An error has occurred!', 'Ops...', {
+          timeOut: 2000,
+        });
+      },
+      complete: () => {
+        let toast = this.toastr.success(
+          `${dog.name} created!`,
+          'Add a New Dog',
+          {
+            timeOut: 2000,
+          }
+        );
       },
     });
   }
@@ -109,7 +124,17 @@ export class DogFormComponent implements OnInit {
         concatMap(() => this.collectionService.updateDog(dog))
       )
       .subscribe({
-        complete: () => this.navigationUtils.navigateToSellerProfile(),
+        next: () => this.navigationUtils.navigateToSellerProfile(),
+        error: (err) => {
+          this.toastr.error('An error has occurred!', 'Ops...', {
+            timeOut: 2000,
+          });
+        },
+        complete: () => {
+          let toast = this.toastr.success(`${dog.name} edited!`, 'Dog Edit', {
+            timeOut: 2000,
+          });
+        },
       });
   }
 
