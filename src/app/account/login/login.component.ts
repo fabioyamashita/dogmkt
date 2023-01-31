@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
+import { ToastrService } from 'ngx-toastr';
+
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
 import { NavigationUtils } from './../../utils/navigationUtils';
@@ -15,7 +17,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private localStorageUtils: LocalStorageUtils,
-    private navigationUtils: NavigationUtils
+    private navigationUtils: NavigationUtils,
+    private toastr: ToastrService
   ) {}
 
   loginForm: any;
@@ -34,11 +37,26 @@ export class LoginComponent {
       .subscribe({
         next: (res) => {
           this.localStorageUtils.saveDataFromResponse(res);
+
+          let toast = this.toastr.success(
+            'Login Successful!',
+            'Welcome to DOGMKT!',
+            { timeOut: 2000 }
+          );
+
+          if (toast) {
+            toast.onShown.subscribe(() =>
+              this.navigationUtils.navigateToCollection()
+            );
+          }
         },
         error: (err) => {
           this.errorMsg = 'Wrong email/password';
+
+          this.toastr.error('An error has occurred!', 'Ops...', {
+            timeOut: 2000,
+          });
         },
-        complete: () => this.navigationUtils.navigateToCollection(),
       });
   }
 }

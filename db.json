@@ -9,7 +9,7 @@
     },
     {
       "email": "arnold@gmail.com",
-      "password": "$2a$10$Nuh1.VHeUG8/arwgnYyk5.rvAplJspItmlG6SE8RzUDJdt7dtiwoy",
+      "password": "$2a$10$eCn0mHFStpSffQ8BgmIwGeZ.9iO9cJ9npAeyGjYcUxrccjxYFMZf6",
       "name": "Arnold Schwarzenegger",
       "isSeller": true,
       "id": 2
@@ -46,7 +46,7 @@
       "id": 1
     },
     {
-      "availableQuantity": 4,
+      "availableQuantity": 2,
       "name": "Arnold's favorite dog",
       "breed": "Bulldog",
       "genre": "Male",
@@ -121,7 +121,7 @@
       "id": 6
     },
     {
-      "availableQuantity": 0,
+      "availableQuantity": 1,
       "name": "The Akita",
       "breed": "Japanese Akita",
       "genre": "Female",
@@ -134,6 +134,21 @@
       "pictureUrl": "https://images.unsplash.com/photo-1613410180211-106788bd2d94?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
       "sellerId": 3,
       "id": 7
+    },
+    {
+      "availableQuantity": 50,
+      "name": "Test Dog",
+      "breed": "Affenpinscher",
+      "genre": "Male",
+      "price": 152,
+      "description": "test",
+      "dateOfBirth": "2023-01-04",
+      "weight": 12,
+      "height": 12,
+      "width": 12,
+      "pictureUrl": "https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80",
+      "sellerId": 2,
+      "id": 8
     }
   ],
   "carts": [
@@ -148,15 +163,10 @@
     {
       "id": 2,
       "userId": 2,
-      "summary": 240.5,
+      "summary": 0,
       "discount": 0,
-      "total": 240.5,
-      "dogs": [
-        {
-          "dogId": 7,
-          "quantity": 1
-        }
-      ]
+      "total": 0,
+      "dogs": []
     },
     {
       "userId": 3,
@@ -169,15 +179,10 @@
     {
       "id": 4,
       "userId": 4,
-      "summary": 520.52,
+      "summary": 0,
       "discount": 0,
-      "total": 520.52,
-      "dogs": [
-        {
-          "dogId": 4,
-          "quantity": 1
-        }
-      ]
+      "total": 0,
+      "dogs": []
     }
   ],
   "purchases": [
@@ -248,6 +253,48 @@
         }
       ],
       "id": 4
+    },
+    {
+      "date": "2023-01-25",
+      "userId": 4,
+      "summary": 520.52,
+      "discount": 0,
+      "total": 520.52,
+      "dogs": [
+        {
+          "dogId": 4,
+          "quantity": 1
+        }
+      ],
+      "id": 5
+    },
+    {
+      "date": "2023-01-25",
+      "userId": 4,
+      "summary": 125.14,
+      "discount": 0,
+      "total": 125.14,
+      "dogs": [
+        {
+          "dogId": 2,
+          "quantity": 1
+        }
+      ],
+      "id": 6
+    },
+    {
+      "date": "2023-01-25",
+      "userId": 4,
+      "summary": 145.52,
+      "discount": 0,
+      "total": 145.52,
+      "dogs": [
+        {
+          "dogId": 3,
+          "quantity": 1
+        }
+      ],
+      "id": 7
     }
   ]
 }
