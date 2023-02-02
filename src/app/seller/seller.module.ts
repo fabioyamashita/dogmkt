@@ -3,6 +3,8 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
+
 import { SharedModule } from '../shared/shared.module';
 import { SellerRoutingModule } from './seller.route';
 import { MaterialModule } from '../material/material.module';
@@ -32,7 +34,9 @@ import { DogPreviewComponent } from './dog-preview/dog-preview.component';
     ReactiveFormsModule,
     FormsModule,
     MaterialModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
   ],
-  providers: [CollectionResolve, DatePipe],
+  providers: [CollectionResolve, DatePipe, provideNgxMask()],
 })
 export class SellerModule {}
