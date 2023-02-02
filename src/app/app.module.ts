@@ -10,7 +10,6 @@ import { MaterialModule } from './material/material.module';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppGuard } from './services/app.guard';
-import { HttpError } from './utils/httpError';
 import { AppComponent } from './app.component';
 import { Store } from './app.store';
 import { UserComponent } from './user/user.component';
