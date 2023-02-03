@@ -1,3 +1,8 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
 export class LocalStorageUtils {
   public getUserId(): string {
     return localStorage.getItem('userId') ?? '';

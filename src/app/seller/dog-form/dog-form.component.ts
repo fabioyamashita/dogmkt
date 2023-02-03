@@ -1,14 +1,22 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { CurrencyPipe, DatePipe } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChildren,
+} from '@angular/core';
+import { FormBuilder, FormControlName, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 import { CollectionService } from 'src/app/services/collection.service';
 
 import Dog from 'src/app/models/dog';
 import { DogBreeds } from 'src/app/models/dog-breeds.enum';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
-import { tap, concatMap } from 'rxjs';
+import { tap, concatMap, Observable, fromEvent, merge } from 'rxjs';
 import { NavigationUtils } from 'src/app/utils/navigationUtils';
 import { ToastrService } from 'ngx-toastr';
 
@@ -29,6 +37,31 @@ export class DogFormComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
+  @ViewChildren(FormControlName, { read: ElementRef })
+  formInputElements: ElementRef[] | undefined;
+  @Output() unsavedChangesEvent: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
+
+  breedList: string[] = Object.keys(DogBreeds).filter((key) =>
+    isNaN(Number(key))
+  );
+
+  @Input() dog?: Dog;
+  createForm: any;
+
+  regexURL: RegExp =
+    /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
+
+  ngAfterViewInit(): void {
+    let controlBlurs: Observable<any>[] = this.formInputElements?.map(
+      (formControl: ElementRef) => fromEvent(formControl.nativeElement, 'blur')
+    )!;
+
+    merge(...controlBlurs).subscribe(() => {
+      this.unsavedChangesEvent.emit(true);
+    });
+  }
+
   ngOnInit(): void {
     this.createForm = this.fb.group({
       name: [this.dog?.name, Validators.required],
@@ -48,16 +81,6 @@ export class DogFormComponent implements OnInit {
     });
   }
 
-  breedList: string[] = Object.keys(DogBreeds).filter((key) =>
-    isNaN(Number(key))
-  );
-
-  @Input() dog?: Dog;
-  createForm: any;
-
-  regexURL: RegExp =
-    /^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/;
-
   onSubmitForm() {
     if (this.createForm.valid) {
       let dog: Dog = new Dog();
@@ -67,6 +90,8 @@ export class DogFormComponent implements OnInit {
       } else {
         this.updateDog(dog);
       }
+
+      this.unsavedChangesEvent.emit(false);
     }
   }
 

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+
 import { ToastrService } from 'ngx-toastr';
 
 import User from 'src/app/models/user';
@@ -51,8 +52,6 @@ export class ProfileFormComponent implements OnInit {
 
       this.userService.editUser(userFound).subscribe({
         next: () => {
-          // window.location.reload();
-
           let toast = this.toastr.success(
             'User edited successfully!',
             'Edit User',

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { FormGuard } from './services/form.guard';
+
 import { SellerComponent } from './seller.component';
 import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
@@ -14,13 +16,18 @@ const sellerRouterConfig: Routes = [
     component: SellerComponent,
 
     children: [
-      { path: 'create', component: CreateComponent },
+      {
+        path: 'create',
+        component: CreateComponent,
+        canDeactivate: [FormGuard],
+      },
       {
         path: 'edit/:id',
         component: EditComponent,
         resolve: {
           dog: CollectionResolve,
         },
+        canDeactivate: [FormGuard],
       },
       {
         path: 'preview/:id',
@@ -32,9 +39,6 @@ const sellerRouterConfig: Routes = [
       {
         path: 'profile',
         component: SellerProfileComponent,
-        // resolve: {
-        //   dog: CollectionResolve,
-        // },
       },
     ],
   },

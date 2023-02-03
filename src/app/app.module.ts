@@ -26,12 +26,7 @@ import { LocalStorageUtils } from './utils/localStorage';
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
-  providers: [
-    Store,
-    { provide: LOCALE_ID, useValue: 'en-US' },
-    LocalStorageUtils,
-    AppGuard,
-  ],
+  providers: [Store, { provide: LOCALE_ID, useValue: 'en-US' }, AppGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

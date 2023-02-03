@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./create.component.css'],
 })
 export class CreateComponent {
-  constructor() {}
+  unsavedChanges: boolean | undefined;
+
+  unsavedChangesToggle(event: any): void {
+    this.unsavedChanges = true;
+  }
 }
