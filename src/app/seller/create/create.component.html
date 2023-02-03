@@ -1,7 +1,10 @@
 <div class="container">
   <div class="create-dog-container">
     <h2 class="heading">ADD A NEW DOG</h2>
-    <app-dog-form class="form"></app-dog-form>
+    <app-dog-form
+      class="form"
+      (unsavedChangesEvent)="unsavedChangesToggle($event)"
+    ></app-dog-form>
   </div>
 
   <app-footer></app-footer>

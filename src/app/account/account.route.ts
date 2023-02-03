@@ -1,3 +1,4 @@
+import { AccountGuard } from './services/account.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -11,8 +12,12 @@ const accountRouterConfig: Routes = [
     component: AccountComponent,
 
     children: [
-      { path: 'login', component: LoginComponent },
-      { path: 'signup', component: SignupComponent },
+      { path: 'login', component: LoginComponent, canActivate: [AccountGuard] },
+      {
+        path: 'signup',
+        component: SignupComponent,
+        canActivate: [AccountGuard],
+      },
     ],
   },
 ];
