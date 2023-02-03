@@ -181,3 +181,15 @@ Add A New Dog page with the following features:
 ![add-new-dog](https://user-images.githubusercontent.com/98363297/213944369-30dd1762-9afe-4336-ab82-bd49c651b875.png)
 <hr>
 
+### Success/Error Notification
+- Success/Error Notification using ngx-toastr
+
+![toastr-notifications](https://user-images.githubusercontent.com/98363297/216485021-91046ed0-c03b-460b-936a-28da78e0e482.PNG)
+<hr>
+
+### Unsaved Changes Alert
+- Unsaved Changes Alert on pages with forms
+
+![unsaved-changes-notification](https://user-images.githubusercontent.com/98363297/216485277-9ed9388d-cc27-4adb-a0f0-593a24faf856.PNG)
+<hr>
+
