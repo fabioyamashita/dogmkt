@@ -9,7 +9,12 @@ const checkoutRouterConfig: Routes = [
     path: '',
     component: CheckoutComponent,
 
-    children: [{ path: 'cart', component: CartComponent }],
+    children: [
+      {
+        path: 'cart',
+        component: CartComponent,
+      },
+    ],
   },
 ];
 

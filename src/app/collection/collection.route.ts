@@ -1,6 +1,8 @@
-import { CollectionResolve } from '../services/collection.resolve';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+import { CollectionResolve } from './../services/Resolve/collection.resolve';
+import { CollectionDetailsResolve } from '../services/Resolve/collectionDetails.resolve';
 
 import { CollectionComponent } from './collection.component';
 import { DetailsComponent } from './details/details.component';
@@ -12,12 +14,18 @@ const collectionRouterConfig: Routes = [
     component: CollectionComponent,
 
     children: [
-      { path: 'list', component: ListComponent },
+      {
+        path: 'list',
+        component: ListComponent,
+        resolve: {
+          dogs: CollectionResolve,
+        },
+      },
       {
         path: 'details/:id',
         component: DetailsComponent,
         resolve: {
-          dog: CollectionResolve,
+          dog: CollectionDetailsResolve,
         },
       },
     ],

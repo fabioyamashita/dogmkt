@@ -1,10 +1,9 @@
-import { CheckoutService } from 'src/app/services/checkout.service';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { Store } from 'src/app/app.store';
 import Purchase from 'src/app/models/purchase';
 import User from 'src/app/models/user';
-import { UserService } from 'src/app/services/user.service';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 @Component({
@@ -16,7 +15,7 @@ export class UserProfileComponent implements OnInit {
   constructor(
     private store: Store,
     private localStorageUtils: LocalStorageUtils,
-    private checkoutService: CheckoutService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   user: User | undefined;
@@ -30,17 +29,8 @@ export class UserProfileComponent implements OnInit {
         )),
     });
 
-    this.checkoutService.getPurchases().subscribe({
-      next: () => {
-        this.store.getPurchases$().subscribe({
-          next: (purchases) => {
-            this.purchases = purchases.filter(
-              (purchase) =>
-                purchase.userId == parseInt(this.localStorageUtils.getUserId())
-            );
-          },
-        });
-      },
-    });
+    this.activatedRoute.data.subscribe(
+      ({ purchases }) => (this.purchases = purchases)
+    );
   }
 }

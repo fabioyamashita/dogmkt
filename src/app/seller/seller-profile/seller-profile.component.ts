@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { CollectionService } from 'src/app/services/collection.service';
 import Dog from 'src/app/models/dog';
@@ -14,18 +15,16 @@ export class SellerProfileComponent {
   constructor(
     private collectionService: CollectionService,
     private store: Store,
-    private localStorageUtils: LocalStorageUtils
+    private localStorageUtils: LocalStorageUtils,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   public dogs!: Dog[];
   user!: any;
 
   ngOnInit(): void {
-    this.collectionService.getCollection.subscribe({
-      next: (dogs: Dog[]) =>
-        (this.dogs = dogs.filter(
-          (dog) => dog.sellerId == parseInt(this.localStorageUtils.getUserId())
-        )),
+    this.activatedRoute.data.subscribe({
+      next: ({ dogs }) => (this.dogs = dogs),
       error: (err: Error) => console.error(err),
     });
 

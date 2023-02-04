@@ -18,5 +18,6 @@ import { CartComponent } from './cart/cart.component';
     SharedModule,
     MaterialModule,
   ],
+  providers: [],
 })
 export class CheckoutModule {}
