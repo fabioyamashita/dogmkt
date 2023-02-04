@@ -46,7 +46,7 @@
       "id": 1
     },
     {
-      "availableQuantity": 2,
+      "availableQuantity": 1,
       "name": "Arnold's favorite dog",
       "breed": "Bulldog",
       "genre": "Male",
@@ -61,7 +61,7 @@
       "id": 2
     },
     {
-      "availableQuantity": 2,
+      "availableQuantity": 1,
       "name": "Arnold's 2nd favorite dog",
       "breed": "Beagle",
       "genre": "Male",
@@ -106,7 +106,7 @@
       "id": 5
     },
     {
-      "availableQuantity": 9,
+      "availableQuantity": 8,
       "name": "Caramelo Dog",
       "breed": "Others",
       "genre": "Male",
@@ -155,10 +155,15 @@
     {
       "id": 1,
       "userId": 1,
-      "summary": 0,
+      "summary": 240.54,
       "discount": 0,
-      "total": 0,
-      "dogs": []
+      "total": 240.54,
+      "dogs": [
+        {
+          "dogId": 6,
+          "quantity": 1
+        }
+      ]
     },
     {
       "id": 2,
@@ -295,6 +300,24 @@
         }
       ],
       "id": 7
+    },
+    {
+      "date": "2023-02-04",
+      "userId": 4,
+      "summary": 270.66,
+      "discount": 0,
+      "total": 270.66,
+      "dogs": [
+        {
+          "dogId": 2,
+          "quantity": 1
+        },
+        {
+          "dogId": 3,
+          "quantity": 1
+        }
+      ],
+      "id": 8
     }
   ]
 }

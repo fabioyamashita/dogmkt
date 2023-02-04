@@ -6,7 +6,8 @@ import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../material/material.module';
 import { CollectionRoutingModule } from './collection.route';
 import { CollectionService } from '../services/collection.service';
-import { CollectionResolve } from '../services/collection.resolve';
+import { CollectionDetailsResolve } from '../services/Resolve/collectionDetails.resolve';
+import { CollectionResolve } from '../services/Resolve/collection.resolve';
 
 import { CollectionComponent } from './collection.component';
 import { ListComponent } from './list/list.component';
@@ -21,6 +22,6 @@ import { DetailsComponent } from './details/details.component';
     SharedModule,
     MaterialModule,
   ],
-  providers: [CollectionService, CollectionResolve],
+  providers: [CollectionService, CollectionDetailsResolve, CollectionResolve],
 })
 export class CollectionModule {}

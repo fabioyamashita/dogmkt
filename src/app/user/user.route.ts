@@ -1,9 +1,10 @@
-import { PurchaseResolve } from './../services/purchase.resolve';
-import { UserComponent } from './user.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CollectionResolve } from '../services/collection.resolve';
+import { PurchasesListResolve } from './../services/Resolve/purchasesList.resolve';
+import { PurchaseResolve } from '../services/Resolve/purchase.resolve';
+
+import { UserComponent } from './user.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { PurchaseDetailsComponent } from './purchase-details/purchase-details.component';
 
@@ -16,6 +17,9 @@ const userRouterConfig: Routes = [
       {
         path: 'profile',
         component: UserProfileComponent,
+        resolve: {
+          purchases: PurchasesListResolve,
+        },
       },
       {
         path: 'purchases/:id',

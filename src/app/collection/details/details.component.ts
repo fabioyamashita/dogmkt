@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { SellerHelperService } from './../../services/seller.helper.service';
-
 import Dog from 'src/app/models/dog';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,7 +12,6 @@ import { UserService } from 'src/app/services/user.service';
 export class DetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
-    private sellerHelperService: SellerHelperService,
     private userService: UserService
   ) {}
 

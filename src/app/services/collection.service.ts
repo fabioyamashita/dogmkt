@@ -1,6 +1,7 @@
-import { Observable, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
+import { map, Observable, tap } from 'rxjs';
 
 import { BaseService } from 'src/app/services/base.service';
 import { Store } from '../app.store';
@@ -18,6 +19,13 @@ export class CollectionService extends BaseService {
   getCollection: Observable<Dog[]> = this.http
     .get<Dog[]>(this.UrlServiceV1 + 'dogs', super.getAuthHttpHeaders())
     .pipe(tap((next) => this.store.set('dogsCollection', next)));
+
+  getSellerCollection = (sellerId: number): Observable<Dog[]> =>
+    this.http
+      .get<Dog[]>(this.UrlServiceV1 + 'dogs', super.getAuthHttpHeaders())
+      .pipe(
+        map((dogs: Dog[]) => dogs.filter((dog) => dog.sellerId === sellerId))
+      );
 
   getById = (id: number): Observable<Dog> =>
     this.http.get<Dog>(

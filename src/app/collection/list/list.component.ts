@@ -5,6 +5,7 @@ import { CollectionService } from 'src/app/services/collection.service';
 import Dog from 'src/app/models/dog';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
 import { HttpError } from 'src/app/utils/httpError';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -14,20 +15,15 @@ import { HttpError } from 'src/app/utils/httpError';
 export class ListComponent implements OnInit {
   constructor(
     private collectionService: CollectionService,
-    private localStorageUtils: LocalStorageUtils,
-    private httpError: HttpError
+    private httpError: HttpError,
+    private activatedRoute: ActivatedRoute
   ) {}
 
   public dogs!: Dog[];
 
   ngOnInit(): void {
-    this.collectionService.getCollection.subscribe({
-      next: (dogs: Dog[]) => (this.dogs = dogs),
-
-      // Se eu não quiser mostrar os próprios cachorros
-      // (this.dogs = dogs.filter(
-      //   (dog) => dog.sellerId != parseInt(this.localStorageUtils.getUserId())
-      // )),
+    this.activatedRoute.data.subscribe({
+      next: ({ dogs }) => (this.dogs = dogs),
 
       error: (err) => {
         this.httpError.process(err.status);

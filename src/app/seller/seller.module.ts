@@ -8,7 +8,8 @@ import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { SharedModule } from '../shared/shared.module';
 import { SellerRoutingModule } from './seller.route';
 import { MaterialModule } from '../material/material.module';
-import { CollectionResolve } from '../services/collection.resolve';
+import { CollectionDetailsResolve } from '../services/Resolve/collectionDetails.resolve';
+import { SellerCollectionResolve } from './../services/Resolve/sellerCollection.resolve';
 import { FormGuard } from './services/form.guard';
 
 import { SellerComponent } from './seller.component';
@@ -38,6 +39,12 @@ import { DogPreviewComponent } from './dog-preview/dog-preview.component';
     NgxMaskDirective,
     NgxMaskPipe,
   ],
-  providers: [CollectionResolve, DatePipe, provideNgxMask(), FormGuard],
+  providers: [
+    CollectionDetailsResolve,
+    DatePipe,
+    provideNgxMask(),
+    FormGuard,
+    SellerCollectionResolve,
+  ],
 })
 export class SellerModule {}
