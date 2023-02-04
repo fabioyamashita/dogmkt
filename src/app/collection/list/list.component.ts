@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { CollectionService } from 'src/app/services/collection.service';
 
 import Dog from 'src/app/models/dog';
-import { LocalStorageUtils } from 'src/app/utils/localStorage';
 import { HttpError } from 'src/app/utils/httpError';
 import { ActivatedRoute } from '@angular/router';
 
@@ -23,7 +22,9 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe({
-      next: ({ dogs }) => (this.dogs = dogs),
+      next: ({ dogs }) => {
+        this.dogs = dogs;
+      },
 
       error: (err) => {
         this.httpError.process(err.status);

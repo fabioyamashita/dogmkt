@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 import { Store } from 'src/app/app.store';
 import { SellerHelperService } from 'src/app/services/seller.helper.service';
@@ -26,13 +27,16 @@ export class CartComponent implements OnInit {
     public sellerHelperService: SellerHelperService,
     private localStorageUtils: LocalStorageUtils,
     private navigationUtils: NavigationUtils,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService
   ) {}
 
   cart?: Cart;
   dogsCart: any[] = [];
 
   ngOnInit(): void {
+    this.spinner.show();
+
     this.checkoutService
       .getCart(parseInt(this.localStorageUtils.getUserId()))
       .subscribe({
@@ -41,6 +45,8 @@ export class CartComponent implements OnInit {
             next: (cart) => {
               this.cart = cart;
               let customDogObject: any = [];
+              console.log('passou aqui');
+              console.log(cart.dogs);
 
               cart.dogs.map((dog) => {
                 this.collectionService.getById(dog.dogId).subscribe({
@@ -58,10 +64,13 @@ export class CartComponent implements OnInit {
             },
           });
         },
+        complete: () => this.spinner.hide(),
       });
   }
 
   deleteFromCart(event: any): void {
+    this.spinner.show();
+
     const id: number = parseInt(event.target.closest('.product-info').id);
 
     let updatedCart = JSON.parse(JSON.stringify(this.cart!));
@@ -96,6 +105,7 @@ export class CartComponent implements OnInit {
         });
       },
     });
+    this.spinner.hide();
   }
 
   submitOrder(): void {

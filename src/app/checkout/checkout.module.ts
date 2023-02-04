@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { CheckoutRoutingModule } from './checkout.route';
 
 import { CheckoutComponent } from './checkout.component';
 import { CartComponent } from './cart/cart.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [CheckoutComponent, CartComponent],
@@ -17,7 +18,9 @@ import { CartComponent } from './cart/cart.component';
     CheckoutRoutingModule,
     SharedModule,
     MaterialModule,
+    NgxSpinnerModule.forRoot({ type: 'ball-clip-rotate' }),
   ],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CheckoutModule {}
