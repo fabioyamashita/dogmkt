@@ -61,7 +61,7 @@
       "id": 2
     },
     {
-      "availableQuantity": 1,
+      "availableQuantity": 0,
       "name": "Arnold's 2nd favorite dog",
       "breed": "Beagle",
       "genre": "Male",
@@ -106,7 +106,7 @@
       "id": 5
     },
     {
-      "availableQuantity": 8,
+      "availableQuantity": 7,
       "name": "Caramelo Dog",
       "breed": "Others",
       "genre": "Male",
@@ -121,7 +121,7 @@
       "id": 6
     },
     {
-      "availableQuantity": 1,
+      "availableQuantity": 2,
       "name": "The Akita",
       "breed": "Japanese Akita",
       "genre": "Female",
@@ -155,13 +155,13 @@
     {
       "id": 1,
       "userId": 1,
-      "summary": 240.54,
+      "summary": 481.08,
       "discount": 0,
-      "total": 240.54,
+      "total": 481.08,
       "dogs": [
         {
           "dogId": 6,
-          "quantity": 1
+          "quantity": 2
         }
       ]
     },
@@ -184,10 +184,15 @@
     {
       "id": 4,
       "userId": 4,
-      "summary": 0,
+      "summary": 145.52,
       "discount": 0,
-      "total": 0,
-      "dogs": []
+      "total": 145.52,
+      "dogs": [
+        {
+          "dogId": 3,
+          "quantity": 1
+        }
+      ]
     }
   ],
   "purchases": [

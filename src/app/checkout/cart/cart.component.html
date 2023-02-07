@@ -9,94 +9,106 @@
 
 <div class="container">
   <h3 class="title">YOUR CART</h3>
+
   <div class="cart-container">
-    <div class="empty-list" *ngIf="cart?.dogs?.length == 0">
-      Your cart is empty!
-    </div>
-    <ul class="products-list" *ngIf="cart?.dogs?.length !== 0">
-      <li
-        class="product-info"
-        id="{{ dogCart.dog.id }}"
-        *ngFor="let dogCart of dogsCart"
-      >
-        <div class="dog-img-box">
-          <img
-            src="{{ dogCart.dog.pictureUrl }}"
-            alt="samoyed-img"
-            class="dog-img"
-          />
-        </div>
-
-        <div class="dog-info">
-          <div class="dog-name">{{ dogCart.dog.name }}</div>
-          <div class="default-info dog-breed">
-            Breed: {{ dogCart.dog.breed }}
-          </div>
-          <div class="default-info dog-id">ID: {{ dogCart.dog.id }}</div>
-          <div class="default-info dog-seller">
-            Seller:
-            {{
-              this.sellerHelperService.getSellerName(dogCart.dog.sellerId ?? "")
-            }}
+    <ng-container *ngIf="pageIsLoaded">
+      <div class="empty-list" *ngIf="cart?.dogs?.length == 0">
+        Your cart is empty!
+      </div>
+      <ul class="products-list" *ngIf="cart?.dogs?.length !== 0">
+        <li
+          class="product-info"
+          id="{{ dogCart.dog.id }}"
+          *ngFor="let dogCart of dogsCart"
+        >
+          <div class="dog-img-box">
+            <img
+              src="{{ dogCart.dog.pictureUrl }}"
+              alt="samoyed-img"
+              class="dog-img"
+            />
           </div>
 
-          <div class="genre-quantity-box">
-            <div class="default-info dog-genre">
-              Genre:
-              <strong class="strong">{{ dogCart.dog.genre }}</strong>
+          <div class="dog-info">
+            <div class="dog-name">{{ dogCart.dog.name }}</div>
+            <div class="default-info dog-breed">
+              Breed: {{ dogCart.dog.breed }}
             </div>
-            <div class="quantity">Quantity: {{ dogCart.quantity }}</div>
-            <button class="delete-btn" (click)="deleteFromCart($event)">
-              <mat-icon class="delete-icon">delete</mat-icon>
-            </button>
-          </div>
+            <div class="default-info dog-id">ID: {{ dogCart.dog.id }}</div>
+            <div class="default-info dog-seller">
+              Seller:
+              {{
+                this.sellerHelperService.getSellerName(
+                  dogCart.dog.sellerId ?? ""
+                )
+              }}
+            </div>
 
-          <div class="price-box">
-            <mat-icon class="price-icon">favorite</mat-icon>
-            <span class="price">{{
-              dogCart.dog.price | number : "1.2-2"
+            <div class="genre-quantity-box">
+              <div class="default-info dog-genre">
+                Genre:
+                <strong class="strong">{{ dogCart.dog.genre }}</strong>
+              </div>
+              <div class="quantity">Quantity: {{ dogCart.quantity }}</div>
+              <button class="delete-btn" (click)="deleteFromCart($event)">
+                <mat-icon class="delete-icon">delete</mat-icon>
+              </button>
+            </div>
+
+            <div class="price-box">
+              <mat-icon class="price-icon">favorite</mat-icon>
+              <span class="price">{{
+                dogCart.dog.price | number : "1.2-2"
+              }}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="total-box" *ngIf="cart?.dogs?.length !== 0">
+        <div class="summary">
+          <div class="summary-title">Summary:</div>
+          <div class="summary-price-box">
+            <mat-icon class="price-icon-1 summary-price-icon"
+              >favorite</mat-icon
+            >
+            <span class="summary-price">{{
+              cart?.summary | number : "1.2-2"
             }}</span>
           </div>
         </div>
-      </li>
-    </ul>
+        <div class="discount">
+          <div class="discount-title">Discount:</div>
+          <div class="discount-price-box">
+            <mat-icon class="price-icon-1 discount-price-icon"
+              >favorite</mat-icon
+            >
+            <span class="discount-price">{{
+              cart?.discount | number : "1.2-2"
+            }}</span>
+          </div>
+        </div>
 
-    <div class="total-box" *ngIf="cart?.dogs?.length !== 0">
-      <div class="summary">
-        <div class="summary-title">Summary:</div>
-        <div class="summary-price-box">
-          <mat-icon class="price-icon-1 summary-price-icon">favorite</mat-icon>
-          <span class="summary-price">{{
-            cart?.summary | number : "1.2-2"
-          }}</span>
+        <div class="total">
+          <div class="total-title">Total:</div>
+          <div class="total-price-box">
+            <mat-icon class="price-icon-1 total-price-icon">favorite</mat-icon>
+            <span class="total-price">{{
+              cart?.total | number : "1.2-2"
+            }}</span>
+          </div>
         </div>
       </div>
-      <div class="discount">
-        <div class="discount-title">Discount:</div>
-        <div class="discount-price-box">
-          <mat-icon class="price-icon-1 discount-price-icon">favorite</mat-icon>
-          <span class="discount-price">{{
-            cart?.discount | number : "1.2-2"
-          }}</span>
-        </div>
-      </div>
 
-      <div class="total">
-        <div class="total-title">Total:</div>
-        <div class="total-price-box">
-          <mat-icon class="price-icon-1 total-price-icon">favorite</mat-icon>
-          <span class="total-price">{{ cart?.total | number : "1.2-2" }}</span>
-        </div>
-      </div>
-    </div>
-
-    <button
-      class="btn submit-order-btn"
-      (click)="submitOrder()"
-      *ngIf="cart?.dogs?.length !== 0"
-    >
-      SUBMIT ORDER
-    </button>
+      <button
+        type="button"
+        class="btn submit-order-btn"
+        (click)="submitOrder()"
+        *ngIf="cart?.dogs?.length !== 0"
+      >
+        SUBMIT ORDER
+      </button>
+    </ng-container>
   </div>
 
   <app-footer></app-footer>

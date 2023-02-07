@@ -2,10 +2,10 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 
-import { CollectionService } from './services/collection.service';
 import { CheckoutService } from './services/checkout.service';
 import { UserService } from './services/user.service';
 import { LocalStorageUtils } from './utils/localStorage';
+import { HttpError } from './utils/httpError';
 
 @Component({
   selector: 'app-root',
@@ -17,22 +17,33 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private checkoutService: CheckoutService,
-    private collectionService: CollectionService,
     private userService: UserService,
-    private localStorageUtils: LocalStorageUtils
+    private localStorageUtils: LocalStorageUtils,
+    private httpError: HttpError
   ) {}
 
-  subscription: Subscription | undefined;
+  subscriptionCart: Subscription | undefined;
+  subscriptionCollection: Subscription | undefined;
+  subscriptionUser: Subscription | undefined;
 
   ngOnInit(): void {
-    // this.subscription = this.checkoutService
-    //   .getCart(parseInt(this.localStorageUtils.getUserId()))
-    //   .subscribe();
-    // this.subscription = this.collectionService.getCollection.subscribe();
-    this.subscription = this.userService.getUsers.subscribe();
+    this.subscriptionCart = this.checkoutService
+      .getCart(parseInt(this.localStorageUtils.getUserId()))
+      .subscribe({
+        error: (err) => {
+          this.httpError.process(err.status);
+        },
+      });
+
+    this.subscriptionUser = this.userService.getUsers.subscribe({
+      error: (err) => {
+        this.httpError.process(err.status);
+      },
+    });
   }
 
   ngOnDestroy(): void {
-    this.subscription?.unsubscribe();
+    this.subscriptionCart?.unsubscribe();
+    this.subscriptionUser?.unsubscribe();
   }
 }
