@@ -37,14 +37,12 @@ export class HeaderComponent {
       },
     });
 
-    this.store
-      .getUser$()
-      .subscribe({
-        next: (users) =>
-          (this.user = users.find(
-            (user) => user.id == parseInt(this.localStorageUtils.getUserId())
-          )),
-      });
+    this.store.getUser$().subscribe({
+      next: (users) =>
+        (this.user = users.find(
+          (user) => user.id == parseInt(this.localStorageUtils.getUserId())
+        )),
+    });
   }
 
   logout(): void {

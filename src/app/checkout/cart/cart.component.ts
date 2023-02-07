@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, finalize, forkJoin } from 'rxjs';
 
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -7,7 +8,6 @@ import { Store } from 'src/app/app.store';
 import { SellerHelperService } from 'src/app/services/seller.helper.service';
 import { CollectionService } from 'src/app/services/collection.service';
 import { CheckoutService } from '../../services/checkout.service';
-import { LocalStorageUtils } from 'src/app/utils/localStorage';
 import { NavigationUtils } from './../../utils/navigationUtils';
 
 import Cart from '../../models/cart';
@@ -19,13 +19,12 @@ import Purchase from 'src/app/models/purchase';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   constructor(
     private checkoutService: CheckoutService,
     private store: Store,
     private collectionService: CollectionService,
     public sellerHelperService: SellerHelperService,
-    private localStorageUtils: LocalStorageUtils,
     private navigationUtils: NavigationUtils,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
@@ -33,42 +32,53 @@ export class CartComponent implements OnInit {
 
   cart?: Cart;
   dogsCart: any[] = [];
+  subscription: Subscription | undefined;
+  pageIsLoaded: boolean = false;
 
   ngOnInit(): void {
     this.spinner.show();
 
-    this.checkoutService
-      .getCart(parseInt(this.localStorageUtils.getUserId()))
-      .subscribe({
-        next: () => {
-          this.store.getCart$().subscribe({
-            next: (cart) => {
-              this.cart = cart;
-              let customDogObject: any = [];
-              console.log('passou aqui');
-              console.log(cart.dogs);
+    this.subscription = this.store.getCart$().subscribe({
+      next: (cart) => {
+        this.cart = cart;
+        let customDogObject: any = [];
+        const requests: any = [];
 
-              cart.dogs.map((dog) => {
-                this.collectionService.getById(dog.dogId).subscribe({
-                  next: (dogFoundById) => {
-                    customDogObject.push({
-                      dog: dogFoundById,
-                      quantity: dog.quantity,
-                      dogId: dogFoundById.id,
-                    });
-                  },
+        cart.dogs.map((dog) => {
+          requests.push(this.collectionService.getById(dog.dogId));
+        });
+
+        forkJoin(requests)
+          .pipe(
+            finalize(() => {
+              this.pageIsLoaded = true;
+              this.spinner.hide();
+            })
+          )
+          .subscribe({
+            next: (dogsFoundById: any) => {
+              dogsFoundById.map((dogFoundById: any) => {
+                const dog = cart.dogs.find((d) => d.dogId === dogFoundById.id);
+                customDogObject.push({
+                  dog: dogFoundById,
+                  quantity: dog?.quantity,
+                  dogId: dogFoundById.id,
                 });
               });
 
               this.dogsCart = customDogObject;
             },
           });
-        },
-        complete: () => this.spinner.hide(),
-      });
+      },
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
   }
 
   deleteFromCart(event: any): void {
+    this.pageIsLoaded = false;
     this.spinner.show();
 
     const id: number = parseInt(event.target.closest('.product-info').id);
@@ -105,7 +115,8 @@ export class CartComponent implements OnInit {
         });
       },
     });
-    this.spinner.hide();
+
+    // this.spinner.hide();
   }
 
   submitOrder(): void {
