@@ -136,7 +136,7 @@
       "id": 7
     },
     {
-      "availableQuantity": 50,
+      "availableQuantity": 49,
       "name": "Test Dog",
       "breed": "Affenpinscher",
       "genre": "Male",
@@ -155,13 +155,17 @@
     {
       "id": 1,
       "userId": 1,
-      "summary": 481.08,
+      "summary": 633.08,
       "discount": 0,
-      "total": 481.08,
+      "total": 633.08,
       "dogs": [
         {
           "dogId": 6,
           "quantity": 2
+        },
+        {
+          "dogId": 8,
+          "quantity": 1
         }
       ]
     },
