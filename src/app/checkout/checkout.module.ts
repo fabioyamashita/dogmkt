@@ -9,6 +9,7 @@ import { CheckoutRoutingModule } from './checkout.route';
 import { CheckoutComponent } from './checkout.component';
 import { CartComponent } from './cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CartGuard } from './services/cart.guard';
 
 @NgModule({
   declarations: [CheckoutComponent, CartComponent],
@@ -20,7 +21,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MaterialModule,
     NgxSpinnerModule.forRoot({ type: 'ball-clip-rotate' }),
   ],
-  providers: [],
+  providers: [CartGuard],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CheckoutModule {}

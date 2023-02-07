@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { CheckoutComponent } from './checkout.component';
 import { CartComponent } from './cart/cart.component';
+import { CartGuard } from './services/cart.guard';
 
 const checkoutRouterConfig: Routes = [
   {
@@ -13,6 +14,7 @@ const checkoutRouterConfig: Routes = [
       {
         path: 'cart',
         component: CartComponent,
+        canDeactivate: [CartGuard],
       },
     ],
   },
