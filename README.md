@@ -193,3 +193,9 @@ Add A New Dog page with the following features:
 ![unsaved-changes-notification](https://user-images.githubusercontent.com/98363297/216485277-9ed9388d-cc27-4adb-a0f0-593a24faf856.PNG)
 <hr>
 
+### Loading Animation
+- Loading animation in all pages (using interceptor)
+
+![loading-spinner](https://user-images.githubusercontent.com/98363297/217399305-754cee72-3b4c-479e-9eee-a63d0fcbd726.png)
+<hr>
+
