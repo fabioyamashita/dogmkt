@@ -36,8 +36,6 @@ export class CartComponent implements OnInit, OnDestroy {
   pageIsLoaded: boolean = false;
 
   ngOnInit(): void {
-    this.spinner.show();
-
     this.subscription = this.store.getCart$().subscribe({
       next: (cart) => {
         this.cart = cart;
@@ -52,7 +50,6 @@ export class CartComponent implements OnInit, OnDestroy {
           .pipe(
             finalize(() => {
               this.pageIsLoaded = true;
-              this.spinner.hide();
             })
           )
           .subscribe({
@@ -78,9 +75,6 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   deleteFromCart(event: any): void {
-    this.pageIsLoaded = false;
-    this.spinner.show();
-
     const id: number = parseInt(event.target.closest('.product-info').id);
 
     let updatedCart = JSON.parse(JSON.stringify(this.cart!));
@@ -115,8 +109,6 @@ export class CartComponent implements OnInit, OnDestroy {
         });
       },
     });
-
-    // this.spinner.hide();
   }
 
   submitOrder(): void {

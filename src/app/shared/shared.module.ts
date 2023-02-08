@@ -13,6 +13,7 @@ import { ProfileFormComponent } from './components/profile-form/profile-form.com
 import { SearchAreaComponent } from './components/search-area/search-area.component';
 import { DogListComponent } from './components/dog-list/dog-list.component';
 import { DogDetailsComponent } from './components/dog-details/dog-details.component';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DogDetailsComponent } from './components/dog-details/dog-details.compon
     SearchAreaComponent,
     DogListComponent,
     DogDetailsComponent,
+    LoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,7 @@ import { DogDetailsComponent } from './components/dog-details/dog-details.compon
     SearchAreaComponent,
     DogListComponent,
     DogDetailsComponent,
+    LoaderComponent,
   ],
 })
 export class SharedModule {}

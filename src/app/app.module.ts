@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LOCALE_ID } from '@angular/core';
 
@@ -13,6 +13,7 @@ import { AppGuard } from './services/app.guard';
 import { AppComponent } from './app.component';
 import { Store } from './app.store';
 import { UserComponent } from './user/user.component';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [AppComponent, UserComponent],
@@ -25,7 +26,16 @@ import { UserComponent } from './user/user.component';
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
-  providers: [Store, { provide: LOCALE_ID, useValue: 'en-US' }, AppGuard],
+  providers: [
+    Store,
+    { provide: LOCALE_ID, useValue: 'en-US' },
+    AppGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoaderInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

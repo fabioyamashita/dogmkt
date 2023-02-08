@@ -46,7 +46,7 @@
       "id": 1
     },
     {
-      "availableQuantity": 1,
+      "availableQuantity": 0,
       "name": "Arnold's favorite dog",
       "breed": "Bulldog",
       "genre": "Male",
@@ -136,7 +136,7 @@
       "id": 7
     },
     {
-      "availableQuantity": 49,
+      "availableQuantity": 50,
       "name": "Test Dog",
       "breed": "Affenpinscher",
       "genre": "Male",
@@ -155,16 +155,16 @@
     {
       "id": 1,
       "userId": 1,
-      "summary": 633.08,
+      "summary": 606.22,
       "discount": 0,
-      "total": 633.08,
+      "total": 606.22,
       "dogs": [
         {
           "dogId": 6,
           "quantity": 2
         },
         {
-          "dogId": 8,
+          "dogId": 2,
           "quantity": 1
         }
       ]
