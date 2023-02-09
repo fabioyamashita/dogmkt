@@ -9,11 +9,13 @@ import { SharedModule } from './shared/shared.module';
 import { MaterialModule } from './material/material.module';
 import { ToastrModule } from 'ngx-toastr';
 
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { LoaderInterceptor } from './interceptors/loader.interceptor';
+
 import { AppGuard } from './services/app.guard';
 import { AppComponent } from './app.component';
 import { Store } from './app.store';
 import { UserComponent } from './user/user.component';
-import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
 @NgModule({
   declarations: [AppComponent, UserComponent],
@@ -33,6 +35,11 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoaderInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true,
     },
   ],
