@@ -1,12 +1,10 @@
-import { NavigationUtils } from './../../utils/navigationUtils';
+import { RoutesService } from '../../services/routes.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs';
 import { Store } from 'src/app/app.store';
 import Cart from 'src/app/models/cart';
 import User from 'src/app/models/user';
-import { UserService } from 'src/app/services/user.service';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
 
 @Component({
@@ -19,7 +17,7 @@ export class HeaderComponent {
     public router: Router,
     private store: Store,
     private localStorageUtils: LocalStorageUtils,
-    private navigationUtils: NavigationUtils
+    private routesService: RoutesService
   ) {}
 
   cart: Cart | undefined;
@@ -47,6 +45,6 @@ export class HeaderComponent {
 
   logout(): void {
     this.localStorageUtils.removeCredentials();
-    this.navigationUtils.navigateToLogin();
+    this.routesService.navigateToLogin();
   }
 }

@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
-import { NavigationUtils } from './../../utils/navigationUtils';
+import { RoutesService } from '../../services/routes.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private localStorageUtils: LocalStorageUtils,
-    private navigationUtils: NavigationUtils,
+    private routesService: RoutesService,
     private toastr: ToastrService
   ) {}
 
@@ -46,7 +46,7 @@ export class LoginComponent {
 
           if (toast) {
             toast.onShown.subscribe(() =>
-              this.navigationUtils.navigateToCollection()
+              this.routesService.navigateToCollection()
             );
           }
         },

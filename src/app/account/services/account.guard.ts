@@ -2,18 +2,18 @@ import { CanActivate } from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { LocalStorageUtils } from 'src/app/utils/localStorage';
-import { NavigationUtils } from 'src/app/utils/navigationUtils';
+import { RoutesService } from 'src/app/services/routes.service';
 
 @Injectable()
 export class AccountGuard implements CanActivate {
   constructor(
     private localStorageUtils: LocalStorageUtils,
-    private navigationUtils: NavigationUtils
+    private routesService: RoutesService
   ) {}
 
   canActivate() {
     if (this.localStorageUtils.getToken()) {
-      this.navigationUtils.navigateToCollection();
+      this.routesService.navigateToCollection();
     }
 
     return true;

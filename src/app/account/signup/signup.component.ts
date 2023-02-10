@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { CheckoutService } from './../../services/checkout.service';
 import { UserService } from 'src/app/services/user.service';
-import { NavigationUtils } from './../../utils/navigationUtils';
+import { RoutesService } from '../../services/routes.service';
 import User from 'src/app/models/user';
 import Cart from 'src/app/models/cart';
 
@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private checkoutService: CheckoutService,
-    private navigationUtils: NavigationUtils,
+    private routesService: RoutesService,
     private toastr: ToastrService
   ) {}
 
@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
 
             if (toast) {
               toast.onHidden.subscribe(() =>
-                this.navigationUtils.navigateToLogin()
+                this.routesService.navigateToLogin()
               );
             }
           });
