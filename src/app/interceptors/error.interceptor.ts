@@ -7,16 +7,18 @@ import {
   HttpErrorResponse,
 } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 import { LocalStorageUtils } from '../utils/localStorage';
-import { NavigationUtils } from '../utils/navigationUtils';
+import { RoutesService } from '../services/routes.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(
     private localStorageUtils: LocalStorageUtils,
-    private navigationUtils: NavigationUtils
+    private routesService: RoutesService,
+    private router: Router
   ) {}
 
   intercept(
@@ -28,7 +30,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (error instanceof HttpErrorResponse) {
           if (error.status === 401) {
             this.localStorageUtils.removeCredentials();
-            this.navigationUtils.navigateToLogin();
+            this.routesService.navigateToLogin();
           }
         }
 

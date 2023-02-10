@@ -8,7 +8,7 @@ import { Store } from 'src/app/app.store';
 import { SellerHelperService } from 'src/app/services/seller.helper.service';
 import { CollectionService } from 'src/app/services/collection.service';
 import { CheckoutService } from '../../services/checkout.service';
-import { NavigationUtils } from './../../utils/navigationUtils';
+import { RoutesService } from '../../services/routes.service';
 
 import Cart from '../../models/cart';
 import Dog from 'src/app/models/dog';
@@ -25,7 +25,7 @@ export class CartComponent implements OnInit, OnDestroy {
     private store: Store,
     private collectionService: CollectionService,
     public sellerHelperService: SellerHelperService,
-    private navigationUtils: NavigationUtils,
+    private routesService: RoutesService,
     private toastr: ToastrService,
     private spinner: NgxSpinnerService
   ) {}
@@ -140,7 +140,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
             if (toast) {
               toast.onShown.subscribe(() =>
-                this.navigationUtils.navigateToUserProfile()
+                this.routesService.navigateToUserProfile()
               );
             }
           });
