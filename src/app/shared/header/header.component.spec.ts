@@ -20,6 +20,15 @@ describe('HeaderComponent', () => {
   let mockStore: Store;
   let mockLocalStorageUtils: LocalStorageUtils;
 
+  const mockCart: Cart = {
+    id: 1,
+    userId: 1,
+    summary: 100,
+    discount: 0,
+    total: 100,
+    dogs: [{ dogId: 1, quantity: 2 }],
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
@@ -47,14 +56,6 @@ describe('HeaderComponent', () => {
   });
 
   it('should initialize cart and countDogsInCart', () => {
-    const mockCart: Cart = {
-      id: 1,
-      userId: 1,
-      summary: 100,
-      discount: 0,
-      total: 100,
-      dogs: [{ dogId: 1, quantity: 2 }],
-    };
     spyOn(mockStore, 'getCart$').and.returnValue(of(mockCart));
 
     component.ngOnInit();
@@ -83,5 +84,15 @@ describe('HeaderComponent', () => {
 
     expect(mockLocalStorageUtils.removeCredentials).toHaveBeenCalled();
     expect(mockRoutesService.navigateToLogin).toHaveBeenCalled();
+  });
+
+  it('should render the updated number of dogs in cart (located at header as CART(2))', () => {
+    spyOn(mockStore, 'getCart$').and.returnValue(of(mockCart));
+
+    fixture.detectChanges();
+
+    const cartCounter =
+      fixture.debugElement.nativeElement.querySelector('.cart-counter');
+    expect(cartCounter.textContent.trim()).toBe('CART(2)');
   });
 });
