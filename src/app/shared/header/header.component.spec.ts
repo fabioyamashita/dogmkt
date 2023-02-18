@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { of } from 'rxjs';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -11,14 +11,12 @@ import { LocalStorageUtils } from 'src/app/utils/localStorage';
 import { Store } from 'src/app/app.store';
 import Cart from 'src/app/models/cart';
 import User from 'src/app/models/user';
+
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
-  let mockRoutesService: RoutesService;
-  let mockStore: Store;
-  let mockLocalStorageUtils: LocalStorageUtils;
 
   const mockCart: Cart = {
     id: 1,
@@ -29,10 +27,30 @@ describe('HeaderComponent', () => {
     dogs: [{ dogId: 1, quantity: 2 }],
   };
 
+  const mockUser: User = {
+    id: 1,
+    name: 'John',
+    email: 'john@gmail.com',
+    isSeller: true,
+  };
+
+  const store = jasmine.createSpyObj<Store>('Store', ['getCart$', 'getUser$']);
+  const localStorageUtils = jasmine.createSpyObj<LocalStorageUtils>(
+    'LocalStorageUtils',
+    ['getUserId', 'removeCredentials']
+  );
+  const routesService = jasmine.createSpyObj<RoutesService>('RoutesService', [
+    'navigateToLogin',
+  ]);
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HeaderComponent],
-      providers: [Store, RoutesService, LocalStorageUtils],
+      providers: [
+        { provide: Store, useValue: store },
+        { provide: LocalStorageUtils, useValue: localStorageUtils },
+        { provide: RoutesService, useValue: routesService },
+      ],
       imports: [
         MatToolbarModule,
         MatIconModule,
@@ -46,9 +64,9 @@ describe('HeaderComponent', () => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
 
-    mockStore = TestBed.inject(Store);
-    mockRoutesService = TestBed.inject(RoutesService);
-    mockLocalStorageUtils = TestBed.inject(LocalStorageUtils);
+    localStorageUtils.getUserId.and.returnValue('1');
+    store.getCart$.and.returnValue(of(mockCart));
+    store.getUser$.and.returnValue(of([mockUser]));
   });
 
   it('should create', () => {
@@ -56,9 +74,6 @@ describe('HeaderComponent', () => {
   });
 
   it('should initialize cart and countDogsInCart', () => {
-    spyOn(mockStore, 'getCart$').and.returnValue(of(mockCart));
-
-    component.ngOnInit();
     fixture.detectChanges();
 
     expect(component.cart).toEqual(mockCart);
@@ -66,33 +81,34 @@ describe('HeaderComponent', () => {
   });
 
   it('should initialize user', () => {
-    const mockUser: User = { id: 1, name: 'John' };
-    spyOn(mockStore, 'getUser$').and.returnValue(of([mockUser]));
-    spyOn(mockLocalStorageUtils, 'getUserId').and.returnValue('1');
-
-    component.ngOnInit();
     fixture.detectChanges();
 
     expect(component.user).toEqual(mockUser);
   });
 
   it('should call removeCredentials and navigateToLogin on logout', () => {
-    spyOn(mockLocalStorageUtils, 'removeCredentials');
-    spyOn(mockRoutesService, 'navigateToLogin');
-
     component.logout();
 
-    expect(mockLocalStorageUtils.removeCredentials).toHaveBeenCalled();
-    expect(mockRoutesService.navigateToLogin).toHaveBeenCalled();
+    expect(localStorageUtils.removeCredentials).toHaveBeenCalled();
+    expect(routesService.navigateToLogin).toHaveBeenCalled();
   });
 
-  it('should render the updated number of dogs in cart (located at header as CART(2))', () => {
-    spyOn(mockStore, 'getCart$').and.returnValue(of(mockCart));
+  it('should render the updated number of dogs in cart (located at header as CART(5))', () => {
+    const mockCartUpdated: Cart = {
+      id: 1,
+      userId: 1,
+      summary: 100,
+      discount: 0,
+      total: 100,
+      dogs: [{ dogId: 1, quantity: 5 }],
+    };
+
+    store.getCart$.and.returnValue(of(mockCartUpdated));
 
     fixture.detectChanges();
 
     const cartCounter =
       fixture.debugElement.nativeElement.querySelector('.cart-counter');
-    expect(cartCounter.textContent.trim()).toBe('CART(2)');
+    expect(cartCounter.textContent.trim()).toBe('CART(5)');
   });
 });
