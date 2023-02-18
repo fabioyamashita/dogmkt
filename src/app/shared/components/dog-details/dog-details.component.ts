@@ -51,8 +51,7 @@ export class DogDetailsComponent {
       quantity: this.currentQuantity,
     };
 
-    this.collectionService
-      .getById(this.dog.id!)
+    this.collectionService.getById(this.dog.id!)
       .pipe(
         tap((dog: Dog) => this.updateDogInfo(dog)),
         switchMap(() => this.collectionService.updateDog(this.updatedDog)),
