@@ -6,3 +6,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+
+  jsonserver:
+    image: clue/json-server
+    container_name: jsonserver
+    volumes:
+      - ./db.json:/data/db.json
+      - ./routes.json:/data/routes.json
+    entrypoint: ["json-server", "db.json", "-r", "routes.json"]
+    ports:
+      - "3000:3000"
