@@ -15,5 +15,11 @@ FROM nginx
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=ng-builder /app/dist/front-end /usr/share/nginx/html
 
-EXPOSE 80
+RUN apt-get update && apt-get install -y npm
+RUN npm install -g json-server
+COPY db.json /app/db.json
+COPY routes.json /app/routes.json
 
+EXPOSE 80 3000
+
+CMD ["sh", "-c", "json-server -H 0.0.0.0 --watch /app/db.json --routes /app/routes.json --port 3000 & nginx -g 'daemon off;'"]
