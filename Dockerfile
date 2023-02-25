@@ -7,6 +7,7 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install
 COPY . /app
+
 RUN npm run build
 
 ### Stage 2 - Upload source to NGINX server with then angular app ###
@@ -15,3 +16,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=ng-builder /app/dist/front-end /usr/share/nginx/html
 
 EXPOSE 80
+

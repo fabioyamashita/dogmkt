@@ -76,7 +76,7 @@
       "id": 3
     },
     {
-      "availableQuantity": 2,
+      "availableQuantity": 3,
       "name": "Nina the Samoyed",
       "breed": "Samoyed",
       "genre": "Female",
@@ -106,7 +106,7 @@
       "id": 5
     },
     {
-      "availableQuantity": 9,
+      "availableQuantity": 8,
       "name": "Caramelo Dog",
       "breed": "Others",
       "genre": "Male",
@@ -136,7 +136,7 @@
       "id": 7
     },
     {
-      "availableQuantity": 45,
+      "availableQuantity": 48,
       "name": "Test Dog",
       "breed": "Affenpinscher",
       "genre": "Male",
@@ -155,16 +155,12 @@
     {
       "id": 1,
       "userId": 1,
-      "summary": 1128.52,
+      "summary": 152,
       "discount": 0,
-      "total": 1128.52,
+      "total": 152,
       "dogs": [
         {
           "dogId": 8,
-          "quantity": 4
-        },
-        {
-          "dogId": 4,
           "quantity": 1
         }
       ]
